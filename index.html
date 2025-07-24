@@ -74,6 +74,49 @@ span.i {
   color: #888664; font-family: "DejaVu Sans", "Trebuchet MS";
   font-size:240%; letter-spacing:2px; padding-top: 1px; align-content: stretch;
 }
+	
+/* Link Style 1 */
+.link1 a {
+	position:relative;
+	text-decoration: none;
+	color: dark gray;
+ 	transition:color .15s ease-in-out;
+}
+
+.link1 a:hover {
+	background-size: 100% 100%;
+	cursor: pointer;
+}
+
+.link1 a:after {
+	display:block;
+	content:"";
+	position: absolute;
+ 	right:0;
+ 	left:0;
+ 	width:100%;
+	height:3px;
+ 	opacity:0;
+	transform:translateY(-150%);
+ 	transition:transform .15s ease-in-out, opacity .15s ease-in-out;
+ 	background-color: red;
+}
+
+.link1 a.is-active,
+.link1 a:active,
+.link1 a:focus,
+.link1 a:hover {
+ 	color: red;
+}
+
+.link1 a.is-active:after,
+.link1 a:active:after,
+.link1 a:focus:after,
+.link1 a:hover:after {
+ 	transform:translateY(0);
+ 	opacity:1;
+}
+	
 	</style> 
   
   
@@ -543,10 +586,10 @@ img {
         t e l e 3 O B<br><br>
        .aka.<br><br>твзов
        </div>
-		  <div class="name"><a href="https://telezov.pages.dev/tv/smotrim.html" title="твзов">
+		  <div class="name"><p class="link1"><a href="https://telezov.pages.dev/tv/smotrim.html" title="твзов">
 t e l e 3 O B -- смотрим твзов -- smotrim tvzov
-		  </a>.</br> 
-		   Some of the most consistently popular shows right now.</div> 
+		  </a>.</p></br> 
+		   Some of the most consistently popular shows now.</div> 
        <div id="line"></div>
        <div class="scroll"><a href="https://telezov.pages.dev/tv/smotrim.html" title="твзов">watch твзов on</a> &nbsp;<a href="https://telezov.pages.dev/tv/smotrim.html" title="твзов"><i class="fa fa-youtube-play" style="font-size:14px;color:red"></i></a></div> 
       </div>
