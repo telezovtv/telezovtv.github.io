@@ -1,829 +1,1549 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta http-equiv="CONTENT-LANGUAGE" content="en-US" />
+<html lang="en" dir="ltr"><head><meta http-equiv="Permissions-Policy" content="interest-cohort=()"><meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
 <meta http-equiv="Cache-Control" content=" no-cache, pre-check=0, post-check=0"/>
 <meta http-equiv="Expires" content="0" />
-<meta http-equiv="Last-Modified" content="Wednesday,  25 March 2026"/>
+<meta http-equiv="Last-Modified" content="Saturday,  14 April 2026"/>
 <meta http-equiv="Pragma" content="no-cache"/>
 <meta name="distribution" content="global">
 <meta name="google" value="notranslate">
-<meta name="Keywords" content="твзов, tvzov, tvzov.com, смотреть сериалы твзов, смотреть твзов, смотреть прямой эфир, smotrim.tvzov.com." />
+<meta name="Keywords" content="твзов, tvzov, tvzov.com, смотреть сериалы твзов, смотреть твзов, смотреть прямой эфир, smotrim tvzov." />
 <meta name="Description" content="tvzov online | ТВЗОВ онлайн прямой эфир | твзов online | live streaming Cериалы смотреть онлайн . Премьеры сериалов ru.tvzov | watch for free" />
 <meta name="ROBOTS" content="INDEX, FOLLOW" />
 <meta name="Copyright" content="Copyright by tvzov" />
 <meta name="AUTHOR" content="tvzov aka telezov" />
-<meta name="RESOURCE-TYPE" content="DOCUMENT" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
-<title>ТВЗОВ / tele 3 O B \ ru.tvzov online - прямой эфир</title>
-  
- 		<link href="/telezov_files/favicon.ico" rel="icon" type="image/x-icon">
-	<script disable-devtool-auto src="https://cdn.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js"></script> 
-	    <script>
-        (function() {
-            const detectDevTools = () => {
-                const threshold = 100;
-                const check = () => {
-                    const start = performance.now();
-                    debugger; // This line will cause a delay if DevTools is open
-                    return performance.now() - start > threshold;
-                };
-
-                if (check()) {
-                    emitEvent(true);
-                }
-            };
-
-            const emitEvent = (isOpen) => {
-                console.log(`DevTools is ${isOpen ? 'open' : 'closed'}`);
-                if (isOpen) {
-                    window.location.href = "https://example.com";
-                }
-            };
-
-            setInterval(detectDevTools, 500);
-                                debugger; // This line will cause a delay if DevTools is open
-
-        })();
-    </script>
+		<link rel="canonical" href="//tvzov.com/" />	
+<title>смотрим твзов / tvzov | ТВЗОВ \ tvzov онлайн прямой эфир</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="/telezov_files/smotrimzov.css" rel="stylesheet">
+		<link href="/telezov_files/favicon.ico" rel="icon" type="image/x-icon">
 	<style>
-	/* ===== Scrollbar CSS ===== */
-  /* Firefox */
-  * {
-    scrollbar-width: auto;
-    scrollbar-color: #E8C300 #ffffff;
-  }
+		@import url('https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Uncial+Antiqua&display=swap');
 
-  /* Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
-    width: 16px;
-  }
+.doto-<uniquifier> {
+  font-family: "Doto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings:
+    "ROND" 0;
+}	
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */	   
+* {
+  scrollbar-width: auto;
+    scrollbar-color: rgba(232, 195, 0, 0.8) rgba(112,112,112,0.3); /* semi-transparent */
+}
 
-  *::-webkit-scrollbar-track {
-    background: #ffffff;
-  }
+*::-webkit-scrollbar {
+  width: 12px;
+}
 
-  *::-webkit-scrollbar-thumb {
-    background-color: #ff0186;
-    border-radius: 10px;
-    border: 3px solid #ffffff;
+*::-webkit-scrollbar-track {
+  background: rgba(216, 219, 222,0.3); /* semi-transparent */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(232, 195, 0, 0.6); /* semi-transparent */
+  border-radius: 8px;
+  border: 2px rgba(216, 219, 222,0.3); /* semi-transparent */
+}
+
+/* ===== Scrollbar base ===== */
+/* Chrome, Edge, and Safari */
+	  
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(20, 20, 20, 0.6);
+}
+
+/* ===== TRON Thumb ===== */
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.4);
+
+  background: linear-gradient(
+    180deg,
+    #0f0f0f 0%,
+    #ffd700 20%,
+    #ffffff 50%,
+    #ffd700 80%,
+    #0f0f0f 100%
+  );
+
+  background-size: 100% 300%;
+  animation: tronFlow 2.5s linear infinite;
+
+  /* glow */
+  box-shadow:
+    0 0 6px rgba(255,215,0,0.9),
+    0 0 12px rgba(255,215,0,0.7),
+    0 0 20px rgba(255,215,0,0.5);
+}
+
+/* ===== Hover = stronger glow ===== */
+*::-webkit-scrollbar-thumb:hover {
+  box-shadow:
+    0 0 10px rgba(255,215,0,1),
+    0 0 20px rgba(255,215,0,0.9),
+    0 0 35px rgba(255,215,0,0.7);
+}
+
+/* ===== Flow animation ===== */
+@keyframes tronFlow {
+  0% {
+    background-position: 0% 0%;
   }
-span.i {
-  color: #888664; font-family: "DejaVu Sans", "Trebuchet MS";
-  font-size:240%; letter-spacing:2px; padding-top: 1px; align-content: stretch;
+  100% {
+    background-position: 0% 300%;
+  }
+} 
+
+	body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; /* Or 'row' depending on layout */
+  justify-content: center; /* Vertical centering */
+  align-items: center;     /* Horizontal centering */
+		overflow-x: hidden;
 }
 	
-/* Link Style 1 */
+span.i {
+  color: #888664; font-family: "DejaVu Sans", "Trebuchet MS";
+  font-size:240%; letter-spacing:2px; padding-top: 1px; align-content: stretch; 
+	  text-decoration: none; /* Optional: ensures no default underline */
+  transition: color 0.3s ease; /* Optional: smooth transition for the color change */	
+}
+
+/* Styles applied when the user hovers over the span with that class */
+.i:hover {
+  color: red; /* Changes text color to red on hover */
+  text-decoration: none;
+  cursor: pointer; /* Optional: changes cursor to a pointer icon to indicate interactivity */
+  background-color: initial !important; /* Resets to the default color */
+
+}
+				.i-dot  {
+			  content: "● ";
+  color: #ff3b3b;
+  font-size: 10px;
+		}		
+		.i-dot2 {
+  display: inline-block;
+  color: #ff3b3b;
+  font-size: 10px;
+  margin-right: 4px;
+
+  animation: liveBlink 1.6s ease-in-out infinite;
+}
+
+@keyframes liveBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+		.i-dot3 {
+  display: inline-block;
+  color: #ff3b3b;
+  font-size: 10px;
+  margin-right: 4px;
+
+  animation: livePulse 1.8s ease-in-out infinite;
+}
+
+@keyframes livePulse {
+  0%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 4px rgba(255,0,0,0.6);
+  }
+  50% {
+    opacity: 0.3;
+    text-shadow: 0 0 12px rgba(255,0,0,0.9);
+  }
+}
+/* ===== NEON BAR CONTAINER ===== */
+.neon-bar {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 6px 10px;
+	position: relative;
+	  z-index: 1;
+overflow: visible;
+  background: rgba(20,20,20,0.6);
+	  border: 1px solid rgba(125,104,66,0.2);
+  backdrop-filter: blur(6px);
+}
+.neon-bar::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 10px;
+
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(125,104,66,0.35),
+    transparent 70%
+  );
+
+  opacity: 0.6;
+  z-index: -2;
+
+  animation: neonBreath 4s ease-in-out infinite;
+}
+@keyframes neonBreath {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+/* ===== OUTER LINK (tooltip layer) ===== */
+.neon-bar a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  z-index: 2;
+
+  overflow: visible; /* allow tooltip to escape */
+}
+
+/* ===== INNER BUTTON (visual + clipping) ===== */
+.neon-bar a .inner {
+  display: block;
+  padding: 6px 12px;
+
+  font-style: normal;
+	
+  font-size: 13px;
+  color: #ccc;
+
+  background: rgba(20,20,20,0.6);
+  border-radius: 6px;
+
+  position: relative;
+  overflow: hidden; /* 👈 keeps neon sweep clean */
+  transition: all 0.25s ease;
+}
+
+/* ===== HOVER EFFECT ===== */
+.neon-bar a:hover .inner {
+  color: #fff;
+  transform: translateY(-2px) scale(1.05);
+z-index: 2;
+  box-shadow:
+    0 0 6px rgba(232, 195, 0,0.8),
+    0 0 12px rgba(232, 195, 0,0.6);
+}
+
+/* ===== NEON SWEEP ===== */
+.neon-bar a .inner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+z-index: 2;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(232, 195, 0,0.9),
+    transparent
+  );
+
+  transform: translateX(-100%);
+  opacity: 0.6;
+}
+
+.neon-bar a:hover .inner::before {
+  animation: neonSweepX 0.6s forwards;
+}
+
+@keyframes neonSweepX {
+  to { transform: translateX(100%); }
+}
+
+/* ===== TOOLTIP ===== */
+.neon-bar a::after {
+  content: attr(data-label);
+  position: absolute;
+
+  top: 120%; /* 🔥 change from bottom → top */
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+
+  padding: 4px 10px;
+  font-size: 11px;
+  white-space: pre-line;
+line-height: 1.4;
+	text-align: center;
+  color: #EBEABB;
+  background: rgba(10,10,10,0.9);
+
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+
+  z-index: 9999;
+transform-origin: bottom center;
+  box-shadow:
+    0 0 6px rgba(232, 195, 0,0.8),
+    0 0 12px rgba(232, 195, 0,0.5);
+
+  transition: all 0.25s ease;
+}
+
+
+/* ===== TOOLTIP SHOW ===== */
+.neon-bar a:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  animation: floatGlow 1.2s ease-in-out infinite alternate;
+}
+
+/* ===== TOOLTIP FLOAT ===== */
+@keyframes floatGlow {
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+  100% {
+    transform: translateX(-50%) translateY(3px); /* 🔥 down instead of up */
+  }
+}
+		/* ===== GRID VERSION OF NEON BAR ===== */
+.neon-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+}
+
+/* reuse SAME structure as neon-bar */
+.neon-grid a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  overflow: visible;
+}
+
+/* ===== SQUARE PANEL BUTTON ===== */
+.neon-grid a .inner {
+  width: 70px;
+  height: 70px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(20,20,20,0.6);
+  border-radius: 8px;
+
+  color: #ccc;
+  font-size: 14px;
+
+  position: relative;
+  overflow: hidden;
+
+  transition: all 0.25s ease;
+}
+
+/* ===== ICON ===== */
+.neon-grid .icon {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+/* ===== NUMBER ===== */
+.neon-grid .num {
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+/* ===== HOVER (same style as your bar) ===== */
+.neon-grid a:hover .inner {
+  color: #fff;
+  transform: scale(1.08);
+
+  box-shadow:
+    0 0 6px rgba(232,195,0,0.8),
+    0 0 12px rgba(232,195,0,0.6);
+}
+
+/* ===== NEON SWEEP (same as your bar) ===== */
+.neon-grid a .inner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(204, 204, 204,0.9),
+    transparent
+  );
+
+  transform: translateX(-100%);
+  opacity: 0.6;
+}
+
+.neon-grid a:hover .inner::before {
+  animation: neonSweepX 0.6s forwards;
+}
+
+/* reuse same keyframes */
+		.neon-grid a::after {
+  content: attr(data-label);
+  position: absolute;
+
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+
+  padding: 4px 10px;
+  font-size: 11px;
+  white-space: nowrap;
+  font-family: "Doto", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight:600;
+  color: #EFECEC;
+  background: rgba(10,10,10,0.9);
+
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+
+  z-index: 9999;
+
+  box-shadow:
+    0 0 6px rgba(204, 204, 204,0.8),
+    0 0 12px rgba(204, 204, 204,0.5);
+
+  transition: all 0.25s ease;
+}
+
+.neon-grid a:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  animation: floatGlow 1.2s ease-in-out infinite alternate;
+}
+
+	/* ===== GLOBAL PREVIEW BOX ===== */
+#preview-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 220px;
+  height: 140px;
+
+  pointer-events: none;
+  opacity: 0;
+
+  transform: scale(0.9);
+
+  transition: 
+    opacity 0.2s ease,
+    transform 0.2s ease;
+
+  z-index: 99999;
+}
+
+/* iframe inside */
+#preview-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 6px;
+
+  box-shadow:
+    0 0 10px rgba(204, 204, 204,0.9),
+    0 0 25px rgba(204, 204, 204.6);
+}
+
+/* visible state */
+#preview-box.active {
+  opacity: 1;
+  transform: scale(1);
+}
+		.neon-grid a.active .inner {
+  box-shadow:
+    0 0 12px rgba(204, 204, 204,1),
+    0 0 25px rgba(204, 204, 204,0.8);
+
+  color: #fff;
+}
+		#player-box.switching iframe {
+  filter: brightness(0.2) blur(3px);
+  transition: 0.2s;
+}
+		#player-box video,
+#player-box iframe {
+  width: 100%;
+  height: auto;
+  background: black;
+  border: none;
+}
+		
+/* ===== PLAYER ===== */
+#player-box {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+#player-box iframe {
+  position:absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  border:none;
+  background:black;
+}
+
+/* ===== GRID ===== */
+.neon-grid {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  padding:10px;
+}
+
+/* ===== BUTTON ===== */
+.neon-grid a {
+  text-decoration:none;
+	  width: 80px;
+  height: 80px;
+}
+.neon-grid a .inner {
+  width:70px;
+  height:70px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+
+  border-radius:10px;
+  background:#111;
+
+  color:#aaa;
+  transition:0.25s;
+  position:relative;
+  overflow:hidden;
+}
+
+/* ===== ICON + NUM ===== */
+.icon { font-size:14px; }
+.num { font-size:16px; }
+
+/* ===== NEON COLORS (ROTATING) ===== */
+.neon-grid a:nth-child(6n+1) .inner { --c:#00f7ff; }
+.neon-grid a:nth-child(6n+2) .inner { --c:#ff00e0; }
+.neon-grid a:nth-child(6n+3) .inner { --c:#00ff88; }
+.neon-grid a:nth-child(6n+4) .inner { --c:#ffaa00; }
+.neon-grid a:nth-child(6n+5) .inner { --c:#ff3c3c; }
+.neon-grid a:nth-child(6n+6) .inner { --c:#9b5cff; }
+
+/* ===== GLOW ===== */
+.neon-grid a:hover .inner,
+.neon-grid a.active .inner {
+  color:white;
+  transform:scale(1.1);
+
+  box-shadow:
+    0 0 8px var(--c),
+    0 0 16px var(--c),
+    0 0 25px var(--c);
+}
+
+/* ===== SWEEP ===== */
+.neon-grid a .inner::before {
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:linear-gradient(
+    90deg,
+    transparent,
+    var(--c),
+    transparent
+  );
+
+  transform:translateX(-100%);
+  opacity:0.5;
+}
+
+.neon-grid a:hover .inner::before {
+  animation:sweep 0.6s forwards;
+}
+
+@keyframes sweep {
+  to { transform:translateX(100%); }
+}
+/* ===== OVERLAY ===== */
+#player-overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background: rgba(0,0,0,0.95);
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 999999;
+}
+
+#player-overlay.active{
+  display: flex;
+}
+
+/* ===== PLAYER ===== */
+#player-container{
+  width: 90vw;
+  height: 50vw; /* 🔥 perfect 16:9 for TV */
+
+  max-height: 90vh;
+
+  background: black;
+  border-radius: 12px;
+  overflow: hidden;
+
+  box-shadow: 0 0 40px rgba(0,255,255,0.3);
+}
+
+/* ===== MEDIA ===== */
+#player-container video,
+#player-container iframe{
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: none;
+}
+
+/* smoother bar */
+.bar{
+  height:6px;
+  background:#222;
+  border-radius:6px;
+  overflow:hidden;
+  margin-top:4px;
+}
+
+/* 🔥 animated glow fill */
+.fill{
+  height:100%;
+  background: linear-gradient(90deg,#00f0ff,#00ffa6);
+  box-shadow: 0 0 8px #00f0ff;
+  transition: width 0.5s linear;
+}
+.logo{
+  width: 48px;
+  height: 28px;
+  object-fit: contain;
+  filter: brightness(0.9);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.neon-grid a:hover .logo{
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+#preview-card{
+  position: fixed;
+  pointer-events: none;
+  background: rgba(15,15,15,0.95);
+  border: 1px solid rgba(0,240,255,0.3);
+  border-radius: 10px;
+  padding: 10px;
+  width: 220px;
+
+  color: #fff;
+  font-size: 13px;
+
+  box-shadow: 0 0 20px rgba(0,240,255,0.3);
+  transform: scale(0.9);
+  opacity: 0;
+  transition: 0.2s ease;
+
+  z-index: 9999;
+}
+
+#preview-card.show{
+  opacity: 1;
+  transform: scale(1);
+}
+
+.preview-title{
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.preview-time{
+  font-size: 11px;
+  color: #aaa;
+  margin-bottom: 6px;
+}
+.preview-logo{
+  width: 80px;
+  height: 40px;
+  object-fit: contain;
+  margin-bottom: 6px;
+}
+.inner {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+		.logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
+}
+		.logo {
+  background: tranparent;
+}
+
+#hover-player{
+  position:fixed;
+  width:220px;
+  height:124px;
+  background:#000;
+  border-radius:10px;
+  overflow:hidden;
+  display:none;
+  z-index:9999;
+  box-shadow:0 0 20px rgba(0,0,0,0.6);
+}
+
+#hover-video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* layout */
+.tv-wrap{
+  display:flex;
+  flex-direction:column;
+  height:100vh;
+}
+
+/* top area */
+.preview-card{
+  position:absolute;
+  top:10px;
+  left:10px;
+  width:220px;
+  height:130px;
+  border-radius:10px;
+  overflow:hidden;
+  z-index:2;
+}
+
+.preview-card iframe{
+  width:100%;
+  height:100%;
+}
+
+/* hover video */
+.hover-player{
+  position:absolute;
+  top:10px;
+  right:10px;
+  width:260px;
+  height:150px;
+  display:none;
+  z-index:2;
+}
+
+.hover-player video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+/* grid */
+.neon-grid{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:40%;
+}
+
+/* button */
+.channel-btn{
+  display:block;
+  padding:20px;
+  border-radius:12px;
+  text-decoration:none;
+  background:rgba(255,255,255,0.05);
+  transition:0.3s;
+}
+
+.channel-btn:hover{
+  background:rgba(0,255,255,0.2);
+  box-shadow:0 0 20px cyan;
+}
+
+/* inside */
+.inner{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.logo{
+  width:80px;
+  height:80px;
+  object-fit:contain;
+}
+
+.label{
+  color:#fff;
+  margin-top:10px;
+  font-size:14px;
+}
+
+/* player */
+#main-player{
+  width:100%;
+  height:60%;
+  background:#000;
+}
+
+/* 🔥 animated glow fill */
+.fill{
+  height:100%;
+  background: linear-gradient(90deg,#00f0ff,#00ffa6);
+  box-shadow: 0 0 8px #00f0ff;
+  transition: width 0.5s linear;
+}
+.logo{
+  width: 48px;
+  height: 28px;
+  object-fit: contain;
+  filter: brightness(0.9);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.neon-grid a:hover .logo{
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+#preview-card{
+  position: fixed;
+  pointer-events: none;
+  background: rgba(15,15,15,0.95);
+  border: 1px solid rgba(187, 155, 22,0.3);
+  border-radius: 10px;
+  padding: 10px;
+  width: 220px;
+
+  color: #fff;
+  font-size: 13px;
+
+  box-shadow: 0 0 20px rgba(187, 155, 22,0.3);
+  transform: scale(0.9);
+  opacity: 0;
+  transition: 0.2s ease;
+
+  z-index: 9999;
+}
+
+#preview-card.show{
+  opacity: 1;
+  transform: scale(1);
+}
+
+.preview-title{
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.preview-time{
+  font-size: 11px;
+  color: #aaa;
+  margin-bottom: 6px;
+}
+.preview-logo{
+  width: 80px;
+  height: 40px;
+  object-fit: contain;
+  margin-bottom: 6px;
+}
+.inner {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+	z-index: 2;
+  gap: 6px;
+}
+		.logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
+}
+		.logo {
+  background: tranparent;
+}
+		.program iframe{
+  pointer-events: none; /* 🔥 allows hover to pass through */
+}
+.program{
+  position: relative;
+  overflow: hidden;
+}
+
+/* 🔥 invisible click catcher */
+.click-layer{
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  cursor: pointer;
+}
+			
+.program::before{
+  content: "";
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    #00f0ff,
+    transparent
+  );
+
+  opacity: 0;
+  transform: translateX(-10px);
+
+  transition: 0.25s ease;
+}
+.program:hover{
+  transform: scale(1.03);
+  transition: 0.2s ease;
+
+  box-shadow:
+    0 0 15px rgba(187, 155, 22,0.2);
+}
+
+.program::after{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(187, 155, 22,0.4),
+    transparent
+  );
+
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.program:hover::after{
+  opacity: 1;
+  animation: sweepEdge 0.6s forwards;
+}
+
+@keyframes sweepEdge{
+  to{ transform: translateX(100%); }
+}
+	.layout{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  width: 100%;
+  min-height: 100vh;
+
+  align-items: center;
+}
+	
+	.left-panel{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+align-items: center;
+  padding: 0px;
+
+  z-index: 5; /* always above */
+}
+.left-panel .row{
+  width: 100%;
+  max-width: 700px;
+align-items: center;
+  display: flex;
+}
+.right-panel{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+padding: 0px;
+  position: relative;
+}
+	.png-holder{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media(max-width: 768px){
+
+  .layout{
+    grid-template-columns: 1fr; /* 👈 ONE COLUMN */
+  }
+
+  .right-panel{
+    display: none; /* 👈 HIDE PNG */
+  }
+
+  .left-panel{
+    padding: 10px;
+  }
+
+}
+
+/* 🔥 ROTATING PNG */
+.bg-rotating{
+  position: relative; /* 👈 IMPORTANT */
+  right: 0;
+  top: 1%;
+
+  z-index: 1; 
+
+  pointer-events: none;
+}
+
+/* 🔥 WRAPPER (rotation for ALL) */
+.neon-wrap{
+  position: relative;
+  display: inline-block;
+  filter: drop-shadow(0 0 20px rgba(255,215,0,0.08));
+  animation: floatRotate 80s linear infinite;
+  transform-origin: center;
+  will-change: transform;
+}
+	
+		
+/* 🔥 PNG */
+.neon-wrap img{
+  width: clamp(320px, 37vw, 750px);
+  opacity: 0.8; /* 👈 softer */
+  display: block;
+}
+
+/* 🧊 GLASS CORE (very subtle inner glow) */
+.neon-wrap::before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  -webkit-mask-image: url("/img/ss0.png");
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+
+  mask-image: url("/img/ss0.png");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+
+  background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 70%);
+
+  animation: pulseCore 6s ease-in-out infinite;
+
+  pointer-events:none;
+}
+
+/* ⚡ ELECTRIC EDGE TRACING (MAIN EFFECT) */
+.neon-wrap::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  /* 🔥 MASK */
+  -webkit-mask-image: url("/img/ss0.png");
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+
+  mask-image: url("/img/ss0.png");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+
+  /* ⚡ MULTI-LINE ELECTRIC FLOW */
+  background:
+    linear-gradient(120deg, transparent 49%, rgba(255,215,0,0.35) 50%, transparent 51%),
+    linear-gradient(-60deg, transparent 49%, rgba(255,215,0,0.25) 50%, transparent 51%),
+    linear-gradient(200deg, transparent 49%, rgba(255,255,255,0.18) 50%, transparent 51%);
+
+  background-size: 220% 220%;
+
+  animation: electricFlow 10s linear infinite, glowPulse 5s ease-in-out infinite, flicker 0.3s infinite;
+
+  mix-blend-mode: screen;
+
+  opacity: 0.5;
+  filter: blur(1.2px) contrast(140%);
+
+  pointer-events: none;
+}
+@keyframes flicker{
+  0%,100%{ opacity:0.5; }
+  48%{ opacity:0.45; }
+  52%{ opacity:0.6; }
+}
+
+/* 🔁 ROTATION */
+@keyframes floatRotate{
+  0%{
+    transform: translateY(0px) rotate(0deg);
+  }
+  50%{
+    transform: translateY(-20px) rotate(180deg);
+  }
+  100%{
+    transform: translateY(0px) rotate(360deg);
+  }
+}
+
+/* ⚡ ELECTRIC FLOW */
+@keyframes electricFlow{
+  0%{
+    background-position:
+      -150% -150%,
+      150% -150%,
+      -150% 150%;
+  }
+  100%{
+    background-position:
+      150% 150%,
+      -150% 150%,
+      150% -150%;
+  }
+}
+
+/* 🧊 SOFT PULSE */
+@keyframes glowPulse{
+  0%,100%{ opacity:0.4; }
+  50%{ opacity:0.65; }
+}
+
+/* 🧊 CORE BREATHING */
+@keyframes pulseCore{
+  0%,100%{ opacity:0.15; }
+  50%{ opacity:0.35; }
+}
+/* ===== WRAPPER ===== */
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* ===== TEXT BLOCK ===== */
+.text {
+  max-width: 700px;
+  color: #e8e8e8;
+  line-height: 1.6;
+}
+
+/* ===== TITLE ===== */
+#title {
+  font-size: 24px;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+
+  color: #d4af37; /* soft gold */
+  text-shadow: 0 0 6px rgba(212,175,55,0.3);
+}
+
+/* ===== 6 COLOR ROWS ===== */
+.row {
+  margin: 6px 0;
+  font-size: 14px;
+  font-family: "Doto", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight:600;	
+}
+
+.c-gold   { color: #EDEBDD; }
+.c-silver { color: #EDEDED; }
+.c-green  { color: #7fdc9a; }
+.c-cyan   { color: #D4EAEC; }
+.c-orange { color: #E1D3A3; }
+.c-aqua   { color: #CEEAE7; }
+
+/* ===== LINKS STYLE 1 (clean underline glow) ===== */
 .link1 a {
-	position:relative;
-	text-decoration: none;
-	color: dark gray;
- 	transition:color .15s ease-in-out;
+  color: #d4af37;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(212,175,55,0.5);
 }
 
 .link1 a:hover {
-	background-size: 100% 100%;
-	cursor: pointer;
+  color: #fff;
+  border-bottom-color: #fff;
 }
 
-.link1 a:after {
-	display:block;
-	content:"";
-	position: absolute;
- 	right:0;
- 	left:0;
- 	width:100%;
-	height:3px;
- 	opacity:0;
-	transform:translateY(-150%);
- 	transition:transform .15s ease-in-out, opacity .15s ease-in-out;
- 	background-color: red;
-}
-
-.link1 a.is-active,
-.link1 a:active,
-.link1 a:focus,
-.link1 a:hover {
- 	color: red;
-}
-
-.link1 a.is-active:after,
-.link1 a:active:after,
-.link1 a:focus:after,
-.link1 a:hover:after {
- 	transform:translateY(0);
- 	opacity:1;
-}
-	/* Link Style 2 */
+/* ===== LINKS STYLE 2 (neon soft) ===== */
 .link2 a {
-    color: #343139;
-    text-decoration: none;
-		border-bottom: .125em solid #ff6407;
-		box-shadow: inset 0 -0.125em 0 #ff6407;
-		transition: box-shadow 270ms cubic-bezier(0.77, 0, 0.175, 1), color 270ms cubic-bezier(0.77, 0, 0.175, 1);
+  color: #7fdfff;
+  text-decoration: none;
+  text-shadow: 0 0 6px rgba(127,223,255,0.6);
 }
 
 .link2 a:hover {
-    box-shadow: inset 0 -1.125em 0 #ff6407;
-    color: #000;
+  color: #ffffff;
 }
 
-.link2 a:focus {
-    background: #fff;
-    outline: none;
-    background: #ff6407;
-    color: #fff;
-    box-shadow: 8px 8px 24px rgba(0, 0, 0, 0.2);
-}
-
-	</style> 
-  
-  
-<style>
-::-webkit-scrollbar {
-  width: 13px; // to adjust width
-}
-
-::-webkit-scrollbar-track {
- 
-  -webkit-box-shadow: inset 1px 1px 2px #E0E0E0;
-  border: 11px solid #D8D8D8; //color of the track of scroll bar
-}
-
-::-webkit-scrollbar-thumb {
-  background: #646464;
-  -webkit-box-shadow: inset 1px 1px 2px rgba(155, 155, 155, 0.4);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #aaaaaa;
-}
-
-::-webkit-scrollbar-thumb:active {
-  background: #888;
-  -webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.3);
-}
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ===== LINKS STYLE 3 (minimal muted) ===== */
+.link3 a {
+  color: #aaa;
   text-decoration: none;
-  list-style: none;   
+  opacity: 0.7;
 }
-/*mobile mode*/
-@media only screen and (max-width:480px) {
-ul {
-  position: fixed;
-  display: block;
-  margin-left: 20px;
-  margin-top: 35vw;
-  z-index: 3;
-}
-.nav {
-  position: fixed;
-  display: block;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  transform: rotate(-90deg);
-  margin-left: 0px;
-  margin-top: 15vw;
-  letter-spacing: 0.2vw;
-  z-index: 3;
-}
-li {
-  content:'';
-  height: 40px;
-  width: 5px;
-  transition: width 0.3s ease-in-out;
-}  
-li:hover  {
-   transition: width 0.3s ease-in-out;
-   width: 8.3vw;
-}
-#eyes {background-color:#7e8cdd;}
-#full {background-color:#302c2d;}
-#shine {background-color:#7c7b76;}
-#barry {background-color:#38434b;}
-#orange {background-color:orange;}
-#strange {background-color:#494746;}
-#space {background-color:#c7c7c7;}
-#lol {background-color:#f26667;}
-#sparta {background-color:#e32001;}
-#kill {background-color:#5e5e5e;}
-section {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
-section .cover {
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-section .cover img #hero{
-  position: absolute;
-  display: block;
-  min-width: 150%;
-  min-height: 150%;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-section .content {
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-}
-section .text {
-  width: 100%;
-}
-.centralize {
-  position: relative;
-  left: 50%;
-  top: 30%;
-  -webkit-transform: translateZ(0px) translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
-}
-#hero {
-  position: absolute;
-  padding-top: 70vw;
-  margin-left: 15vw;
-  width: 70vw;
-  overflow: hidden;
-  -webkit-animation: rotation 40s infinite linear;
-}
-@-webkit-keyframes rotation {
-		from {
-				-webkit-transform: rotate(0deg);
-		}
-		to {
-				-webkit-transform: rotate(359deg);
-		}
-}
-img {
-  width: 100%;
-}
-#title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 9vw;
-  margin-top: 31vw;
-  margin-left: 17vw;
-  line-height: 6vw;
-  color: #302c2d;
+
+.link3 a:hover {
   opacity: 1;
-  animation: move 5s
+  color: #fff;
 }
-@keyframes move {
-    from {
-      margin-top: 13vw;
-      opacity: 0.2;
-    }
-     to {
-      margin-top: 31vw;
-      opacity: 1;
-    }
-  }
-.name {
-  font-family: 'Montserrat', sans-serif;
 
-  font-size: 2.9vw;
-  letter-spacing: 0.1vw;
-  margin-top: 5vw;
-  margin-left: 17vw;
-}
-#line {
-  position: absolute;
-  content:'';
-  margin-top: -21vw;
-  margin-left: 55vw;
-  height: 1px;
-  width: 28vw;
-  background-color: #302c2d;
-  z-index: 5;
-  animation: expand 3s;
-  animation-fill-mode: forwards;     
-}
- @keyframes expand {
-    from {
-      width: 0vw;
-      opacity: 0;
-    }
-     to {
-      width: 28vw;
-      opacity: 1;
-    }
+/* ===== MOBILE ===== */
+@media (max-width: 600px){
+  #title {
+    font-size: 20px;
   }
-.scroll {
-  position: relative;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 3vw;
-  font-weight: 900;
-  letter-spacing: 0.3vw;
-  color: #302c2d;
-  margin-left: 30vw;
-  margin-top: 70vw;
-}
-.square {
-  position: relative;
-  content:'';
-  float: right;
-  height: 120vh;
-  width: 100vh;
 
-}
-.copy {
-  width: 70vw;
-  margin-left: 18vw;
-  margin-top: 30vw;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2.8vw;
-  line-height: 3.4vw;
-  letter-spacing: 0.3vw;
-  color: black;
-}
- #eyes2 {
-  background: linear-gradient(to bottom right, #00e3df, #f63adb);
-}
-.poster {
-  width: 70vw;
-  margin-top: 4vw;
-  margin-left: 18vw;
-  z-index: 1;
-}
-  #metal {
-    color: #dddddd;
-  }
-  #shine1 {
-    color: #ffffff;
-  }
-  #lyndon {
-    color: #b7b7ae;
-  }
-   #love {
-    color: #ecdbec;
-  }
-    #ita {
-    color: #ffffff;
+  .row {
+    font-size: 13px;
   }
 }
-/*desktop mode*/
-@media only screen and (min-width:1000px) {
-ul {
-  position: fixed;
-  display: block;
-  margin-left: 37px;
-  margin-top: 7vw;
-  z-index: 3;
-}
-.nav {
-  position: fixed;
-  display: block;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.85vw;
-  transform: rotate(-90deg);
-  margin-left: 1vw;
-  margin-top: 3vw;
-  letter-spacing: 0.2vw;
-  z-index: 3;
-}
-li {
-  content:'';
-  height: 40px;
-  width: 5px;
-  transition: width 0.3s ease-in-out;
-}  
-li:hover  {
-   transition: width 0.3s ease-in-out;
-   width: 80px;
-}
-#eyes {background-color:#7e8cdd;}
-#full {background-color:#302c2d;}
-#shine {background-color:#7c7b76;}
-#barry {background-color:#38434b;}
-#orange {background-color:orange;}
-#strange {background-color:#494746;}
-#space {background-color:#c7c7c7;}
-#lol {background-color:#f26667;}
-#sparta {background-color:#e32001;}
-#kill {background-color:#5e5e5e;}
-section {
+/* ===== FOOTER ===== */
+.footer {
   position: relative;
-  display: block;
-  width: 100%;
-  height: 60vw;
-  overflow: hidden;
+
+
+  padding: 20px 15px;
+  text-align: center;
+  font-size: 13px;
+  color: #aaa;
+
+  backdrop-filter: blur(6px);
 }
-section .cover {
+
+/* 🔥 top glow line */
+.footer::before {
+  content: "";
   position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(127,223,255,0.5),
+    rgba(255,215,0,0.5),
+    transparent
+  );
+
+  animation: footer-line 2s ease forwards;
+}
+
+/* animation */
+@keyframes footer-line {
+  to { center: 50%; }
+}
+
+/* ===== FOOTER LINKS ===== */
+.footer a {
+  color: #7fdfff;
+  text-decoration: none;
+  margin: 0 8px;
+  transition: 0.2s;
+}
+
+.footer a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 6px rgba(127,223,255,0.6);
+}
+
+/* ===== SMALL TEXT ===== */
+.footer .copy {
   display: block;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
+  margin-top: 8px;
+  font-size: 11px;
+  opacity: 0.6;
 }
-section .cover img #hero{
-  position: absolute;
-  display: block;
-  min-width: 100%;
-  min-height: 100%;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+
+/* ===== SOCIAL ICONS ===== */
+.footer .icons {
+  margin-top: 10px;
 }
-section .content {
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
+
+.footer .icons i {
+  margin: 0 6px;
+  opacity: 0.7;
+  transition: 0.2s;
 }
-section .text {
-  width: 100%;
-}
-.centralize {
-  position: relative;
-  left: 50%;
-  top: 30%;
-  -webkit-transform: translateZ(0px) translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
-}
-#hero {
-  position: absolute;
-  padding-top: -9vw;
-  margin-left: 50vw;
-  width: 38vw;
-  overflow: hidden;
-  -webkit-animation: rotation 180s infinite linear;
-}
-@-webkit-keyframes rotation {
-		from {
-				-webkit-transform: rotate(0deg);
-		}
-		to {
-				-webkit-transform: rotate(359deg);
-		}
-}
-img {
-  width: 100%;
-}
-#title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 4.31vw;
-  margin-top: 9vw;
-  margin-left: 10vw;
-  line-height: 2.63vw;
-  color: #302c2d;
+
+.footer .icons i:hover {
   opacity: 1;
-  animation: move 3s
+  transform: scale(1.1);
 }
-@keyframes move {
-    from {
-      margin-left: 8vw;
-      opacity: 0.3;
-    }
-     to {
-      margin-left: 10vw;
-      opacity: 1;
-    }
-  }
-.name {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1vw;
-  letter-spacing: 0.25vw;
-  margin-top: 2.63vw;
-  margin-left: 10.1vw;
+.footer:hover::before {
+  animation: footer-line 1.5s ease forwards;
 }
-#line {
-  position: absolute;
-  content:'';
-  margin-top: -10vw;
-  margin-left: 28vw;
-  height: 1px;
-  width: 13.68vw;
-  background-color: #302c2d;
-  z-index: 5;
-  animation: expand 3s;
-  animation-fill-mode: forwards;     
-}
- @keyframes expand {
-    from {
-      width: 0vw;
-      opacity: 0;
-    }
-     to {
-      width: 13.68vw;
-      opacity: 1;
-    }
-  }
-.scroll {
-  position: relative;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.80vw;
-  font-weight: 900;
-  letter-spacing: 0.1vw;
-  color: #302c2d;
-  margin-left: 45vw;
-  margin-top: 20vw;
-}
-.square {
-  position: relative;
-  content:'';
-  float: right;
-  height: 120vh;
-  width: 100vh;
-
-}
-.copy {
-  float: left;
-  width: 29.28vw;
-  margin-left: 13vw;
-  margin-top: 4vw;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.31vw;
-  line-height: 2vw;
-  letter-spacing: 0.2vw;
-  color: black;
-}
- #eyes2 {
-  background: linear-gradient(to bottom right, #00e3df, #f63adb);
-}
-.poster {
+/* ===== TICKER WRAPPER ===== */
+.ticker {
+  display: inline-block;
+  max-width: 220px; /* control visible width */
   overflow: hidden;
-  width: 29.28vw;
-  margin-top: 6vw;
-  margin-left: 61vw;
-  z-index: 1;
+  vertical-align: middle;
+  margin-left: 6px;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
 }
-}
-</style>
 
-  <script>
-  window.console = window.console || function(t) {};
+/* ===== MOVING TEXT ===== */
+.track {
+  display: inline-block;
+  white-space: nowrap;
+
+  animation: tickerMove 25s linear infinite;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes tickerMove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.logo-wrap {
+  position: relative;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+/* IMAGE */
+.hero-img {
+  display: block;
+  margin: 0 auto 20px auto;
+  max-width: 120px;
+  opacity: 0.1;
+
+}
+/* 🔥 rotating golden rim */
+.logo-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0px; /* thickness of rim */
+  margin: 0 auto 20px auto;
+  border-radius: 50%;
+
+  background: conic-gradient(
+    transparent 0deg,
+    rgba(255,215,0,0.0) 40deg,
+    rgba(255,215,0,0.3) 80deg,
+    rgba(255,215,0,0.0) 120deg,
+    transparent 360deg
+  );
+
+  animation: rotateRim 8s linear infinite;
+
+  /* mask center so only edge shows */
+  -webkit-mask: radial-gradient(circle, transparent 60%, black 62%);
+  mask: radial-gradient(circle, transparent 60%, black 62%);
+
+  pointer-events: none;
+}
+@keyframes rotateRim {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+	</style>
+</head>
+<body>
+<div class="ac">
+<div class="neon-bar">
+   <a href="//smotrim.live" data-label="твзов тв каналы и сериалы"><span class="inner">твзов ◀ тв <i class="i-dot">● </i> сериалы <i class="i-dot">+ </i> <i class="fa fa-film"></i></span></a>
+  <a target="github" href="//smotrim.live/tv/proga2.html" data-label="тв меню с программой и чатом"><span class="inner"><i class="fa fa-bars"></i></span></a>
+  <a href="/tv/menu.html" data-label="эфир твзов каналов на 48 часов 
+						  при наведении на 
+						  канал превью, при нажатии 
+						  воспроизведение."><span class="inner">телепрограмма <i class="fa fa-info-circle"></i></span></a>
+	</div></div>
+<div class="layout">
+  <!-- LEFT SIDE -->
+  <div class="left-panel">	
+<div class="content">
+
+  <div class="text">
+
+
+    <div class="row c-gold link1">
+      <a href="https://telezov.pages.dev/tv/smotrim.html">
+        t e l e 3 O B — смотрим твзов — smotrim tvzov
+      </a>
+    </div>
+
+    <div class="row c-silver">
+      Одни из самых популярных новых сериалов.
+    </div>
+
+   <div class="row c-green link2">
+  <a href="https://telezov.pages.dev/tv/seriali.html">
+
+    <span class="label">новые сериалы</span>
+
+    <span class="ticker">
+      <span class="track">
+        Мосгаз • На льду • Шифр 5 • Золотое дно 2 • СМЕРШ 4 • Центурия • Зверобой 2 • 
+        Шерлок Холмс • Волкодав • Чёрная графиня • Отпечатки • Грачи • Число зверя •
+        
+        <!-- duplicate for seamless loop -->
+        Мосгаз • На льду • Шифр 5 • Золотое дно 2 • СМЕРШ 4 • Центурия • Зверобой 2 • 
+        Шерлок Холмс • Волкодав • Чёрная графиня • Отпечатки • Грачи • Число зверя
+      </span>
+    </span>
+
+  </a>
+</div>
+
+    <div class="row c-cyan">
+      сейчас: Мосгаз 12 • Золотое дно 3
+    </div>
+
+    <div class="row c-orange link3">
+      ▶  LIVE — RED — BLACK
+    </div>
+
+    <div class="row c-aqua link2">
+      <a href="https://smotrim.live/tv">
+        ▶ watch твзов <span class="i-dot3">●</span>
+      </a>
+    </div>
+   <div class="logo-wrap">
+  <img src="/img/logo1.png" class="hero-img" alt="твзов">
+</div>
+  </div>
+
+</div>
+
+<div class="footer">
+
+  <div class="links">
+    <a href="#">твзов</a>
+    <a href="//smotrim.live/tv/">каналы</a>
+    <a href="//smotrim.live/tv/menu.html">программа</a>
+    <a href="//smotrim.live">связь ⥃ чат</a>
+  </div>
+
+  <div class="icons">
+    <i class="fa fa-youtube-play" style="color:#ff3b3b"></i>
+    <i class="fa fa-telegram" style="color:#7fdfff"></i>
+  </div>
+
+  <span class="copy">
+    © 2026 ТВЗОВ — live streaming project
+  </span>
+
+	  </div></div>
+<!-- RIGHT SIDE -->
+  <div class="right-panel">
+    <div class="png-holder">
+      <!-- 🔥 ROTATING PNG -->
+<div class="bg-rotating"> <div class="neon-wrap">
+<a href="https://telezov.pages.dev/tv/smotrim.html" title="smotrim твзов"><img src="/img/ss0.png" class="rotating-img" alt="smotrim твзов"></a>
+</div></div>
+    </div>
+	</div>	</div>
+		
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+	<script>document.querySelectorAll(".track").forEach(t=>{
+  const delay = Math.random() * -20;
+  t.style.animationDelay = delay + "s";
+});
+</script>	
+	
+<script>
+overlay.addEventListener("click", (e)=>{
+  if(e.target === overlay){
+    closePlayer();
+  }
+});
+
+document.addEventListener("keydown", (e)=>{
+  if(e.key === "Escape"){
+    closePlayer();
+  }
+});
+
+function closePlayer(){
+
+  overlay.classList.remove("active");
+
+  if(mainHls){
+    mainHls.destroy();
+    mainHls = null;
+  }
+
+  mainVideo.pause();
+  mainVideo.src = "";
+
+  mainFrame.src = "";
+}
 </script>
 
-  
-  
-</head>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-252111126-1"></script>
+<script>function gtag() {
+        dataLayer.push(arguments)
+    }
 
-<body translate="no">
-  <html>
-  <head>
- <meta name="viewport" content="width=device-width, initial-scale=1">
- <style>
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,900');
-    </style>
-  </head>
-  <body>
-    <div class='nav'>ru.твзов</div>
-    <ul>
-   <a href='#sctr1'><li id='eyes'></li></a>
-   <a href='#sctr2'><li id='full'></li></a> 
-   <a href='#sctr3'><li id='shine'></li></a>
-   <a href='#sctr4'><li id='barry'></li></a>
-   <a href='#sctr5'><li id='orange'></li></a>
-   <a href='#sctr6'><li id='space'></li></a>
-   <a href='#sctr7'><li id='strange'></li></a>
-   <a href='#sctr8'><li id='lol'></li></a> 
-   <a href='#sctr9'><li id='sparta'></li></a>  
-   <a href='#sctr10'><li id='kill'></li></a>
-    </ul>
-    <section class="special" data-scrollax-parent="true" id='ntr'>
-  <div class="cover" id='hero' data-scrollax="properties: { translateY: '30%', 'opacity': 1.5 }">
-    
-	  <a href="https://telezov.pages.dev/tv/smotrim.html" title="smotrim твзов"><img src="/img/ss0.png" alt="smotrim твзов"></a></div>
-  <div class="content"> 
-    <div class="text centralize">
-      <div data-scrollax="properties: { 'translateY': '150%', 'opacity': 1.5 }">
-       <div id="title">
-        t e l e 3 O B<br><br>
-       .aka.<br><br>твзов
-       </div>
-		  <div class="name"><p class="link1"><a href="https://telezov.pages.dev/tv/smotrim.html" title="твзов">
-t e l e 3 O B -- смотрим твзов -- smotrim tvzov
-		  </a>.</p></br>
-		   Одни из самых популярных <a href="https://smotrim.live/tv/seriali.html" title="seriali твзов">новых <font size="2" color="#C77C1D" face="verdana">сериалов</font></a> 2025/26 г.</br>
-		   на данный момент: <a href="https://smotrim.live/tv/mosgaz.html" target="_blank" onClick="window.open('https://smotrim.live/tv/mosgaz.html','mosgaz','resizable,width=480,height=208'); return false;"><font size="2" color="#04711C" face="verdana">Мосгаз все</font></a> <a href="https://smotrim.live/tv/zolotoe.html" target="_blank" onClick="window.open('https://smotrim.live/tv/zolotoe.html','zolotoe','resizable,width=480,height=208'); return false;"><font size="2" color="#DAA520" face="verdana">Золотое дно все</font></a></br>
-		   на <a href="https://telezov.pages.dev/tv/smotrim" target="_blank" onClick="window.open('https://telezov.pages.dev/tv/smotrim','playindex','resizable,width=480,height=208'); return false;">канале <font size="2" color="#BA870D" face="verdana">твзов</font></a>:<a href="//ok.ru/videoembed/11655440178731?nochat=1&autoplay=1" target="_blank" onClick="window.open('//ok.ru/videoembed/11655440178731?nochat=1&autoplay=1','playindex','resizable,width=480,height=208'); return false;"><font size="2" color="#DD0508" face="verdana">RED</font></a>:<a href="//ok.ru/videoembed/10944765632140?nochat=1&autoplay=1" target="_blank" onClick="window.open('//ok.ru/videoembed/10944765632140?nochat=1&autoplay=1','playindex','resizable,width=480,height=208'); return false;"><font size="2" color="#000000" face="verdana">BLACK</font></a>.
-		</div> 
-      <div id="line"></div>
-       <div class="scroll"><p class="link2"><a href="https://smotrim.live/tv" title="твзов"> watch твзов </a></p> &nbsp;<a href="" title="твзов"><i class="fa fa-youtube-play" style="font-size:14px;color:red"></i></a></div> 
-      </div>
-     </div>
-    </div>
-   </section>
- <section class="special" data-scrollax-parent="true" id='sctr1'>
-  <div class="cover" data-scrollax="properties: { translateY: '30%' }">
- <div class='square' id='eyes2'></div>
-  </div>
-  <div class="content">
-    <div class="text centralize">
-      <div data-scrollax="properties: { 'translateY': '150%', 'opacity': 1.5 }">
-        <div class='copy'>Сериал Душегубы 2 сезон — продолжение одноименного сериала 10 серий 2025.</br>
-Детектив, Криминал, Триллер - история будет сразу про двух маньяков.</br>
-1984 год. На домашней вечеринке Николай Самойлов убивает женщину. Гости сразу вызывают милицию, но убийце удаётся бежать. Московскому следователю удаётся вычислить его местонахождение.</br>
-1989 год. Во время очередной перевозки из института в психбольницу Самойлову удаётся сбежать. И почти сразу же происходит жуткое происшествие: обычный рабочий получает посылку, в ней – голова женщины с выколотыми глазами, а рядом записка с угрозами и требованием денег. Hа преступной арене появился новый маньяк.</div>
-        <div class='poster'>
-        <a rel="nofollow noopener" href="https://drive.google.com/file/d/10o_-7Q484SYnpJm_nZAlA7L0wJscTUj4/preview" onclick="window.open(this.href, 'Душегубы 2', 'left=200,top=200,width=680,height=380,toolbar=1,resizable=0'); return false;" title="Душегубы 2"><img src='/img/ss1.jpg'></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-   <section class="special" data-scrollax-parent="true" id='sctr2'>
-  <div class="cover" data-scrollax="properties: { translateY: '30%' }">
- <div class='square' id='full'></div>
-  </div>
-  <div class="content">
-    <div class="text centralize">
-      <div data-scrollax="properties: { 'translateY': '150%', 'opacity': 1.5 }">
-        <div class='copy' id='metal'>Как приручить лису — Триллер.</br> 
-Детектив, Драма, Триллер - 8 серий 2025.</br>
-Режиссер: Юлиана Закревская
-В ролях: Кирилл Кяро, Максим Стоянов, Таисья Калинина, Ксения Кутепова, Наталья Фенкина, Андрей Кочинов..</br>
-О фильме: Зоопсихолог, занимающийся изучением лисиц, подбирает в лесу странную замкнутую девушку Дину и спасает ей жизнь, но становится подозреваемым в деле об убийстве её подруги. Он вынужден начать самостоятельное расследование, и для этого ему необходимо наладить контакт с далёкой от социальных норм девушкой, которая ни с кем не разговаривает и не даёт показания. 
-		  </div>
-        <div class='poster'>
-        <a rel="nofollow noopener" href="https://ok.ru/videoembed/10972340423211?nochat=1&autoplay=1" onclick="window.open(this.href, 'Как приручить лису', 'left=200,top=200,width=680,height=380,toolbar=1,resizable=0'); return false;" title="Как приручить лису"><img src='/img/ss11.jpg'></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="special" data-scrollax-parent="true" id='sctr3'>
-  <div class="cover" data-scrollax="properties: { translateY: '30%' }">
- <div class='square' id='shine'></div>
-  </div>
-  <div class="content">
-    <div class="text centralize">
-      <div data-scrollax="properties: { 'translateY': '150%', 'opacity': 1.5 }">
-        <div class='copy' id='shine1'> Невский 8 сезон — продолжение детективной истории петербургского опера Павла Семенова.</br>
-Детектив, Драма, Криминал - 30 серий 2025.</br>
-В конце седьмого сезона Павел погиб. Но продолжает мерещиться своей жене Татьяне, хотя и она, и сын Семенова опознали тело и присутствовали на похоронах. Без Павла будет невозможно раскрыть тайну Архитектора, которая занималась убийствами влиятельных бизнесменов.</br>
-В городе совершается серия жестоких преступлений, но никто — ни полиция, ни криминальные авторитеты не могут это остановить. Город находится в состоянии «раздела власти» после ухода Алексея Фомина. На след преступников выходит Михайлов, но попадает в смертельную ловушку.
-		  </div>
-        <div class='poster'>
-        <a rel="nofollow noopener" href="https://drive.google.com/file/d/13AX-WKN-RiRASXVrtWq6TF7M9vWOs4fR/preview" onclick="window.open(this.href, 'Подслушано в Рыбинске', 'left=200,top=200,width=680,height=380,toolbar=1,resizable=0'); return false;" title="Подслушано в Рыбинске"><img src='/img/ss3.jpg'>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="special" data-scrollax-parent="true" id='sctr4'>
-  <div class="cover" data-scrollax="properties: { translateY: '30%' }">
- <div class='square' id='barry'></div>
-  </div>
-  <div class="content">
-    <div class="text centralize">
-      <div data-scrollax="properties: { 'translateY': '150%', 'opacity': 1.5 }">
-        <div class='copy' id='lyndon'>Черное солнце 2 сезон — продолжение российского детективного сериала о двух непохожих по характеру напарников — оперативнике Евгении Чагине и следователе Игоре Жуке.</br>
-Детектив, Драма, Криминал - 12 серий 2025.</br>
-Во втором сезоне Жук возвращается на работу в Следственный комитет, где его тут же поджидает новое дело. Труп мужчины из Финского залива выловили местные рыбаки. Hеожиданно для всех Чагин признается в совершении другого убийства. Узнав об этом, Жук вызывается раскрыть дело напарника.</br>
-Теперь предстоит понять, кто на самом деле стоит за этими преступлениями, которые связаны между собой и наказать настоящих преступников.			
-</div>
-        <div class='poster'>
-        <a rel="nofollow noopener" href="https://www.youtube.com/embed/ZNje5UElKTY?si=kLP-6TZ35UxnmqDC" onclick="window.open(this.href, 'Черное солнце 2', 'left=200,top=200,width=680,height=380,toolbar=1,resizable=0'); return false;" title="Черное солнце 2"><img src='/img/ss4.jpg'>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="special" data-scrollax-parent="true" id='sctr5'>
-  <div class="cover" data-scrollax="properties: { translateY: '30%' }">
- <div class='square' id='orange'></div>
-  </div>
-  <div class="content">
-    <div class="text centralize">
-      <div data-scrollax="properties: { 'translateY': '150%', 'opacity': 1.5 }">
-        <div class='copy'>«За час до рассвета» 2 сезон — продолжение российского сериала о работе милиции в послевоенные годы.</br>
-Детектив, Драма, Криминал - 16 серий 2026.</br> 
-1946 год в городе орудует банда преступника по кличке Клещ, и Журавлев придумывает рискованный план по его поимке. Его начальник, майор Шумейко по прозвищу «Сатана», соглашается. Денис оказывается в водовороте интриг и преступных разборок.</br>
-В первом сезоне героям почти удалось поймать Клеща. Но следом объявился новый враг — бывший смотритель концлагеря по кличке Зверь, oн убивает коллегу Дениса, Ольгу. Поиск преступника становится для него и его команды делом чести.
-Ожидается, что новые серии выйдут в 2026 году. К своим ролям вернется Константин Хабенский, «Сатана».		
-		  </div>
-        <div class='poster'>
-        <a rel="nofollow noopener" href="https://drive.google.com/file/d/1LxElXak3UQkCn_F1Bzu5rmUI1xIxdeHE/preview" onclick="window.open(this.href, 'Тоннель', 'left=200,top=200,width=680,height=380,toolbar=1,resizable=0'); return false;" title="Тоннель"><img src='/img/ss5.jpg'>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="special" data-scrollax-parent="true" id='sctr6'>
-  <div class="cover" data-scrollax="properties: { translateY: '30%' }">
- <div class='square' id='space'></div>
-  </div>
-  <div class="content">
-    <div class="text centralize">
-      <div data-scrollax="properties: { 'translateY': '150%', 'opacity': 1.5 }">
-        <div class='copy'>Число зверя 1 сезон — российский сериал. В главной роли  — Дмитрий Паламарчук.</br> 
-Боевик, Детектив, Драма, Криминал - 12 серий 2025.</br>
-Следователю Смоленской областной прокуратуры Алексею Кирсанову  местный криминальный авторитет отправляет так называемую «чёрную метку». Теперь на следака начинается охота, его жизнь в опасности.</br>
-В деревне некто расстреливает семью мирных жителей, в живых остается только 8-летний мальчик, которому удалось сбежать. Кирсанов сходу берется за расследование этого дела. Mесяц назад в соседнем посёлке неизвестный также расстрелял семью. Все жертвы убиты с особой жестокостью, а на их телах преступник оставляет кровавые цифры – число зверя.</div>
-        <div class='poster'>
-        <a rel="nofollow noopener" href="https://www.youtube.com/embed/3LW-TbhUpYU?si=q0Z0ea1aNmLQScy9&autoplay=1" onclick="window.open(this.href, 'Coming soon', 'left=200,top=200,width=680,height=380,toolbar=1,resizable=0'); return false;" title="Coming soon"><img src='/img/ss6.jpg'>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="special" data-scrollax-parent="true" id='sctr7'>
-  <div class="cover" data-scrollax="properties: { translateY: '30%' }">
- <div class='square' id='strange'></div>
-  </div>
-  <div class="content">
-    <div class="text centralize">
-      <div data-scrollax="properties: { 'translateY': '150%', 'opacity': 1.5 }">
-        <div class='copy' id='love'>Золотое дно 2 сезон — Драма, криминал 2026 Режиссер: Илья Ермолов</br>
-В ролях: Алексей Гуськов, Юлия Снигирь, Павел Попов, Игорь Гордин, Александр Новин, Ростислав Бершауэр, Ксения Гусева</br>
-Для семьи Градовых наступают еще более темные времена: «Галактика» попадает под санкции, и финансовое положение компании стремительно ухудшается. Помимо этого на горизонте появляется новый игрок - Верещагин - хваткий и жесткий региональный предприниматель, который после ссоры с Градовым-старшим из мести решает «отжать» все активы компании. Кто победит в этой грязной и бескомпромиссной борьбе за миллиарды и что будет с заклятым семейным бизнесом?</br>	  
-		  </div>
-        <div class='poster'>
-        <a rel="nofollow noopener" href="https://www.youtube.com/embed/aIgoO3oDuWA?si=ZBgVCx04NlGRltLq" onclick="window.open(this.href, 'Золотое дно', 'left=200,top=200,width=680,height=380,toolbar=1,resizable=0'); return false;" title="Золотое дно"><img src='/img/ss7.jpg'>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="special" data-scrollax-parent="true" id='sctr8'>
-  <div class="cover" data-scrollax="properties: { translateY: '30%' }">
- <div class='square' id='lol'></div>
-  </div>
-  <div class="content">
-    <div class="text centralize">
-      <div data-scrollax="properties: { 'translateY': '150%', 'opacity': 1.5 }">
-        <div class='copy' id='ita'>Тайны советник 1 сезон - 2025.</br>
-Детектив, Драмa, Криминал - 20 серий.</br>
-Во время операции по задержанию опасного преступника Костиков получил тяжёлые ранения, а его напарник Дмитрий Смирнов погиб.
-После долгого восстановления Павел вернулся на службу. Там ему приходится заниматься рутинной работой, что даётся ему нелегко. Отношения с коллегами не складываются, и Костиков чувствует вину перед вдовой напарника — адвокатом Полиной Смирновой, в которую он был тайно влюблён с юности.</br>
-Полина защищает клиента, обвиняемого в убийстве. Костиков решает провести собственное расследование и выясняет, что настоящий убийца был найден.
-В ходе совместной работы Костиков и Полина обнаруживают могущественную преступную организацию.		  
-		  </div>
-        <div class='poster'>
-        <a rel="nofollow noopener" href="https://www.youtube.com/embed/JZFIB64-ezE?si=NCJ8SkSpHwYIEEMO&autoplay=1" onclick="window.open(this.href, 'Тайны советник1', 'left=200,top=200,width=680,height=380,toolbar=1,resizable=0'); return false;" title="Тайны советник1"><img src='/img/ss8.jpg'>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="special" data-scrollax-parent="true" id='sctr9'>
-  <div class="cover" data-scrollax="properties: { translateY: '30%' }">
- <div class='square' id='sparta'></div>
-  </div>
-  <div class="content">
-    <div class="text centralize">
-      <div data-scrollax="properties: { 'translateY': '150%', 'opacity': 1.5 }">
-        <div class='copy' id='ita' >Сериал Мертвая точка 1 сезон — в жанре остросюжетного детектива.</br>
-Боевик, Детектив, Драмa, Криминал - 16 серий 2025.</br>	  
-Рита Галич работает юристом по жилищному праву в одном из социальных центров. Однажды она узнаёт страшную новость, что её отца, известного адвоката и профессора университета, Евгения Владимировича, обвиняют в убийстве аспирантки. Самое печальное, что все улики указывают исключительно на него.</br>
-Однако Рита не верит в виновность отца и решает провести собственное расследование. Ей удаётся убедить известных адвокатов Козака и Одинцова. Вместе они продолжают расследование и вскоре выходят на крупный рейдерский синдикат, который, причастен к множеству убийств.		  
-		  </div>
-         <div class='poster'>
-        <a rel="nofollow noopener" href="https://www.youtube.com/embed/Aqieb5JJyFc?si=-d0dyHXc8HsrtGJd&autoplay=1" onclick="window.open(this.href, 'Мертвая точка 1', 'left=200,top=200,width=680,height=380,toolbar=1,resizable=0'); return false;" title="Мертвая точка 1"><img src='/img/ss9.jpg'>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="special" data-scrollax-parent="true" id='sctr10'>
-  <div class="cover" data-scrollax="properties: { translateY: '30%' }">
- <div class='square' id='kill'></div>
-  </div>
-  <div class="content">
-    <div class="text centralize">
-      <div data-scrollax="properties: { 'translateY': '150%', 'opacity':1.5 }">
-        <div class='copy' id='ita'>Извозчик 1 сезон - в жанре остросюжетного детектива.</br>
-Боевик, Детектив, Криминал - 16 серий 2025.</br>
-Действие сериала разворачивается в городе Калуга. Опытный сыщик с 15-летним опытом работы в УГРО Юрий Алданов входе расследования заказного убийства выходит на группировку, которая занимается рейдерскими захватами.</br>
-Самое интересное, что главой преступного синдиката оказался замначальника калужского СОБРа Ильин – человек с обширными связями. Алданов берет в работу найденные на Ильина материалы, но дело завести так и не удается – у Юрия в машине находят пакет с наркотическими веществами, и он попадает за решетку. Параллельно герои ведут тайное расследование старого дела Юрия о заказном убийстве.			
-		  </div>
-        <div class='poster'>
-        <a rel="nofollow noopener" href="https://ok.ru/videoembed/11256632969771?nochat=1&autoplay=1" onclick="window.open(this.href, 'Большая вода', 'left=200,top=200,width=680,height=380,toolbar=1,resizable=0'); return false;" title="Большая вода"><img src='/img/ss10.jpg'>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    window.dataLayer = window.dataLayer || [], gtag("js", new Date), gtag("config", "UA-252111126-1")</script>
 </body>
-</html>
-  <script src='/files/jquery.min.js'></script>
-<script src='/files/smoothscroll.js'></script>
-<script src='/files/scrollax.min.js'></script>
-      <script id="rendered-js" >
-jQuery(document).ready(function ($) {
-  'use strict';
-
-  $.Scrollax();
-});
-//# sourceURL=pen.js
-    </script>
-</body>
-
 </html>
