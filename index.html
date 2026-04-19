@@ -1031,7 +1031,7 @@ padding: 0px;
 .bg-rotating{
   position: relative; /* 👈 IMPORTANT */
   right: 0;
-  top: 1%;
+  top: 0;
 
   z-index: 1; 
 
@@ -1051,8 +1051,8 @@ padding: 0px;
 		
 /* 🔥 PNG */
 .neon-wrap img{
-  width: clamp(320px, 37vw, 750px);
-  opacity: 0.8; /* 👈 softer */
+  width: clamp(140px, 16vw, 320px);
+  opacity: 0.3; /* 👈 softer */
   display: block;
 }
 
@@ -1165,7 +1165,7 @@ padding: 0px;
   justify-content: center;
   align-items: center;
 
-  padding: 40px 20px;
+  padding: 30px 0px;
   text-align: center;
 }
 
@@ -1173,7 +1173,7 @@ padding: 0px;
 .text {
   max-width: 700px;
   color: #e8e8e8;
-  line-height: 1.6;
+  line-height: 1.8;
 }
 
 /* ===== TITLE ===== */
@@ -1413,13 +1413,13 @@ padding: 0px;
 						  канал превью, при нажатии 
 						  воспроизведение."><span class="inner">телепрограмма <i class="fa fa-info-circle"></i></span></a>
 	</div></div>
-<div class="layout">
-  <!-- LEFT SIDE -->
-  <div class="left-panel">	
+<div class="ac">
 <div class="content">
 
   <div class="text">
-
+<div class="row c-cyan">
+      скоро: новинки сезона ШИФР 5 и Число зверя
+    </div>
 
     <div class="row c-gold link1">
       <a href="https://telezov.pages.dev/tv/smotrim.html">
@@ -1463,9 +1463,16 @@ padding: 0px;
         ▶ watch твзов <span class="i-dot3">●</span>
       </a>
     </div>
-   <div class="logo-wrap">
-  <img src="/img/logo1.png" class="hero-img" alt="твзов">
-</div>
+
+  <div class="png-holder">
+      <!-- 🔥 ROTATING PNG -->
+<div class="bg-rotating"> <div class="neon-wrap">
+<a href="https://telezov.pages.dev/tv/smotrim.html" title="smotrim твзов"><img src="/img/ss0.png" class="rotating-img" alt="smotrim твзов"></a>
+</div></div>
+    </div>
+	  <div class="row c-cyan">
+      сегодня: сериал Новороссия. Потёмкин
+    </div>
   </div>
 
 </div>
@@ -1488,16 +1495,8 @@ padding: 0px;
     © 2026 ТВЗОВ — live streaming project
   </span>
 
-	  </div></div>
-<!-- RIGHT SIDE -->
-  <div class="right-panel">
-    <div class="png-holder">
-      <!-- 🔥 ROTATING PNG -->
-<div class="bg-rotating"> <div class="neon-wrap">
-<a href="https://telezov.pages.dev/tv/smotrim.html" title="smotrim твзов"><img src="/img/ss0.png" class="rotating-img" alt="smotrim твзов"></a>
-</div></div>
-    </div>
-	</div>	</div>
+	  </div>
+</div>
 		
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 	<script>document.querySelectorAll(".track").forEach(t=>{
