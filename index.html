@@ -974,190 +974,28 @@ transform-origin: bottom center;
 @keyframes sweepEdge{
   to{ transform: translateX(100%); }
 }
-	.layout{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
 
+.gallery {
   width: 100%;
-  min-height: 100vh;
-
-  align-items: center;
-}
-	
-	.left-panel{
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-align-items: center;
-  padding: 0px;
-
-  z-index: 5; /* always above */
-}
-.left-panel .row{
-  width: 100%;
-  max-width: 700px;
-align-items: center;
-  display: flex;
-}
-.right-panel{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-padding: 0px;
-  position: relative;
-}
-	.png-holder{
+  height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-@media(max-width: 768px){
 
-  .layout{
-    grid-template-columns: 1fr; /* 👈 ONE COLUMN */
-  }
-
-  .right-panel{
-    display: none; /* 👈 HIDE PNG */
-  }
-
-  .left-panel{
-    padding: 10px;
-  }
-
+.gallery img {
+  width: 10%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  transition: all ease-out 0.5s;
+  cursor: pointer;
+  overflow: hidden;
 }
 
-/* 🔥 ROTATING PNG */
-.bg-rotating{
-  position: relative; /* 👈 IMPORTANT */
-  right: 0;
-  top: 0;
-
-  z-index: 1; 
-
-  pointer-events: none;
-}
-
-/* 🔥 WRAPPER (rotation for ALL) */
-.neon-wrap{
-  position: relative;
-  display: inline-block;
-  filter: drop-shadow(0 0 20px rgba(255,215,0,0.08));
-  animation: floatRotate 80s linear infinite;
-  transform-origin: center;
-  will-change: transform;
-}
-	
-		
-/* 🔥 PNG */
-.neon-wrap img{
-  width: clamp(140px, 16vw, 320px);
-  opacity: 0.3; /* 👈 softer */
-  display: block;
-}
-
-/* 🧊 GLASS CORE (very subtle inner glow) */
-.neon-wrap::before{
-  content:"";
-  position:absolute;
-  inset:0;
-
-  -webkit-mask-image: url("/img/ss0.png");
-  -webkit-mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-
-  mask-image: url("/img/ss0.png");
-  mask-size: contain;
-  mask-repeat: no-repeat;
-  mask-position: center;
-
-  background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 70%);
-
-  animation: pulseCore 6s ease-in-out infinite;
-
-  pointer-events:none;
-}
-
-/* ⚡ ELECTRIC EDGE TRACING (MAIN EFFECT) */
-.neon-wrap::after{
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  /* 🔥 MASK */
-  -webkit-mask-image: url("/img/ss0.png");
-  -webkit-mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-
-  mask-image: url("/img/ss0.png");
-  mask-size: contain;
-  mask-repeat: no-repeat;
-  mask-position: center;
-
-  /* ⚡ MULTI-LINE ELECTRIC FLOW */
-  background:
-    linear-gradient(120deg, transparent 49%, rgba(255,215,0,0.35) 50%, transparent 51%),
-    linear-gradient(-60deg, transparent 49%, rgba(255,215,0,0.25) 50%, transparent 51%),
-    linear-gradient(200deg, transparent 49%, rgba(255,255,255,0.18) 50%, transparent 51%);
-
-  background-size: 220% 220%;
-
-  animation: electricFlow 10s linear infinite, glowPulse 5s ease-in-out infinite, flicker 0.3s infinite;
-
-  mix-blend-mode: screen;
-
-  opacity: 0.5;
-  filter: blur(1.2px) contrast(140%);
-
-  pointer-events: none;
-}
-@keyframes flicker{
-  0%,100%{ opacity:0.5; }
-  48%{ opacity:0.45; }
-  52%{ opacity:0.6; }
-}
-
-/* 🔁 ROTATION */
-@keyframes floatRotate{
-  0%{
-    transform: translateY(0px) rotate(0deg);
-  }
-  50%{
-    transform: translateY(-20px) rotate(180deg);
-  }
-  100%{
-    transform: translateY(0px) rotate(360deg);
-  }
-}
-
-/* ⚡ ELECTRIC FLOW */
-@keyframes electricFlow{
-  0%{
-    background-position:
-      -150% -150%,
-      150% -150%,
-      -150% 150%;
-  }
-  100%{
-    background-position:
-      150% 150%,
-      -150% 150%,
-      150% -150%;
-  }
-}
-
-/* 🧊 SOFT PULSE */
-@keyframes glowPulse{
-  0%,100%{ opacity:0.4; }
-  50%{ opacity:0.65; }
-}
-
-/* 🧊 CORE BREATHING */
-@keyframes pulseCore{
-  0%,100%{ opacity:0.15; }
-  50%{ opacity:0.35; }
+.gallery img:hover {
+  width: 50%;
 }
 /* ===== WRAPPER ===== */
 .content {
@@ -1401,9 +1239,11 @@ padding: 0px;
   to   { transform: rotate(360deg); }
 }
 
-	</style>
+	</style><script>
+  window.console = window.console || function(t) {};
+</script>
 </head>
-<body>
+<body translate="no">
 <div class="ac">
 <div class="neon-bar">
    <a href="//smotrim.live" data-label="твзов тв каналы и сериалы"><span class="inner">твзов ◀ тв <i class="i-dot">● </i> сериалы <i class="i-dot">+ </i> <i class="fa fa-film"></i></span></a>
@@ -1464,11 +1304,11 @@ padding: 0px;
       </a>
     </div>
 
-  <div class="png-holder">
-      <!-- 🔥 ROTATING PNG -->
-<div class="bg-rotating"> <div class="neon-wrap">
-<a href="https://telezov.pages.dev/tv/smotrim.html" title="smotrim твзов"><img src="/img/ss0.png" class="rotating-img" alt="smotrim твзов"></a>
-</div></div>
+  <div class="gallery">
+       <img src='https://static.okko.tv/images/v4/4b991653-f395-48cc-9b09-33b5c10e5ff2?presetId=4000&width=1200&height=630&scale=1&quality=80' alt=''>
+  <img src='https://avatars.mds.yandex.net/get-kinopoisk-image/10671298/ba53f406-5385-48b7-84c7-2bf5a88c0fca/1920x' alt=''>
+  <img src='https://static.1tv.ru/uploads/video/material/splash/2026/01/18/1030215/_original/1030215_911d55c3df.jpg' alt=''>
+  <img src='https://www.kino-teatr.ru/movie/kadr/187652/2070033.jpg' alt=''>
     </div>
 	  <div class="row c-cyan">
       сегодня: сериал Новороссия. Потёмкин
