@@ -1309,10 +1309,10 @@ transform-origin: bottom center;
     </div>
 
 	  <div class="gallery">
-  <video autoplay muted loop playsinline><source src="https://live20.bozztv.com/giatv/giatv-tvzovlivestream/tvzovlivestream/playlist.m3u8" type="application/x-mpegURL"></video>
-  <video autoplay muted loop playsinline><source src="https://live20.bozztv.com/giatv/giatv-tvzovBlackstream/tvzovBlackstream/playlist.m3u8" type="application/x-mpegURL"></video>
+  <video data-src="https://live20.bozztv.com/giatv/giatv-tvzovlivestream/tvzovlivestream/playlist.m3u8" type="application/x-mpegURL" autoplay muted loop playsinline></video>
+  <video data-src="https://live20.bozztv.com/giatv/giatv-tvzovBlackstream/tvzovBlackstream/playlist.m3u8" autoplay muted loop playsinline></video>
   <img src="https://www.kino-teatr.ru/movie/kadr/187652/2070033.jpg" />	  
-  <video autoplay muted loop playsinline><source src="https://stream8.cinerama.uz/1225/tracks-v1a1/mono.m3u8" type="application/x-mpegURL"></video>
+  <video data-src="https://stream8.cinerama.uz/1225/tracks-v1a1/mono.m3u8" autoplay muted loop playsinline></video>
  
 </div>
 	  
@@ -1343,18 +1343,19 @@ transform-origin: bottom center;
 
 	  </div>
 </div>
-	<video id="video1" autoplay muted loop playsinline></video>
 
 <script>
-  const video = document.getElementById('video1');
+document.querySelectorAll('.gallery video').forEach(video => {
+  const src = video.dataset.src;
 
   if (Hls.isSupported()) {
     const hls = new Hls();
-    hls.loadSource('stream.m3u8');
+    hls.loadSource(src);
     hls.attachMedia(video);
   } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-    video.src = 'stream.m3u8';
+    video.src = src;
   }
+});
 </script>	
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 	<script>document.querySelectorAll(".track").forEach(t=>{
