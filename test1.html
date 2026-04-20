@@ -1309,10 +1309,25 @@ transform-origin: bottom center;
     </div>
 
 	  <div class="gallery">
-  <video data-src="https://live20.bozztv.com/giatv/giatv-tvzovlivestream/tvzovlivestream/playlist.m3u8" type="application/x-mpegURL" autoplay muted loop playsinline></video>
-  <video data-src="https://live20.bozztv.com/giatv/giatv-tvzovBlackstream/tvzovBlackstream/playlist.m3u8" autoplay muted loop playsinline></video>
+		   <video 
+  data-src="https://live20.bozztv.com/giatv/giatv-tvzovlivestream/tvzovlivestream/playlist.m3u8"
+  muted
+  playsinline
+  preload="none"
+  tabindex="0"></video>
+	 <video 
+  data-src="https://live20.bozztv.com/giatv/giatv-tvzovBlackstream/tvzovBlackstream/playlist.m3u8"
+  muted
+  playsinline
+  preload="none"
+  tabindex="0"></video>	  
   <img src="https://www.kino-teatr.ru/movie/kadr/187652/2070033.jpg" />	  
-  <video data-src="https://stream8.cinerama.uz/1225/tracks-v1a1/mono.m3u8" autoplay muted loop playsinline></video>
+ <video 
+  data-src="https://stream8.cinerama.uz/1225/tracks-v1a1/mono.m3u8"
+  muted
+  playsinline
+  preload="none"
+  tabindex="0"></video>
  
 </div>
 	  
@@ -1343,21 +1358,47 @@ transform-origin: bottom center;
 
 	  </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
 <script>
-document.querySelectorAll('.gallery video').forEach(video => {
-  const src = video.dataset.src;
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.gallery video').forEach(video => {
+    const src = video.dataset.src;
 
-  if (Hls.isSupported()) {
-    const hls = new Hls();
-    hls.loadSource(src);
-    hls.attachMedia(video);
-  } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-    video.src = src;
-  }
+    // enforce attributes (important for autoplay policies)
+    video.muted = true;
+    video.autoplay = true;
+    video.playsInline = true;
+
+    if (Hls.isSupported()) {
+      const hls = new Hls({
+        enableWorker: true,
+        lowLatencyMode: true
+      });
+
+      hls.loadSource(src);
+      hls.attachMedia(video);
+
+      hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        video.play().catch(() => {});
+      });
+
+      // basic error handling
+      hls.on(Hls.Events.ERROR, (event, data) => {
+        console.warn('HLS error:', data);
+      });
+
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = src;
+
+      video.addEventListener('loadedmetadata', () => {
+        video.play().catch(() => {});
+      });
+    }
+  });
 });
-</script>	
-<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</script>
+
 	<script>document.querySelectorAll(".track").forEach(t=>{
   const delay = Math.random() * -20;
   t.style.animationDelay = delay + "s";
