@@ -614,19 +614,29 @@ transform-origin: bottom center;
   transition: width 0.5s ease-out, filter 0.3s ease;
 }
 
-/* ===== RED OVERLAY ON IMAGE ===== */
-.gallery img {
-  /* darken + red tint overlay feel */
-  filter: brightness(0.6) saturate(1.5) contrast(1.2);
-  background-color: rgba(255,0,0,0.4);
-  background-blend-mode: multiply; /* overlay effect */
+/* ===== PULSING RED OVERLAY ON IMAGE ===== */
+@keyframes pulseRed {
+  0%   { background-color: rgba(255,0,0,0.3); }
+  50%  { background-color: rgba(255,0,0,0.5); }
+  100% { background-color: rgba(255,0,0,0.3); }
 }
 
-/* ===== REMOVE OVERLAY ON HOVER / FOCUS ===== */
+.gallery img {
+  /* darken + tint for overlay effect */
+  filter: brightness(0.6) saturate(1.5) contrast(1.2);
+  background-color: rgba(255,0,0,0.3);
+  background-blend-mode: multiply;  
+
+  /* pulse effect */
+  animation: pulseRed 2s infinite ease-in-out;
+}
+
+/* ===== REMOVE OVERLAY & ANIMATION ON HOVER / FOCUS ===== */
 .gallery img:hover,
 .gallery img:focus {
   filter: none;
   background-color: transparent;
+  animation: none;
 }
 
 /* ===== EXPAND EFFECT (VIDEOS + IMAGE) ===== */
