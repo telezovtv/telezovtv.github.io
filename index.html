@@ -600,6 +600,7 @@ transform-origin: bottom center;
   align-items: center;
 }
 
+/* ===== BASE ===== */
 .gallery video,
 .gallery img {
   width: 10%;
@@ -610,26 +611,31 @@ transform-origin: bottom center;
   cursor: pointer;
   overflow: hidden;
 
-  transition: width 0.5s ease-out;
-}
-/* 🔴 ONLY image gets red overlay */
-.gallery img {
-  filter: brightness(0.6) contrast(1.2) saturate(1.5);
-  background-color: rgba(255,0,0,0.4);
-  background-blend-mode: multiply;
+  transition: width 0.5s ease-out, filter 0.3s ease;
 }
 
-/* remove overlay on hover / focus */
+/* ===== RED OVERLAY ON IMAGE ===== */
+.gallery img {
+  /* darken + red tint overlay feel */
+  filter: brightness(0.6) saturate(1.5) contrast(1.2);
+  background-color: rgba(255,0,0,0.4);
+  background-blend-mode: multiply; /* overlay effect */
+}
+
+/* ===== REMOVE OVERLAY ON HOVER / FOCUS ===== */
 .gallery img:hover,
 .gallery img:focus {
   filter: none;
+  background-color: transparent;
 }
-/* Apply hover to BOTH */
+
+/* ===== EXPAND EFFECT (VIDEOS + IMAGE) ===== */
 .gallery video:hover,
-.gallery img:hover {
+.gallery img:hover,
+.gallery video:focus,
+.gallery img:focus {
   width: 50%;
 }
-		
 /* ===== WRAPPER ===== */
 .content {
   display: flex;
