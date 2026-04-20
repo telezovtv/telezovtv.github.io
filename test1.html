@@ -974,66 +974,32 @@ transform-origin: bottom center;
 @keyframes sweepEdge{
   to{ transform: translateX(100%); }
 }
+
 .gallery {
   width: 100%;
   height: 300px;
   display: flex;
-  gap: 0;
+  justify-content: center;
+  align-items: center;
 }
 
-.item {
-  width: 10%;
-  height: 100%;
-  overflow: hidden;
-  border-radius: 10px;
-  border: 2px solid #fff;
-  cursor: pointer;
-  transition: width 0.5s ease-out;
-
-  position: relative; /* IMPORTANT for overlay */
-}
-
-/* IMAGE */
-.item img {
+.gallery video,
+.gallery img {
   width: 10%;
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
   border: 2px solid #fff;
-  transition: all ease-out 0.5s;
   cursor: pointer;
   overflow: hidden;
+
+  transition: width 0.5s ease-out;
 }
 
-/* OVERLAY (second layer) */
-.item .overlay {
-  position: absolute;
-  inset: 0;
-
-  background: url("overlay.png") center / cover no-repeat;
-  opacity: 0.6; /* adjust transparency */
-
-  /* match image transform */
-  transform: rotate(90deg) scaleY(-1);
-
-  pointer-events: none; /* don't block hover */
-  transition: transform 0.5s ease-out, opacity 0.3s;
-}
-
-/* HOVER EXPAND */
-.item:hover {
+/* Apply hover to BOTH */
+.gallery video:hover,
+.gallery img:hover {
   width: 50%;
-}
-
-/* NORMAL VIEW ON HOVER */
-.item:hover img,
-.item:hover .overlay {
-  transform: rotate(0deg) scaleY(1);
-}
-
-/* optional: make overlay stronger on hover */
-.item:hover .overlay {
-  opacity: 0.8;
 }
 /* ===== WRAPPER ===== */
 .content {
@@ -1342,12 +1308,14 @@ transform-origin: bottom center;
       </a>
     </div>
 
-  <div class="gallery">
-       <div class="item"><img src='https://static.okko.tv/images/v4/4b991653-f395-48cc-9b09-33b5c10e5ff2?presetId=4000&width=1200&height=630&scale=1&quality=80' alt=''><div class="overlay" style="background-image:url('/img/overlay1.png')"></div></div>
- <div class="item"><img src='https://avatars.mds.yandex.net/get-kinopoisk-image/10671298/ba53f406-5385-48b7-84c7-2bf5a88c0fca/1920x' alt=''><div class="overlay" style="background-image:url('/img/overlay2.png')"></div></div>
-  <div class="item"><img src='https://static.1tv.ru/uploads/video/material/splash/2026/01/18/1030215/_original/1030215_911d55c3df.jpg' alt=''><div class="overlay" style="background-image:url('/img/overlay3.png')"></div></div>
-	  <div class="item"><img src='https://www.kino-teatr.ru/movie/kadr/187652/2070033.jpg' alt=''><div class="overlay" style="background-image:url('/img/overlay4.png')"></div></div>
-    </div>
+	  <div class="gallery">
+  <video src="https://smotrim.live/tv/playerjs.html?file=https://stream8.cinerama.uz/1207/tracks-v1a1/mono.m3u8" autoplay muted loop playsinline></video>
+  <video src="https://smotrim.live/tv/playerjs.html?file=https://stream8.cinerama.uz/1058/tracks-v1a1/mono.m3u8" autoplay muted loop playsinline></video>
+  <video src="https://smotrim.live/tv/playerjs.html?file=https://stream8.cinerama.uz/1225/tracks-v1a1/mono.m3u8" autoplay muted loop playsinline></video>
+  <img src="https://www.kino-teatr.ru/movie/kadr/187652/2070033.jpg" />
+</div>
+	  
+	  
 	  <div class="row c-cyan">
       сегодня: сериал Новороссия. Потёмкин
     </div>
