@@ -106,7 +106,7 @@
 	body {
    margin: 0;
   min-height: 100vh;
-  display: block; /* allow natural vertical flow */
+  display: block; /* allow scrolling */
   overflow-x: hidden;
 }
 	
@@ -505,53 +505,28 @@ transform-origin: bottom center;
   color: #fff;
 }
 
-/* ===== MOBILE ===== */
-@media (max-width: 600px){
-  #title {
-    font-size: 20px;
-  }
-
-  .row {
-    font-size: 13px;
-  }
-}
 /* ===== FOOTER ===== */
 .footer {
-  position: relative;
-
-
-  padding: 20px 15px;
+  flex-shrink: 0; /* prevent shrinking */
+  margin-top: 2px; /* 2px merge gap */
+  padding: 15px 20px;
   text-align: center;
   font-size: 13px;
   color: #aaa;
-
+  background: rgba(10,10,10,0.95);
   backdrop-filter: blur(6px);
 }
 
-/* ===== FOOTER LINKS ===== */
-.footer a {
+/* ===== LINKS + ICONS ===== */
+.footer .links a {
   color: #7fdfff;
   text-decoration: none;
   margin: 0 8px;
   transition: 0.2s;
 }
 
-.footer a:hover {
-  color: #ffffff;
-  text-shadow: 0 0 6px rgba(127,223,255,0.6);
-}
-
-/* ===== SMALL TEXT ===== */
-.footer .copy {
-  display: block;
-  margin-top: 8px;
-  font-size: 11px;
-  opacity: 0.6;
-}
-
-/* ===== SOCIAL ICONS ===== */
-.footer .icons {
-  margin-top: 10px;
+.footer .links a:hover {
+  color: #fff;
 }
 
 .footer .icons i {
@@ -563,6 +538,37 @@ transform-origin: bottom center;
 .footer .icons i:hover {
   opacity: 1;
   transform: scale(1.1);
+}
+
+/* ===== COPYRIGHT ===== */
+.footer .copy {
+  display: block;
+  margin-top: 8px;
+  font-size: 11px;
+  opacity: 0.6;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 600px) {
+  .gallery {
+    height: auto;
+    flex-wrap: wrap;
+    gap: 2px;
+  }
+
+  .gallery video,
+  .gallery img {
+    width: 48%; /* 2 items per row on mobile */
+    margin-bottom: 2px;
+  }
+
+  .content {
+    padding: 10px;
+  }
+
+  .footer {
+    padding: 12px 10px;
+  }
 }
 
 /* ===== TICKER WRAPPER ===== */
