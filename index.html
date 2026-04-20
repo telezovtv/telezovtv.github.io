@@ -614,11 +614,9 @@ transform-origin: bottom center;
 }
 /* 🔴 ONLY image gets red overlay */
 .gallery img {
-  filter: 
-    sepia(1)        /* shifts colors */
-    hue-rotate(-50deg)
-    saturate(6)
-    brightness(0.7);
+  filter: brightness(0.6) contrast(1.2) saturate(1.5);
+  background-color: rgba(255,0,0,0.4);
+  background-blend-mode: multiply;
 }
 
 /* remove overlay on hover / focus */
@@ -734,31 +732,6 @@ transform-origin: bottom center;
   backdrop-filter: blur(6px);
 }
 
-/* 🔥 top glow line */
-.footer::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 2px;
-
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(127,223,255,0.5),
-    rgba(255,215,0,0.5),
-    transparent
-  );
-
-  animation: footer-line 2s ease forwards;
-}
-
-/* animation */
-@keyframes footer-line {
-  to { center: 50%; }
-}
-
 /* ===== FOOTER LINKS ===== */
 .footer a {
   color: #7fdfff;
@@ -795,9 +768,7 @@ transform-origin: bottom center;
   opacity: 1;
   transform: scale(1.1);
 }
-.footer:hover::before {
-  animation: footer-line 1.5s ease forwards;
-}
+
 /* ===== TICKER WRAPPER ===== */
 .ticker {
   display: inline-block;
