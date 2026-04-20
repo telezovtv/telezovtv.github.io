@@ -612,12 +612,26 @@ transform-origin: bottom center;
 
   transition: width 0.5s ease-out;
 }
+/* 🔴 ONLY image gets red overlay */
+.gallery img {
+  filter: 
+    sepia(1)        /* shifts colors */
+    hue-rotate(-50deg)
+    saturate(6)
+    brightness(0.7);
+}
 
+/* remove overlay on hover / focus */
+.gallery img:hover,
+.gallery img:focus {
+  filter: none;
+}
 /* Apply hover to BOTH */
 .gallery video:hover,
 .gallery img:hover {
   width: 50%;
 }
+		
 /* ===== WRAPPER ===== */
 .content {
   display: flex;
