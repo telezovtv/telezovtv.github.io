@@ -104,9 +104,10 @@
 } 
 
 	body {
-   margin: 0;
+  margin: 0;
   min-height: 100vh;
-  display: block; /* allow scrolling */
+  display: flex;
+  flex-direction: column; /* stack content + footer */
   overflow-x: hidden;
 }
 	
@@ -372,15 +373,16 @@ transform-origin: bottom center;
   cursor: pointer;
 }
 			
+/* ===== GALLERY ===== */
 .gallery {
   width: 100%;
   height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 2px; /* tiny gap between media items */
 }
 
-/* ===== BASE ===== */
 .gallery video,
 .gallery img {
   width: 10%;
@@ -390,28 +392,16 @@ transform-origin: bottom center;
   border: 2px solid #fff;
   cursor: pointer;
   overflow: hidden;
-
   transition: width 0.5s ease-out, filter 0.3s ease;
 }
 
-/* ===== PULSING RED OVERLAY ON IMAGE ===== */
-@keyframes pulseRed {
-  0%   { background-color: rgba(255,0,0,0.3); }
-  50%  { background-color: rgba(255,0,0,0.5); }
-  100% { background-color: rgba(255,0,0,0.3); }
-}
-
 .gallery img {
-  /* darken + tint for overlay effect */
   filter: brightness(0.6) saturate(1.5) contrast(1.2);
   background-color: rgba(255,0,0,0.3);
-  background-blend-mode: multiply;  
-
-  /* pulse effect */
+  background-blend-mode: multiply;
   animation: pulseRed 2s infinite ease-in-out;
 }
 
-/* ===== REMOVE OVERLAY & ANIMATION ON HOVER / FOCUS ===== */
 .gallery img:hover,
 .gallery img:focus {
   filter: none;
@@ -419,13 +409,18 @@ transform-origin: bottom center;
   animation: none;
 }
 
-/* ===== EXPAND EFFECT (VIDEOS + IMAGE) ===== */
 .gallery video:hover,
 .gallery img:hover,
 .gallery video:focus,
 .gallery img:focus {
   width: 50%;
 }
+
+@keyframes pulseRed {
+  0%, 100% { background-color: rgba(255,0,0,0.3); }
+  50% { background-color: rgba(255,0,0,0.5); }
+}
+
 /* ===== WRAPPER ===== */
 .content {
   display: flex;
