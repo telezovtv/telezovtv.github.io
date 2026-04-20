@@ -983,17 +983,21 @@ transform-origin: bottom center;
   align-items: center;
 }
 
+.gallery video,
 .gallery img {
   width: 10%;
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
   border: 2px solid #fff;
-  transition: all ease-out 0.5s;
   cursor: pointer;
   overflow: hidden;
+
+  transition: width 0.5s ease-out;
 }
 
+/* Apply hover to BOTH */
+.gallery video:hover,
 .gallery img:hover {
   width: 50%;
 }
@@ -1304,12 +1308,29 @@ transform-origin: bottom center;
       </a>
     </div>
 
-  <div class="gallery">
-       <img src='https://static.okko.tv/images/v4/4b991653-f395-48cc-9b09-33b5c10e5ff2?presetId=4000&width=1200&height=630&scale=1&quality=80' alt=''>
-  <img src='https://avatars.mds.yandex.net/get-kinopoisk-image/10671298/ba53f406-5385-48b7-84c7-2bf5a88c0fca/1920x' alt=''>
-  <img src='https://static.1tv.ru/uploads/video/material/splash/2026/01/18/1030215/_original/1030215_911d55c3df.jpg' alt=''>
-  <img src='https://www.kino-teatr.ru/movie/kadr/187652/2070033.jpg' alt=''>
-    </div>
+	  <div class="gallery">
+		   <video 
+  data-src="https://live20.bozztv.com/giatv/giatv-tvzovlivestream/tvzovlivestream/playlist.m3u8"
+  muted
+  playsinline
+  preload="none"
+  tabindex="0"></video>
+	 <video 
+  data-src="https://live20.bozztv.com/giatv/giatv-tvzovBlackstream/tvzovBlackstream/playlist.m3u8"
+  muted
+  playsinline
+  preload="none"
+  tabindex="0"></video>	  
+  <img src="https://www.kino-teatr.ru/movie/kadr/187652/2070033.jpg" />	  
+ <video 
+  data-src="https://live20.bozztv.com/giatv/giatv-tvzov%20RED/tvzov%20RED/playlist.m3u8"
+  muted
+  playsinline
+  preload="none"
+  tabindex="0"></video>
+ 
+</div>
+	  
 	  <div class="row c-cyan">
       сегодня: сериал Новороссия. Потёмкин
     </div>
@@ -1337,8 +1358,47 @@ transform-origin: bottom center;
 
 	  </div>
 </div>
-		
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.gallery video').forEach(video => {
+    const src = video.dataset.src;
+
+    // enforce attributes (important for autoplay policies)
+    video.muted = true;
+    video.autoplay = true;
+    video.playsInline = true;
+
+    if (Hls.isSupported()) {
+      const hls = new Hls({
+        enableWorker: true,
+        lowLatencyMode: true
+      });
+
+      hls.loadSource(src);
+      hls.attachMedia(video);
+
+      hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        video.play().catch(() => {});
+      });
+
+      // basic error handling
+      hls.on(Hls.Events.ERROR, (event, data) => {
+        console.warn('HLS error:', data);
+      });
+
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = src;
+
+      video.addEventListener('loadedmetadata', () => {
+        video.play().catch(() => {});
+      });
+    }
+  });
+});
+</script>
+
 	<script>document.querySelectorAll(".track").forEach(t=>{
   const delay = Math.random() * -20;
   t.style.animationDelay = delay + "s";
