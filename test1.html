@@ -995,18 +995,14 @@ transform-origin: bottom center;
 
 /* IMAGE */
 .item img {
-  position: absolute;
-  inset: 0;
-
+  width: 10%;
+  height: 100%;
   object-fit: cover;
-  object-position: left center;
-
-  transform: rotate(90deg) scaleY(-1);
-
-  width: auto;
-  height: 140%;
-
-  transition: transform 0.5s ease-out;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  transition: all ease-out 0.5s;
+  cursor: pointer;
+  overflow: hidden;
 }
 
 /* OVERLAY (second layer) */
