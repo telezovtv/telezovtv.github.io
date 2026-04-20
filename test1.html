@@ -104,13 +104,10 @@
 } 
 
 	body {
-  margin: 0;
+   margin: 0;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column; /* Or 'row' depending on layout */
-  justify-content: center; /* Vertical centering */
-  align-items: center;     /* Horizontal centering */
-		overflow-x: hidden;
+  display: block; /* allow natural vertical flow */
+  overflow-x: hidden;
 }
 	
 span.i {
@@ -600,43 +597,35 @@ transform-origin: bottom center;
   align-items: center;
 }
 
-/* ===== BASE GALLERY ===== */
+/* ===== BASE ===== */
 .gallery video,
 .gallery img {
   width: 10%;
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
-
+  border: 2px solid #fff;
   cursor: pointer;
   overflow: hidden;
-  transition: width 0.5s ease-out, filter 0.3s ease;
-}
 
-/* ===== WHITE BORDER FIX ===== */
-.gallery img,
-.gallery video {
-  border: 0; /* remove normal border */
-  /* use box-shadow as “fake border” unaffected by filter */
-  box-shadow: 0 0 0 2px #fff;
+  transition: width 0.5s ease-out, filter 0.3s ease;
 }
 
 /* ===== PULSING RED OVERLAY ON IMAGE ===== */
 @keyframes pulseRed {
-  0%   { background-color: rgba(255,0,0,0.2); }
+  0%   { background-color: rgba(255,0,0,0.3); }
   50%  { background-color: rgba(255,0,0,0.5); }
-  100% { background-color: rgba(255,0,0,0.2); }
+  100% { background-color: rgba(255,0,0,0.3); }
 }
 
 .gallery img {
-  /* overlay effect */
+  /* darken + tint for overlay effect */
   filter: brightness(0.6) saturate(1.5) contrast(1.2);
   background-color: rgba(255,0,0,0.3);
-  background-blend-mode: multiply;
+  background-blend-mode: multiply;  
 
-  /* pulse animation */
+  /* pulse effect */
   animation: pulseRed 2s infinite ease-in-out;
-  border-radius: 10px;
 }
 
 /* ===== REMOVE OVERLAY & ANIMATION ON HOVER / FOCUS ===== */
