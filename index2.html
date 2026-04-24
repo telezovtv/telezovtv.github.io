@@ -523,7 +523,7 @@ transform-origin: bottom center;
 .gallery {
   width: 100%;
   max-width: 1000px; /* 🔥 control layout */
-  margin: 0 auto;    /* center */
+  margin: 5px auto; /* 🔥 5px top + bottom */
   height: 300px;
   display: flex;
   gap: 0;
@@ -554,6 +554,7 @@ transform-origin: bottom center;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+	 background-color: #000; /* fallback */
 }
 
 /* ===== ACTIVE TILE ===== */
@@ -564,6 +565,8 @@ transform-origin: bottom center;
 		.gallery img {
   transition: transform 0.25s ease, filter 0.25s ease;
 	  animation: pulseRed 2s infinite;
+			  position: relative;
+  z-index: 2;
 }
 .gallery img.active {
   width: 25% !important; /* keep original size */
@@ -576,7 +579,7 @@ transform-origin: bottom center;
   content: "⥂ OPEN MENU";
   position: absolute;
   inset: 0;
-
+ z-index: 3;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -596,8 +599,9 @@ transform-origin: bottom center;
 /* ===== INACTIVE ===== */
 .gallery .inactive {
   width: 15%;
-  opacity: 0.7;	
-  filter: brightness(0.5) saturate(0.6);
+  opacity: 0.85;	
+  filter: brightness(0.7) saturate(0.8);
+  border-color: rgba(255,255,255,0.6); /* 🔥 visible borders */
 }
 
 /* ===== IMAGE PULSE ===== */
@@ -1036,8 +1040,13 @@ if (el.tagName === "IMG") {
       el.classList.add("inactive");
 
       if (el.tagName === "VIDEO") {
-        try { el.pause(); } catch(e){}
-        el.muted = true;
+       try { 
+  v.pause(); 
+  v.currentTime = 0; /* 🔥 reset frame */
+} catch(e){}
+
+v.muted = true;
+
       }
 
     }
