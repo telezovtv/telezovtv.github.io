@@ -596,73 +596,9 @@ transform-origin: bottom center;
   width: 100%;
   height: 300px;
   display: flex;
-  gap: 8px;
-}
-/* TILE */
-.tile {
-  position: relative;
-  flex: 1;
-  border-radius: 10px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: flex 0.4s ease;
+  gap: 2px;
 }
 
-/* EXPAND */
-.tile.active {
-  flex: 3;
-}
-/* SHRINK */
-.tile.inactive {
-  flex: 0.7;
-}
-
-/* VIDEO */
-.tile video,
-.tile img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* PREVIEW LAYER */
-.preview {
-  position: absolute;
-  inset: 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background-size: cover;
-  background-position: center;
-
-  color: white;
-  font-size: 12px;
-  letter-spacing: 1px;
-
-  background-color: rgba(0,0,0,0.4);
-  backdrop-filter: blur(4px);
-
-  transition: 0.3s;
-}
-
-/* HIDE preview when active */
-.tile.active .preview {
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* RED MODE */
-.preview.red {
-  animation: pulseRed 2s infinite;
-}
-
-@keyframes pulseRed {
-  0% { background-color: rgba(255,0,0,0.3); }
-  50% { background-color: rgba(255,0,0,0.5); }
-  100% { background-color: rgba(255,0,0,0.3); }
-}
 /* ===== BASE ===== */
 .gallery video,
 .gallery img {
@@ -680,6 +616,9 @@ transform-origin: bottom center;
 }
 .gallery video {
   pointer-events: auto;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* ===== ACTIVE TILE ===== */
@@ -986,42 +925,36 @@ transform-origin: bottom center;
       </a>
     </div>
 
-	<div class="gallery"> <div class="tile">
-  <video 
-    data-src="https://live20.bozztv.com/giatv/giatv-tvzovlivestream/tvzovlivestream/playlist.m3u8"
-    muted
-    playsinline
-    preload="none">
-  </video>
-  <div class="preview" style="background-image:url('/img/preview1.jpg')">
-    <span>CHANNEL 1</span>
-  </div>	
-	  <video 
-    data-src="https://live20.bozztv.com/giatv/giatv-tvzovBlackstream/tvzovBlackstream/playlist.m3u8"
-    muted
-    playsinline
-    preload="none">
-  </video>
-  <div class="preview" style="background-image:url('/img/preview2.jpg')">
-    <span>CHANNEL 2</span>
-  </div>
-	
-		   <div class="tile image-tile">
-  <img src="/img/ss1.png">
-  <div class="preview red">
-    <span>OFFLINE</span>
-  </div>
+	  <div class="gallery">
+		   <video 
+  data-src="https://live20.bozztv.com/giatv/giatv-tvzovlivestream/tvzovlivestream/playlist.m3u8"
+				   poster="/img/overlay2.png"
+			style="background-image:url('https://www.kino-teatr.ru/movie/poster/182516/277300.jpg')"	  
+				  
+  muted
+  playsinline
+  preload="none"
+  tabindex="0"></video>
+	 <video 
+  data-src="https://live20.bozztv.com/giatv/giatv-tvzovBlackstream/tvzovBlackstream/playlist.m3u8"
+			 poster="https://tnzvezdy.ru/sites/default/files/images/posts/key_centuria_terror_02_new-kopiya.jpg"
+			 style="background-image:url('https://tnzvezdy.ru/sites/default/files/images/posts/key_centuria_terror_02_new-kopiya.jpg')"
+  muted
+  playsinline
+  preload="none"
+  tabindex="0"></video>	  
+  <img src="/img/logo0.png" />	  
+ <video 
+  data-src="https://live20.bozztv.com/giatv/giatv-tvzov%20RED/tvzov%20RED/playlist.m3u8"
+		 poster="https://www.kinonews.ru/insimgs/2026/poster/poster140154_1.webp"
+		 style="background-image:url('https://www.kinonews.ru/insimgs/2026/poster/poster140154_1.webp')"
+  muted
+  playsinline
+  preload="none"
+  tabindex="0"></video>
+ 
 </div>
-	  <video 
-    data-src="https://live20.bozztv.com/giatv/giatv-tvzov%20RED/tvzov%20RED/playlist.m3u8"
-    muted
-    playsinline
-    preload="none">
-  </video>
-  <div class="preview" style="background-image:url('/img/preview3.jpg')">
-    <span>CHANNEL 3</span>
-  </div>
-	  </div>  
+	  
 	  <div class="row c-cyan">
       сегодня: сериал Отпечатки и Высшая мера 2 новый сезон
     </div>
@@ -1050,10 +983,10 @@ transform-origin: bottom center;
 	  </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-	<script>
-const tiles = document.querySelectorAll(".tile");
+<script>
+const items = document.querySelectorAll(".gallery video, .gallery img");
 
-/* LOAD VIDEO */
+/* ================= LOAD VIDEO (HLS SUPPORT) ================= */
 function loadVideo(video){
 
   if (video.dataset.loaded) return;
@@ -1061,47 +994,79 @@ function loadVideo(video){
   const src = video.dataset.src;
   if (!src) return;
 
-  if (src.includes(".m3u8") && window.Hls && Hls.isSupported()) {
+  // HLS (.m3u8)
+  if (src.includes(".m3u8")) {
 
-    const hls = new Hls({ maxBufferLength: 6 });
-    hls.loadSource(src);
-    hls.attachMedia(video);
+    if (window.Hls && Hls.isSupported()) {
 
-    video._hls = hls;
-    video.dataset.loaded = "1";
+      const hls = new Hls({
+        maxBufferLength: 10,
+        maxMaxBufferLength: 20
+      });
+
+      hls.loadSource(src);
+      hls.attachMedia(video);
+
+      video._hls = hls;
+      video.dataset.loaded = "1";
+
+    } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+
+      video.src = src;
+      video.dataset.loaded = "1";
+
+    } else {
+      console.warn("HLS not supported");
+    }
 
   } else {
+    // MP4 or direct
     video.src = src;
     video.dataset.loaded = "1";
   }
 }
 
-/* ACTIVATE TILE */
-function activateTile(activeTile){
+/* ================= ACTIVATE ITEM ================= */
+function activateItem(active){
 
-  tiles.forEach(tile => {
+  items.forEach(el => {
 
-    const video = tile.querySelector("video");
+    if (el === active) {
 
-    if (tile === activeTile) {
+      el.classList.add("active");
+      el.classList.remove("inactive");
 
-      tile.classList.add("active");
-      tile.classList.remove("inactive");
+      // 🎥 VIDEO BEHAVIOR
+      if (el.tagName === "VIDEO") {
 
-      if (video) {
-        loadVideo(video);
-        video.muted = false;
-        video.play().catch(()=>{});
+        loadVideo(el);
+
+        el.muted = false;
+        el.style.opacity = "0.5";
+
+        el.play().then(() => {
+          setTimeout(() => {
+            el.style.opacity = "1";
+          }, 120);
+        }).catch(()=>{});
+
+      }
+
+      // 🖼 IMAGE BEHAVIOR (optional hook)
+      if (el.tagName === "IMG") {
+        // you can trigger something here later if needed
+        // example:
+        // openPlayer(...)
       }
 
     } else {
 
-      tile.classList.remove("active");
-      tile.classList.add("inactive");
+      el.classList.remove("active");
+      el.classList.add("inactive");
 
-      if (video) {
-        video.pause();
-        video.muted = true;
+      if (el.tagName === "VIDEO") {
+        try { el.pause(); } catch(e){}
+        el.muted = true;
       }
 
     }
@@ -1109,25 +1074,20 @@ function activateTile(activeTile){
   });
 }
 
-/* CLICK */
-tiles.forEach(tile => {
-  tile.addEventListener("click", () => {
-    activateTile(tile);
+/* ================= CLICK HANDLER ================= */
+items.forEach(el => {
+  el.addEventListener("click", () => {
+    activateItem(el);
   });
 });
 
-/* AUTO START FIRST VIDEO TILE */
+/* ================= AUTO START FIRST VIDEO ================= */
 window.addEventListener("load", () => {
-  const firstVideoTile = document.querySelector(".tile video")?.closest(".tile");
-  if (firstVideoTile) activateTile(firstVideoTile);
+  const firstVideo = document.querySelector(".gallery video");
+  if (firstVideo) activateItem(firstVideo);
 });
 </script>
 
-	<script>document.querySelectorAll(".track").forEach(t=>{
-  const delay = Math.random() * -20;
-  t.style.animationDelay = delay + "s";
-});
-</script>	
 	
 <script>
 overlay.addEventListener("click", (e)=>{
