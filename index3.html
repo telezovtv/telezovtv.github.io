@@ -102,15 +102,22 @@
     background-position: 0% 300%;
   }
 } 
+		html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
 
 	body {
   margin: 0;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column; /* Or 'row' depending on layout */
-  justify-content: center; /* Vertical centering */
-  align-items: center;     /* Horizontal centering */
-		overflow-x: hidden;
+
+  display: block; /* 🔥 remove flex centering */
+
+  overflow-x: hidden;
 }
 	
 span.i {
@@ -319,90 +326,6 @@ transform-origin: bottom center;
     transform: translateX(-50%) translateY(3px); /* 🔥 down instead of up */
   }
 }
-		/* ===== GRID VERSION OF NEON BAR ===== */
-.neon-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 10px;
-}
-
-/* reuse SAME structure as neon-bar */
-.neon-grid a {
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-  overflow: visible;
-}
-
-/* ===== HOVER (same style as your bar) ===== */
-.neon-grid a:hover .inner {
-  color: #fff;
-  transform: scale(1.08);
-
-  box-shadow:
-    0 0 6px rgba(232,195,0,0.8),
-    0 0 12px rgba(232,195,0,0.6);
-}
-
-/* ===== NEON SWEEP (same as your bar) ===== */
-.neon-grid a .inner::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(204, 204, 204,0.9),
-    transparent
-  );
-
-  transform: translateX(-100%);
-  opacity: 0.6;
-}
-
-.neon-grid a:hover .inner::before {
-  animation: neonSweepX 0.6s forwards;
-}
-
-/* reuse same keyframes */
-		.neon-grid a::after {
-  content: attr(data-label);
-  position: absolute;
-
-  bottom: 120%;
-  left: 50%;
-  transform: translateX(-50%) translateY(10px);
-
-  padding: 4px 10px;
-  font-size: 11px;
-  white-space: nowrap;
-  font-family: "Doto", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-weight:600;
-  color: #EFECEC;
-  background: rgba(10,10,10,0.9);
-
-  border-radius: 6px;
-  opacity: 0;
-  pointer-events: none;
-
-  z-index: 9999;
-
-  box-shadow:
-    0 0 6px rgba(204, 204, 204,0.8),
-    0 0 12px rgba(204, 204, 204,0.5);
-
-  transition: all 0.25s ease;
-}
-
-.neon-grid a:hover::after {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-  animation: floatGlow 1.2s ease-in-out infinite alternate;
-}
 
 /* ===== GRID ===== */
 .neon-grid {
@@ -594,9 +517,16 @@ transform-origin: bottom center;
 			
 .gallery {
   width: 100%;
+  max-width: 1000px; /* 🔥 control layout */
+  margin: 0 auto;    /* center */
   height: 300px;
   display: flex;
-  gap: 0px;
+  gap: 0;
+}
+@media (max-width: 600px){
+  .gallery {
+    height: 180px; /* 🔥 smaller for mobile */
+  }
 }
 
 /* ===== BASE ===== */
@@ -890,6 +820,7 @@ transform-origin: bottom center;
 
 	</style>
 </head>
+<body translate="no">
 <div class="ac">
 <div class="neon-bar">
    <a href="//smotrim.live" data-label="твзов тв каналы и сериалы"><span class="inner">твзов ◀ тв <i class="i-dot">● </i> сериалы <i class="i-dot">+ </i> <i class="fa fa-film"></i></span></a>
@@ -987,6 +918,25 @@ transform-origin: bottom center;
 
 </div>
 
+<div class="footer">
+
+  <div class="links">
+    <a href="//smotrim.live">твзов</a>
+    <a href="//smotrim.live/tv">каналы</a>
+    <a href="//smotrim.live/tv/menu.html">программа</a>
+    <a href="//smotrim.live">связь ⥃ чат</a>
+  </div>
+
+  <div class="icons">
+    <i class="fa fa-youtube-play" style="color:#ff3b3b"></i>
+    <i class="fa fa-telegram" style="color:#7fdfff"></i>
+  </div>
+
+  <span class="copy">
+    © 2026 ТВЗОВ — live streaming project
+  </span>
+
+	  </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 <script>
