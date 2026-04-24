@@ -115,13 +115,13 @@
   margin: 0;
   min-height: 100vh;
 
-  display: block; /* 🔥 remove flex centering */
+  display: block;
 
   overflow-x: hidden;
 }
-	@media (max-width: 600px) and (orientation: portrait) {
-  body {
-    padding-top: calc(20px + env(safe-area-inset-top));
+@media (max-width: 600px) and (orientation: portrait) {
+  .gallery {
+    margin-top: 8vh;
   }
 }
 
@@ -822,7 +822,14 @@ transform-origin: bottom center;
     transform: translateX(-50%);
   }
 }
-
+.neon-bar + .ac {
+  margin-top: 10px;
+}
+@media (max-width: 600px) {
+  .ac {
+    margin-top: 10px;
+  }
+}
 	</style>
 </head>
 <body translate="no">

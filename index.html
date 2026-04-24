@@ -103,14 +103,27 @@
   }
 } 
 
+		html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 	body {
   margin: 0;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column; /* Or 'row' depending on layout */
-  justify-content: center; /* Vertical centering */
-  align-items: center;     /* Horizontal centering */
-		overflow-x: hidden;
+
+  display: block;
+
+  overflow-x: hidden;
+}
+@media (max-width: 600px) and (orientation: portrait) {
+  .gallery {
+    margin-top: 8vh;
+  }
 }
 	
 span.i {
@@ -319,170 +332,7 @@ transform-origin: bottom center;
     transform: translateX(-50%) translateY(3px); /* 🔥 down instead of up */
   }
 }
-		/* ===== GRID VERSION OF NEON BAR ===== */
-.neon-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 10px;
-}
-
-/* reuse SAME structure as neon-bar */
-.neon-grid a {
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-  overflow: visible;
-}
-
-/* ===== HOVER (same style as your bar) ===== */
-.neon-grid a:hover .inner {
-  color: #fff;
-  transform: scale(1.08);
-
-  box-shadow:
-    0 0 6px rgba(232,195,0,0.8),
-    0 0 12px rgba(232,195,0,0.6);
-}
-
-/* ===== NEON SWEEP (same as your bar) ===== */
-.neon-grid a .inner::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(204, 204, 204,0.9),
-    transparent
-  );
-
-  transform: translateX(-100%);
-  opacity: 0.6;
-}
-
-.neon-grid a:hover .inner::before {
-  animation: neonSweepX 0.6s forwards;
-}
-
-/* reuse same keyframes */
-		.neon-grid a::after {
-  content: attr(data-label);
-  position: absolute;
-
-  bottom: 120%;
-  left: 50%;
-  transform: translateX(-50%) translateY(10px);
-
-  padding: 4px 10px;
-  font-size: 11px;
-  white-space: nowrap;
-  font-family: "Doto", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-weight:600;
-  color: #EFECEC;
-  background: rgba(10,10,10,0.9);
-
-  border-radius: 6px;
-  opacity: 0;
-  pointer-events: none;
-
-  z-index: 9999;
-
-  box-shadow:
-    0 0 6px rgba(204, 204, 204,0.8),
-    0 0 12px rgba(204, 204, 204,0.5);
-
-  transition: all 0.25s ease;
-}
-
-.neon-grid a:hover::after {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-  animation: floatGlow 1.2s ease-in-out infinite alternate;
-}
-
-/* ===== GRID ===== */
-.neon-grid {
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  padding:10px;
-}
-
-/* ===== BUTTON ===== */
-.neon-grid a {
-  text-decoration:none;
-	  width: 80px;
-  height: 80px;
-}
-.neon-grid a .inner {
-  width:70px;
-  height:70px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-
-  border-radius:10px;
-  background:#111;
-
-  color:#aaa;
-  transition:0.25s;
-  position:relative;
-  overflow:hidden;
-}
-
-/* ===== ICON + NUM ===== */
-.icon { font-size:14px; }
-.num { font-size:16px; }
-
-/* ===== NEON COLORS (ROTATING) ===== */
-.neon-grid a:nth-child(6n+1) .inner { --c:#00f7ff; }
-.neon-grid a:nth-child(6n+2) .inner { --c:#ff00e0; }
-.neon-grid a:nth-child(6n+3) .inner { --c:#00ff88; }
-.neon-grid a:nth-child(6n+4) .inner { --c:#ffaa00; }
-.neon-grid a:nth-child(6n+5) .inner { --c:#ff3c3c; }
-.neon-grid a:nth-child(6n+6) .inner { --c:#9b5cff; }
-
-/* ===== GLOW ===== */
-.neon-grid a:hover .inner,
-.neon-grid a.active .inner {
-  color:white;
-  transform:scale(1.1);
-
-  box-shadow:
-    0 0 8px var(--c),
-    0 0 16px var(--c),
-    0 0 25px var(--c);
-}
-
-/* ===== SWEEP ===== */
-.neon-grid a .inner::before {
-  content:"";
-  position:absolute;
-  inset:0;
-
-  background:linear-gradient(
-    90deg,
-    transparent,
-    var(--c),
-    transparent
-  );
-
-  transform:translateX(-100%);
-  opacity:0.5;
-}
-
-.neon-grid a:hover .inner::before {
-  animation:sweep 0.6s forwards;
-}
-
-@keyframes sweep {
-  to { transform:translateX(100%); }
-}
+		
 /* ===== OVERLAY ===== */
 #player-overlay{
   position: fixed;
@@ -818,7 +668,14 @@ transform-origin: bottom center;
     transform: translateX(-50%);
   }
 }
-
+.neon-bar + .ac {
+  margin-top: 10px;
+}
+@media (max-width: 600px) {
+  .ac {
+    margin-top: 10px;
+  }
+}
 	</style><script>
   window.console = window.console || function(t) {};
 </script>
