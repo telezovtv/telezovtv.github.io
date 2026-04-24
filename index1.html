@@ -102,7 +102,6 @@
     background-position: 0% 300%;
   }
 } 
-
 		html, body {
   max-width: 100%;
   overflow-x: hidden;
@@ -125,7 +124,7 @@
     margin-top: 8vh;
   }
 }
-	
+
 span.i {
   color: #888664; font-family: "DejaVu Sans", "Trebuchet MS";
   font-size:240%; letter-spacing:2px; padding-top: 1px; align-content: stretch; 
@@ -332,90 +331,6 @@ transform-origin: bottom center;
     transform: translateX(-50%) translateY(3px); /* 🔥 down instead of up */
   }
 }
-		/* ===== GRID VERSION OF NEON BAR ===== */
-.neon-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 10px;
-}
-
-/* reuse SAME structure as neon-bar */
-.neon-grid a {
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-  overflow: visible;
-}
-
-/* ===== HOVER (same style as your bar) ===== */
-.neon-grid a:hover .inner {
-  color: #fff;
-  transform: scale(1.08);
-
-  box-shadow:
-    0 0 6px rgba(232,195,0,0.8),
-    0 0 12px rgba(232,195,0,0.6);
-}
-
-/* ===== NEON SWEEP (same as your bar) ===== */
-.neon-grid a .inner::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(204, 204, 204,0.9),
-    transparent
-  );
-
-  transform: translateX(-100%);
-  opacity: 0.6;
-}
-
-.neon-grid a:hover .inner::before {
-  animation: neonSweepX 0.6s forwards;
-}
-
-/* reuse same keyframes */
-		.neon-grid a::after {
-  content: attr(data-label);
-  position: absolute;
-
-  bottom: 120%;
-  left: 50%;
-  transform: translateX(-50%) translateY(10px);
-
-  padding: 4px 10px;
-  font-size: 11px;
-  white-space: nowrap;
-  font-family: "Doto", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-weight:600;
-  color: #EFECEC;
-  background: rgba(10,10,10,0.9);
-
-  border-radius: 6px;
-  opacity: 0;
-  pointer-events: none;
-
-  z-index: 9999;
-
-  box-shadow:
-    0 0 6px rgba(204, 204, 204,0.8),
-    0 0 12px rgba(204, 204, 204,0.5);
-
-  transition: all 0.25s ease;
-}
-
-.neon-grid a:hover::after {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-  animation: floatGlow 1.2s ease-in-out infinite alternate;
-}
 
 /* ===== GRID ===== */
 .neon-grid {
@@ -607,58 +522,148 @@ transform-origin: bottom center;
 			
 .gallery {
   width: 100%;
+  max-width: 1000px; /* 🔥 control layout */
+  margin: 5px auto; /* 🔥 5px top + bottom */
   height: 300px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  gap: 0;
+}
+@media (max-width: 600px){
+  .gallery {
+    height: 180px; /* 🔥 smaller for mobile */
+  }
 }
 
 /* ===== BASE ===== */
 .gallery video,
 .gallery img {
-  width: 10%;
+  width: 25%;
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
   border: 2px solid #fff;
   cursor: pointer;
+  position: relative;
+  transform: translateZ(0); /* 🔥 forces GPU layer */
   overflow: hidden;
 
-  transition: width 0.5s ease-out, filter 0.3s ease;
+  transition: width 0.5s ease, filter 0.3s ease, opacity 0.3s ease;
+}
+.gallery video {
+  pointer-events: auto;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+	 background-color: #000; /* fallback */
+	z-index: 2;
 }
 
-/* ===== PULSING RED OVERLAY ON IMAGE ===== */
+/* ===== ACTIVE TILE ===== */
+.gallery .active {
+  width: 55%;
+  z-index: 2;
+}
+		.gallery img {
+  transition: transform 0.25s ease, filter 0.25s ease;
+	  animation: pulseRed 2s infinite;
+			  position: relative;
+  z-index: 1;
+}
+.gallery img.active {
+  width: 25% !important; /* keep original size */
+}
+.gallery img:hover {
+  transform: scale(1.01);
+  filter: brightness(1.2) saturate(1.4);
+}
+.gallery img::after {
+  content: "⥂ OPEN MENU";
+  position: absolute;
+  inset: 0;
+ z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 11px;
+  color: #fff;
+  letter-spacing: 1px;
+
+  background: rgba(255,0,0,0.0);
+  transition: 0.3s;
+}
+
+.gallery img:hover::after {
+  background: rgba(255,0,0,0.45);
+}
+
+/* ===== INACTIVE ===== */
+.gallery .inactive {
+  width: 15%;
+  opacity: 0.85;	
+  filter: brightness(0.7) saturate(0.8);
+  border-color: rgba(255,255,255,0.6); /* 🔥 visible borders */
+}
+
+/* ===== IMAGE PULSE ===== */
 @keyframes pulseRed {
   0%   { background-color: rgba(255,0,0,0.3); }
   50%  { background-color: rgba(255,0,0,0.5); }
   100% { background-color: rgba(255,0,0,0.3); }
 }
 
-.gallery img {
-  /* darken + tint for overlay effect */
-  filter: brightness(0.6) saturate(1.5) contrast(1.2);
-  background-color: rgba(255,0,0,0.3);
-  background-blend-mode: multiply;  
+.gallery video::before {
+  content: "● LIVE";
+  position: absolute;
+  top: 6px;
+  left: 8px;
 
-  /* pulse effect */
-  animation: pulseRed 2s infinite ease-in-out;
+  font-size: 10px;
+  color: #ff3b3b;
+
+  opacity: 0;
+  transition: 0.3s;
 }
 
-/* ===== REMOVE OVERLAY & ANIMATION ON HOVER / FOCUS ===== */
-.gallery img:hover,
-.gallery img:focus {
-  filter: none;
-  background-color: transparent;
-  animation: none;
+.gallery video.active::before {
+  opacity: 1;
 }
 
-/* ===== EXPAND EFFECT (VIDEOS + IMAGE) ===== */
-.gallery video:hover,
-.gallery img:hover,
-.gallery video:focus,
-.gallery img:focus {
-  width: 50%;
+/* ===== COLOR OVERLAYS (FOR VIDEOS) ===== */
+.gallery video::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  transition: 0.3s;
+  pointer-events: none;
 }
+
+/* different colors per tile */
+.gallery video:nth-child(1).inactive::after {
+  background: rgba(0, 150, 255, 0.25);
+}
+.gallery video:nth-child(2).inactive::after {
+  background: rgba(0, 255, 150, 0.25);
+}
+.gallery video:nth-child(4).inactive::after {
+  background: rgba(255, 100, 0, 0.25);
+}
+
+/* active = clean */
+.gallery video.active::after {
+  background: transparent;
+}
+.tile {
+  position: relative;
+}
+
+.tile video {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
 /* ===== WRAPPER ===== */
 .content {
   display: flex;
@@ -832,16 +837,14 @@ transform-origin: bottom center;
   }
 }
 .neon-bar + .ac {
-  margin-top: 10px;
+  margin-top: 20px;
 }
 @media (max-width: 600px) {
   .ac {
-    margin-top: 10px;
+    margin-top: 14px;
   }
 }
-	</style><script>
-  window.console = window.console || function(t) {};
-</script>
+	</style>
 </head>
 <body translate="no">
 <div class="ac">
@@ -905,28 +908,34 @@ transform-origin: bottom center;
     </div>
 
 	  <div class="gallery">
-		   <video 
+		   <div class="tile"><video 
   data-src="https://live20.bozztv.com/giatv/giatv-tvzovlivestream/tvzovlivestream/playlist.m3u8"
+				   poster="/img/overlay2.png"
+			style="background-image:url('https://www.kino-teatr.ru/movie/poster/182516/277300.jpg')"	  
+				  
   muted
   playsinline
   preload="none"
-  tabindex="0"></video>
-	 <video 
+									tabindex="0"></video></div>
+	 <div class="tile"><video 
   data-src="https://live20.bozztv.com/giatv/giatv-tvzovBlackstream/tvzovBlackstream/playlist.m3u8"
+			 poster="https://tnzvezdy.ru/sites/default/files/images/posts/key_centuria_terror_02_new-kopiya.jpg"
+			 style="background-image:url('https://tnzvezdy.ru/sites/default/files/images/posts/key_centuria_terror_02_new-kopiya.jpg')"
   muted
   playsinline
   preload="none"
-  tabindex="0"></video>	  
-  <img src="/img/logo0.png" />	  
- <video 
+							  tabindex="0"></video>	 </div> 
+  <img id="menuTile" src="/img/logo0.png" />	  
+ <div class="tile"><video 
   data-src="https://live20.bozztv.com/giatv/giatv-tvzov%20RED/tvzov%20RED/playlist.m3u8"
+		 poster="https://www.kinonews.ru/insimgs/2026/poster/poster140154_1.webp"
+		 style="background-image:url('https://www.kinonews.ru/insimgs/2026/poster/poster140154_1.webp')"
   muted
   playsinline
   preload="none"
-  tabindex="0"></video>
+						  tabindex="0"></video></div>
  
 </div>
-	  
 	  <div class="row c-cyan">
       сегодня: сериал Отпечатки и Высшая мера 2 новый сезон
     </div>
@@ -955,80 +964,129 @@ transform-origin: bottom center;
 	  </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.gallery video').forEach(video => {
-    const src = video.dataset.src;
+const items = document.querySelectorAll(".gallery video, .gallery img");
 
-    // enforce attributes (important for autoplay policies)
-    video.muted = true;
-    video.autoplay = true;
-    video.playsInline = true;
+/* ================= LOAD VIDEO ================= */
+function loadVideo(video){
 
-    if (Hls.isSupported()) {
+  if (video.dataset.loaded) return;
+
+  const src = video.dataset.src;
+  if (!src) return;
+
+  if (src.includes(".m3u8")) {
+
+    if (window.Hls && Hls.isSupported()) {
+
       const hls = new Hls({
-        enableWorker: true,
-        lowLatencyMode: true
+        maxBufferLength: 10,
+        maxMaxBufferLength: 20
       });
 
       hls.loadSource(src);
       hls.attachMedia(video);
 
-      hls.on(Hls.Events.MANIFEST_PARSED, () => {
-        video.play().catch(() => {});
-      });
+      video._hls = hls;
+      video.dataset.loaded = "1";
 
-      // basic error handling
-      hls.on(Hls.Events.ERROR, (event, data) => {
-        console.warn('HLS error:', data);
-      });
+    } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
 
-    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
       video.src = src;
+      video.dataset.loaded = "1";
 
-      video.addEventListener('loadedmetadata', () => {
-        video.play().catch(() => {});
-      });
+    } else {
+      console.warn("HLS not supported");
     }
-  });
-});
-</script>
 
-	<script>document.querySelectorAll(".track").forEach(t=>{
-  const delay = Math.random() * -20;
-  t.style.animationDelay = delay + "s";
-});
-</script>	
-	
-<script>
-overlay.addEventListener("click", (e)=>{
-  if(e.target === overlay){
-    closePlayer();
+  } else {
+    video.src = src;
+    video.dataset.loaded = "1";
   }
-});
-
-document.addEventListener("keydown", (e)=>{
-  if(e.key === "Escape"){
-    closePlayer();
-  }
-});
-
-function closePlayer(){
-
-  overlay.classList.remove("active");
-
-  if(mainHls){
-    mainHls.destroy();
-    mainHls = null;
-  }
-
-  mainVideo.pause();
-  mainVideo.src = "";
-
-  mainFrame.src = "";
 }
+
+/* ================= ACTIVATE ================= */
+function activateItem(active){
+
+  items.forEach(el => {
+
+    if (el === active) {
+
+      el.classList.add("active");
+      el.classList.remove("inactive");
+
+      if (el.tagName === "VIDEO") {
+
+        loadVideo(el);
+
+        el.muted = false;
+        el.style.opacity = "0.5";
+
+        el.play().then(() => {
+          setTimeout(() => el.style.opacity = "1", 120);
+        }).catch(()=>{});
+
+      }
+
+      if (el.tagName === "IMG") {
+        window.open(
+          "https://telezov.pages.dev/tv/menu.html",
+          "_blank",
+          "width=900,height=600,resizable=yes"
+        );
+      }
+
+    } else {
+
+      el.classList.remove("active");
+      el.classList.add("inactive");
+
+      if (el.tagName === "VIDEO") {
+        try {
+          el.pause();
+          el.currentTime = 0; /* reset frame */
+        } catch(e){}
+
+        el.muted = true;
+      }
+    }
+
+  });
+}
+
+/* ================= CLICK ================= */
+items.forEach(el => {
+
+  el.addEventListener("click", () => {
+
+    // 🎥 VIDEO TOGGLE
+    if (el.tagName === "VIDEO" && el.classList.contains("active")) {
+
+      if (el.paused) {
+        el.muted = false;
+        el.play().then(()=> el.style.opacity = "1").catch(()=>{});
+      } else {
+        el.pause();
+        el.muted = true;
+        el.style.opacity = "0.6";
+      }
+
+      return;
+    }
+
+    // 🧠 otherwise activate
+    activateItem(el);
+  });
+
+});
+
+/* ================= AUTO START ================= */
+window.addEventListener("load", () => {
+  const firstVideo = document.querySelector(".gallery video");
+  if (firstVideo) activateItem(firstVideo);
+});
 </script>
+
 
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
