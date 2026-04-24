@@ -614,6 +614,9 @@ transform-origin: bottom center;
 
   transition: width 0.5s ease, filter 0.3s ease, opacity 0.3s ease;
 }
+.gallery video {
+  pointer-events: auto;
+}
 
 /* ===== ACTIVE TILE ===== */
 .gallery .active {
@@ -624,8 +627,8 @@ transform-origin: bottom center;
 /* ===== INACTIVE ===== */
 .gallery .inactive {
   width: 15%;
-  opacity: 0.7;
-  filter: brightness(0.6);
+  opacity: 0.7;	
+  filter: brightness(0.5) saturate(0.6);
 }
 
 /* ===== IMAGE PULSE ===== */
@@ -637,6 +640,22 @@ transform-origin: bottom center;
 
 .gallery img {
   animation: pulseRed 2s infinite;
+}
+.gallery video::before {
+  content: "● LIVE";
+  position: absolute;
+  top: 6px;
+  left: 8px;
+
+  font-size: 10px;
+  color: #ff3b3b;
+
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.gallery video.active::before {
+  opacity: 1;
 }
 
 /* ===== COLOR OVERLAYS (FOR VIDEOS) ===== */
@@ -1010,7 +1029,14 @@ function activateVideo(active){
       loadVideo(v);
 
       v.muted = false;
-      v.play().catch(()=>{});
+      v.style.opacity = "0.5";
+
+v.play().then(() => {
+  setTimeout(() => {
+    v.style.opacity = "1";
+  }, 120);
+}).catch(()=>{});
+
 
     } else {
 
