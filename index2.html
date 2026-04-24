@@ -566,20 +566,22 @@ transform-origin: bottom center;
   transition: transform 0.25s ease, filter 0.25s ease;
 	  animation: pulseRed 2s infinite;
 			  position: relative;
-  z-index: 2;
+  z-index: 5; /* ALWAYS above video */
+  background: #000; /* prevents “transparent disappear” */
 }
 .gallery img.active {
   width: 25% !important; /* keep original size */
 }
 .gallery img:hover {
-  transform: scale(1.00);
+  transform: scale(1.01);
   filter: brightness(1.2) saturate(1.4);
+  z-index: 10; /* 🔥 bring above everything */
 }
 .gallery img::after {
   content: "⥂ OPEN MENU";
   position: absolute;
   inset: 0;
- z-index: 3;
+  z-index: 999;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -602,6 +604,12 @@ transform-origin: bottom center;
   opacity: 0.85;	
   filter: brightness(0.7) saturate(0.8);
   border-color: rgba(255,255,255,0.6); /* 🔥 visible borders */
+}
+@media (hover: none) {
+  .gallery img {
+    opacity: 0.8 !important;
+    filter: none !important;
+  }
 }
 
 /* ===== IMAGE PULSE ===== */
