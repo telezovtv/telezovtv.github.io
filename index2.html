@@ -943,7 +943,7 @@ transform-origin: bottom center;
   playsinline
   preload="none"
   tabindex="0"></video>	  
-  <img src="/img/logo0.png" />	  
+  <img id="menuTile" src="/img/logo0.png" />	  
  <video 
   data-src="https://live20.bozztv.com/giatv/giatv-tvzov%20RED/tvzov%20RED/playlist.m3u8"
 		 poster="https://www.kinonews.ru/insimgs/2026/poster/poster140154_1.webp"
@@ -1052,12 +1052,16 @@ function activateItem(active){
 
       }
 
-      // 🖼 IMAGE BEHAVIOR (optional hook)
-      if (el.tagName === "IMG") {
-        // you can trigger something here later if needed
-        // example:
-        // openPlayer(...)
-      }
+     // 🖼 IMAGE BEHAVIOR (OPEN MENU)
+if (el.tagName === "IMG") {
+
+  window.open(
+    "https://telezov.pages.dev/tv/menu.html",
+    "_blank",
+    "width=900,height=600,resizable=yes"
+  );
+
+}
 
     } else {
 
