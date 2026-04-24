@@ -103,14 +103,27 @@
   }
 } 
 
+		html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 	body {
   margin: 0;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column; /* Or 'row' depending on layout */
-  justify-content: center; /* Vertical centering */
-  align-items: center;     /* Horizontal centering */
-		overflow-x: hidden;
+
+  display: block;
+
+  overflow-x: hidden;
+}
+@media (max-width: 600px) and (orientation: portrait) {
+  .gallery {
+    margin-top: 8vh;
+  }
 }
 	
 span.i {
@@ -596,45 +609,25 @@ transform-origin: bottom center;
   width: 100%;
   height: 300px;
   display: flex;
-  gap: 4px;
+  justify-content: center;
+  align-items: center;
 }
 
 /* ===== BASE ===== */
 .gallery video,
 .gallery img {
-  width: 25%;
+  width: 10%;
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
   border: 2px solid #fff;
   cursor: pointer;
-
-  position: relative;
   overflow: hidden;
 
-  transition: width 0.5s ease, filter 0.3s ease, opacity 0.3s ease;
-}
-.gallery video {
-  pointer-events: auto;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  transition: width 0.5s ease-out, filter 0.3s ease;
 }
 
-/* ===== ACTIVE TILE ===== */
-.gallery .active {
-  width: 55%;
-  z-index: 2;
-}
-
-/* ===== INACTIVE ===== */
-.gallery .inactive {
-  width: 15%;
-  opacity: 0.7;	
-  filter: brightness(0.5) saturate(0.6);
-}
-
-/* ===== IMAGE PULSE ===== */
+/* ===== PULSING RED OVERLAY ON IMAGE ===== */
 @keyframes pulseRed {
   0%   { background-color: rgba(255,0,0,0.3); }
   50%  { background-color: rgba(255,0,0,0.5); }
@@ -642,51 +635,30 @@ transform-origin: bottom center;
 }
 
 .gallery img {
-  animation: pulseRed 2s infinite;
-}
-.gallery video::before {
-  content: "● LIVE";
-  position: absolute;
-  top: 6px;
-  left: 8px;
+  /* darken + tint for overlay effect */
+  filter: brightness(0.6) saturate(1.5) contrast(1.2);
+  background-color: rgba(255,0,0,0.3);
+  background-blend-mode: multiply;  
 
-  font-size: 10px;
-  color: #ff3b3b;
-
-  opacity: 0;
-  transition: 0.3s;
+  /* pulse effect */
+  animation: pulseRed 2s infinite ease-in-out;
 }
 
-.gallery video.active::before {
-  opacity: 1;
+/* ===== REMOVE OVERLAY & ANIMATION ON HOVER / FOCUS ===== */
+.gallery img:hover,
+.gallery img:focus {
+  filter: none;
+  background-color: transparent;
+  animation: none;
 }
 
-/* ===== COLOR OVERLAYS (FOR VIDEOS) ===== */
-.gallery video::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: transparent;
-  transition: 0.3s;
-  pointer-events: none;
+/* ===== EXPAND EFFECT (VIDEOS + IMAGE) ===== */
+.gallery video:hover,
+.gallery img:hover,
+.gallery video:focus,
+.gallery img:focus {
+  width: 50%;
 }
-
-/* different colors per tile */
-.gallery video:nth-child(1).inactive::after {
-  background: rgba(0, 150, 255, 0.25);
-}
-.gallery video:nth-child(2).inactive::after {
-  background: rgba(0, 255, 150, 0.25);
-}
-.gallery video:nth-child(4).inactive::after {
-  background: rgba(255, 100, 0, 0.25);
-}
-
-/* active = clean */
-.gallery video.active::after {
-  background: transparent;
-}
-
 /* ===== WRAPPER ===== */
 .content {
   display: flex;
@@ -928,17 +900,12 @@ transform-origin: bottom center;
 	  <div class="gallery">
 		   <video 
   data-src="https://live20.bozztv.com/giatv/giatv-tvzovlivestream/tvzovlivestream/playlist.m3u8"
-				   poster="/img/overlay2.png"
-			style="background-image:url('https://www.kino-teatr.ru/movie/poster/182516/277300.jpg')"	  
-				  
   muted
   playsinline
   preload="none"
   tabindex="0"></video>
 	 <video 
   data-src="https://live20.bozztv.com/giatv/giatv-tvzovBlackstream/tvzovBlackstream/playlist.m3u8"
-			 poster="https://tnzvezdy.ru/sites/default/files/images/posts/key_centuria_terror_02_new-kopiya.jpg"
-			 style="background-image:url('https://tnzvezdy.ru/sites/default/files/images/posts/key_centuria_terror_02_new-kopiya.jpg')"
   muted
   playsinline
   preload="none"
@@ -946,8 +913,6 @@ transform-origin: bottom center;
   <img src="/img/logo0.png" />	  
  <video 
   data-src="https://live20.bozztv.com/giatv/giatv-tvzov%20RED/tvzov%20RED/playlist.m3u8"
-		 poster="https://www.kinonews.ru/insimgs/2026/poster/poster140154_1.webp"
-		 style="background-image:url('https://www.kinonews.ru/insimgs/2026/poster/poster140154_1.webp')"
   muted
   playsinline
   preload="none"
@@ -983,99 +948,45 @@ transform-origin: bottom center;
 	  </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
 <script>
-const videos = document.querySelectorAll(".gallery video");
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.gallery video').forEach(video => {
+    const src = video.dataset.src;
 
-/* ================= LOAD VIDEO (HLS SUPPORT) ================= */
-function loadVideo(video){
+    // enforce attributes (important for autoplay policies)
+    video.muted = true;
+    video.autoplay = true;
+    video.playsInline = true;
 
-  if (video.dataset.loaded) return;
-
-  const src = video.dataset.src;
-  if (!src) return;
-
-  // HLS (.m3u8)
-  if (src.includes(".m3u8")) {
-
-    if (window.Hls && Hls.isSupported()) {
-
+    if (Hls.isSupported()) {
       const hls = new Hls({
-        maxBufferLength: 10,
-        maxMaxBufferLength: 20
+        enableWorker: true,
+        lowLatencyMode: true
       });
 
       hls.loadSource(src);
       hls.attachMedia(video);
 
-      video._hls = hls; // store instance
-      video.dataset.loaded = "1";
+      hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        video.play().catch(() => {});
+      });
 
-    } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+      // basic error handling
+      hls.on(Hls.Events.ERROR, (event, data) => {
+        console.warn('HLS error:', data);
+      });
 
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
       video.src = src;
-      video.dataset.loaded = "1";
 
-    } else {
-      console.warn("HLS not supported");
+      video.addEventListener('loadedmetadata', () => {
+        video.play().catch(() => {});
+      });
     }
-
-  } else {
-    // MP4 or direct
-    video.src = src;
-    video.dataset.loaded = "1";
-  }
-}
-
-/* ================= ACTIVATE ================= */
-function activateVideo(active){
-
-  videos.forEach(v => {
-
-    if (v === active) {
-
-      v.classList.add("active");
-      v.classList.remove("inactive");
-
-      loadVideo(v);
-
-      v.muted = false;
-      v.style.opacity = "0.5";
-
-v.play().then(() => {
-  setTimeout(() => {
-    v.style.opacity = "1";
-  }, 120);
-}).catch(()=>{});
-
-
-    } else {
-
-      v.classList.remove("active");
-      v.classList.add("inactive");
-
-      try { v.pause(); } catch(e){}
-      v.muted = true;
-
-    }
-
   });
-}
-
-/* ================= CLICK HANDLER ================= */
-videos.forEach(video => {
-
-  video.addEventListener("click", () => {
-    activateVideo(video);
-  });
-
-});
-
-/* ================= AUTO START FIRST ================= */
-window.addEventListener("load", () => {
-  if (videos[0]) activateVideo(videos[0]);
 });
 </script>
-
 
 	<script>document.querySelectorAll(".track").forEach(t=>{
   const delay = Math.random() * -20;
