@@ -596,7 +596,7 @@ transform-origin: bottom center;
   width: 100%;
   height: 300px;
   display: flex;
-  gap: 8px;
+  gap: 4px;
 }
 
 /* ===== BASE ===== */
@@ -616,6 +616,9 @@ transform-origin: bottom center;
 }
 .gallery video {
   pointer-events: auto;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* ===== ACTIVE TILE ===== */
@@ -925,12 +928,17 @@ transform-origin: bottom center;
 	  <div class="gallery">
 		   <video 
   data-src="https://live20.bozztv.com/giatv/giatv-tvzovlivestream/tvzovlivestream/playlist.m3u8"
+				   poster="/img/overlay2.png"
+			style="background-image:url('https://www.kino-teatr.ru/movie/poster/182516/277300.jpg')"	  
+				  
   muted
   playsinline
   preload="none"
   tabindex="0"></video>
 	 <video 
   data-src="https://live20.bozztv.com/giatv/giatv-tvzovBlackstream/tvzovBlackstream/playlist.m3u8"
+			 poster="https://tnzvezdy.ru/sites/default/files/images/posts/key_centuria_terror_02_new-kopiya.jpg"
+			 style="background-image:url('https://tnzvezdy.ru/sites/default/files/images/posts/key_centuria_terror_02_new-kopiya.jpg')"
   muted
   playsinline
   preload="none"
@@ -938,6 +946,8 @@ transform-origin: bottom center;
   <img src="/img/logo0.png" />	  
  <video 
   data-src="https://live20.bozztv.com/giatv/giatv-tvzov%20RED/tvzov%20RED/playlist.m3u8"
+		 poster="https://www.kinonews.ru/insimgs/2026/poster/poster140154_1.webp"
+		 style="background-image:url('https://www.kinonews.ru/insimgs/2026/poster/poster140154_1.webp')"
   muted
   playsinline
   preload="none"
