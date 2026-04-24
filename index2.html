@@ -1055,11 +1055,31 @@ v.muted = true;
 }
 
 /* ================= CLICK HANDLER ================= */
-items.forEach(el => {
-  el.addEventListener("click", () => {
-    activateItem(el);
+videos.forEach(video => {
+
+  video.addEventListener("click", () => {
+
+    // 👉 if already active → TOGGLE
+    if (video.classList.contains("active")) {
+
+      if (video.paused) {
+        video.muted = false;
+
+        video.play().catch(()=>{});
+      } else {
+        video.pause();
+        video.muted = true;
+      }
+
+      return;
+    }
+
+    // 👉 otherwise activate new one
+    activateVideo(video);
   });
+
 });
+
 
 /* ================= AUTO START FIRST VIDEO ================= */
 window.addEventListener("load", () => {
