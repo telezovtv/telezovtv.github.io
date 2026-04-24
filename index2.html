@@ -957,7 +957,7 @@ transform-origin: bottom center;
 <script>
 const items = document.querySelectorAll(".gallery video, .gallery img");
 
-/* ================= LOAD VIDEO (HLS SUPPORT) ================= */
+/* ================= LOAD VIDEO ================= */
 function loadVideo(video){
 
   if (video.dataset.loaded) return;
@@ -965,7 +965,6 @@ function loadVideo(video){
   const src = video.dataset.src;
   if (!src) return;
 
-  // HLS (.m3u8)
   if (src.includes(".m3u8")) {
 
     if (window.Hls && Hls.isSupported()) {
@@ -991,13 +990,12 @@ function loadVideo(video){
     }
 
   } else {
-    // MP4 or direct
     video.src = src;
     video.dataset.loaded = "1";
   }
 }
 
-/* ================= ACTIVATE ITEM ================= */
+/* ================= ACTIVATE ================= */
 function activateItem(active){
 
   items.forEach(el => {
@@ -1007,7 +1005,6 @@ function activateItem(active){
       el.classList.add("active");
       el.classList.remove("inactive");
 
-      // 🎥 VIDEO BEHAVIOR
       if (el.tagName === "VIDEO") {
 
         loadVideo(el);
@@ -1016,23 +1013,18 @@ function activateItem(active){
         el.style.opacity = "0.5";
 
         el.play().then(() => {
-          setTimeout(() => {
-            el.style.opacity = "1";
-          }, 120);
+          setTimeout(() => el.style.opacity = "1", 120);
         }).catch(()=>{});
 
       }
 
-     // 🖼 IMAGE BEHAVIOR (OPEN MENU)
-if (el.tagName === "IMG") {
-
-  window.open(
-    "https://telezov.pages.dev/tv/menu.html",
-    "_blank",
-    "width=900,height=600,resizable=yes"
-  );
-
-}
+      if (el.tagName === "IMG") {
+        window.open(
+          "https://telezov.pages.dev/tv/menu.html",
+          "_blank",
+          "width=900,height=600,resizable=yes"
+        );
+      }
 
     } else {
 
@@ -1040,83 +1032,51 @@ if (el.tagName === "IMG") {
       el.classList.add("inactive");
 
       if (el.tagName === "VIDEO") {
-       try { 
-  v.pause(); 
-  v.currentTime = 0; /* 🔥 reset frame */
-} catch(e){}
+        try {
+          el.pause();
+          el.currentTime = 0; /* reset frame */
+        } catch(e){}
 
-v.muted = true;
-
+        el.muted = true;
       }
-
     }
 
   });
 }
 
-/* ================= CLICK HANDLER ================= */
-videos.forEach(video => {
+/* ================= CLICK ================= */
+items.forEach(el => {
 
-  video.addEventListener("click", () => {
+  el.addEventListener("click", () => {
 
-    // 👉 if already active → TOGGLE
-    if (video.classList.contains("active")) {
+    // 🎥 VIDEO TOGGLE
+    if (el.tagName === "VIDEO" && el.classList.contains("active")) {
 
-      if (video.paused) {
-        video.muted = false;
-
-        video.play().catch(()=>{});
+      if (el.paused) {
+        el.muted = false;
+        el.play().then(()=> el.style.opacity = "1").catch(()=>{});
       } else {
-        video.pause();
-        video.muted = true;
+        el.pause();
+        el.muted = true;
+        el.style.opacity = "0.6";
       }
 
       return;
     }
 
-    // 👉 otherwise activate new one
-    activateVideo(video);
+    // 🧠 otherwise activate
+    activateItem(el);
   });
 
 });
 
-
-/* ================= AUTO START FIRST VIDEO ================= */
+/* ================= AUTO START ================= */
 window.addEventListener("load", () => {
   const firstVideo = document.querySelector(".gallery video");
   if (firstVideo) activateItem(firstVideo);
 });
 </script>
 
-	
-<script>
-overlay.addEventListener("click", (e)=>{
-  if(e.target === overlay){
-    closePlayer();
-  }
-});
-
-document.addEventListener("keydown", (e)=>{
-  if(e.key === "Escape"){
-    closePlayer();
-  }
-});
-
-function closePlayer(){
-
-  overlay.classList.remove("active");
-
-  if(mainHls){
-    mainHls.destroy();
-    mainHls = null;
-  }
-
-  mainVideo.pause();
-  mainVideo.src = "";
-
-  mainFrame.src = "";
-}
-</script>
 
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
