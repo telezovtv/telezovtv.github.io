@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
 <meta http-equiv="Cache-Control" content=" no-cache, pre-check=0, post-check=0"/>
 <meta http-equiv="Expires" content="0" />
-<meta http-equiv="Last-Modified" content="Saturday,  14 April 2026"/>
+<meta http-equiv="Last-Modified" content="Friday,  1 May 2026"/>
 <meta http-equiv="Pragma" content="no-cache"/>
 <meta name="distribution" content="global">
 <meta name="google" value="notranslate">
@@ -102,6 +102,7 @@
     background-position: 0% 300%;
   }
 } 
+
 		html, body {
   max-width: 100%;
   overflow-x: hidden;
@@ -124,7 +125,7 @@
     margin-top: 8vh;
   }
 }
-
+	
 span.i {
   color: #888664; font-family: "DejaVu Sans", "Trebuchet MS";
   font-size:240%; letter-spacing:2px; padding-top: 1px; align-content: stretch; 
@@ -160,7 +161,7 @@ span.i {
 }
 		.i-dot3 {
   display: inline-block;
-  color: #ff3b3b;
+  color: #8EF486;
   font-size: 10px;
   margin-right: 4px;
 
@@ -330,86 +331,6 @@ transform-origin: bottom center;
   100% {
     transform: translateX(-50%) translateY(3px); /* 🔥 down instead of up */
   }
-}
-
-/* ===== GRID ===== */
-.neon-grid {
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  padding:10px;
-}
-
-/* ===== BUTTON ===== */
-.neon-grid a {
-  text-decoration:none;
-	  width: 80px;
-  height: 80px;
-}
-.neon-grid a .inner {
-  width:70px;
-  height:70px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-
-  border-radius:10px;
-  background:#111;
-
-  color:#aaa;
-  transition:0.25s;
-  position:relative;
-  overflow:hidden;
-}
-
-/* ===== ICON + NUM ===== */
-.icon { font-size:14px; }
-.num { font-size:16px; }
-
-/* ===== NEON COLORS (ROTATING) ===== */
-.neon-grid a:nth-child(6n+1) .inner { --c:#00f7ff; }
-.neon-grid a:nth-child(6n+2) .inner { --c:#ff00e0; }
-.neon-grid a:nth-child(6n+3) .inner { --c:#00ff88; }
-.neon-grid a:nth-child(6n+4) .inner { --c:#ffaa00; }
-.neon-grid a:nth-child(6n+5) .inner { --c:#ff3c3c; }
-.neon-grid a:nth-child(6n+6) .inner { --c:#9b5cff; }
-
-/* ===== GLOW ===== */
-.neon-grid a:hover .inner,
-.neon-grid a.active .inner {
-  color:white;
-  transform:scale(1.1);
-
-  box-shadow:
-    0 0 8px var(--c),
-    0 0 16px var(--c),
-    0 0 25px var(--c);
-}
-
-/* ===== SWEEP ===== */
-.neon-grid a .inner::before {
-  content:"";
-  position:absolute;
-  inset:0;
-
-  background:linear-gradient(
-    90deg,
-    transparent,
-    var(--c),
-    transparent
-  );
-
-  transform:translateX(-100%);
-  opacity:0.5;
-}
-
-.neon-grid a:hover .inner::before {
-  animation:sweep 0.6s forwards;
-}
-
-@keyframes sweep {
-  to { transform:translateX(100%); }
 }
 /* ===== OVERLAY ===== */
 #player-overlay{
@@ -913,7 +834,7 @@ transform-origin: bottom center;
  
 </div>
 	  <div class="row c-cyan">
-      сегодня: Отпечатки - Чикатило 4 - Фишер 3 - Приговор - Радар
+      сегодня: Затмение - Чикатило 4 - Фишер 3 - Враги
     </div>
   </div>
 
