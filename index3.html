@@ -115,11 +115,16 @@
   margin: 0;
   min-height: 100vh;
 
-  display: block; /* 🔥 remove flex centering */
+  display: block;
 
   overflow-x: hidden;
 }
-	
+@media (max-width: 600px) and (orientation: portrait) {
+  .gallery {
+    margin-top: 8vh;
+  }
+}
+
 span.i {
   color: #888664; font-family: "DejaVu Sans", "Trebuchet MS";
   font-size:240%; letter-spacing:2px; padding-top: 1px; align-content: stretch; 
@@ -518,7 +523,7 @@ transform-origin: bottom center;
 .gallery {
   width: 100%;
   max-width: 1000px; /* 🔥 control layout */
-  margin: 0 auto;    /* center */
+  margin: 5px auto; /* 🔥 5px top + bottom */
   height: 300px;
   display: flex;
   gap: 0;
@@ -549,6 +554,7 @@ transform-origin: bottom center;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+	 background-color: #000; /* fallback */
 }
 
 /* ===== ACTIVE TILE ===== */
@@ -559,19 +565,23 @@ transform-origin: bottom center;
 		.gallery img {
   transition: transform 0.25s ease, filter 0.25s ease;
 	  animation: pulseRed 2s infinite;
+			  position: relative;
+  z-index: 5; /* ALWAYS above video */
+  background: #000; /* prevents “transparent disappear” */
 }
 .gallery img.active {
   width: 25% !important; /* keep original size */
 }
 .gallery img:hover {
-  transform: scale(1.00);
+  transform: scale(1.01);
   filter: brightness(1.2) saturate(1.4);
+  z-index: 10; /* 🔥 bring above everything */
 }
 .gallery img::after {
   content: "⥂ OPEN MENU";
   position: absolute;
   inset: 0;
-
+  z-index: 999;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -591,8 +601,15 @@ transform-origin: bottom center;
 /* ===== INACTIVE ===== */
 .gallery .inactive {
   width: 15%;
-  opacity: 0.7;	
-  filter: brightness(0.5) saturate(0.6);
+  opacity: 0.85;	
+  filter: brightness(0.7) saturate(0.8);
+  border-color: rgba(255,255,255,0.6); /* 🔥 visible borders */
+}
+@media (hover: none) {
+  .gallery img {
+    opacity: 0.8 !important;
+    filter: none !important;
+  }
 }
 
 /* ===== IMAGE PULSE ===== */
@@ -817,7 +834,14 @@ transform-origin: bottom center;
     transform: translateX(-50%);
   }
 }
-
+.neon-bar + .ac {
+  margin-top: 20px;
+}
+@media (max-width: 600px) {
+  .ac {
+    margin-top: 14px;
+  }
+}
 	</style>
 </head>
 <body translate="no">
@@ -849,18 +873,17 @@ transform-origin: bottom center;
     </div>
 
    <div class="row c-green link2">
-  <a href="https://telezov.pages.dev/tv/seriali.html">
-
-    <span class="label">новые сериалы</span>
+  <a href="//smotrim.live/tv/list.html" target="_blank" rel="noopener">
+       <span class="label">новые сериалы</span>
 
     <span class="ticker">
       <span class="track">
-        Мосгаз • На льду • Шифр 5 • Золотое дно 2 • СМЕРШ 4 • Центурия • Зверобой 2 • 
-        Шерлок Холмс • Волкодав • Чёрная графиня • Отпечатки • Грачи • Число зверя •
+        Мосгаз • Чикатило 4 • Фишер 3 • Шифр 5 • Радар • СМЕРШ 4 • Центурия • Зверобой 2 • 
+        Высшая мера 2 • Приговор • Чёрная графиня • Отпечатки • Грачи • Число зверя •
         
         <!-- duplicate for seamless loop -->
-        Мосгаз • На льду • Шифр 5 • Золотое дно 2 • СМЕРШ 4 • Центурия • Зверобой 2 • 
-        Шерлок Холмс • Волкодав • Чёрная графиня • Отпечатки • Грачи • Число зверя
+        Мосгаз • Чикатило 4 • Фишер 3 • Шифр 5 • Радар • СМЕРШ 4 • Центурия • Зверобой 2 • 
+        Высшая мера 2 • Приговор • Чёрная графиня • Отпечатки • Грачи • Число зверя
       </span>
     </span>
 
@@ -868,7 +891,7 @@ transform-origin: bottom center;
 </div>
 
     <div class="row c-cyan">
-      сейчас: Высшая мера 2 • Центурия 6
+      сейчас: Приговор • Высшая мера 2 • Чикатило 4 • Фишер 3 
     </div>
 
     <div class="row c-orange link3">
@@ -880,39 +903,15 @@ transform-origin: bottom center;
         ▶ watch твзов <span class="i-dot3">●</span>
       </a>
     </div>
-<div class="ac">
+
 	  <div class="gallery">
-		   <video 
-  data-src="https://live20.bozztv.com/giatv/giatv-tvzovlivestream/tvzovlivestream/playlist.m3u8"
-				   poster="/img/overlay2.png"
-			style="background-image:url('https://www.kino-teatr.ru/movie/poster/182516/277300.jpg')"	  
-				  
-  muted
-  playsinline
-  preload="none"
-  tabindex="0"></video>
-	 <video 
-  data-src="https://live20.bozztv.com/giatv/giatv-tvzovBlackstream/tvzovBlackstream/playlist.m3u8"
-			 poster="https://tnzvezdy.ru/sites/default/files/images/posts/key_centuria_terror_02_new-kopiya.jpg"
-			 style="background-image:url('https://tnzvezdy.ru/sites/default/files/images/posts/key_centuria_terror_02_new-kopiya.jpg')"
-  muted
-  playsinline
-  preload="none"
-  tabindex="0"></video>	  
+
+ 
   <img id="menuTile" src="/img/logo0.png" />	  
- <video 
-  data-src="https://live20.bozztv.com/giatv/giatv-tvzov%20RED/tvzov%20RED/playlist.m3u8"
-		 poster="https://www.kinonews.ru/insimgs/2026/poster/poster140154_1.webp"
-		 style="background-image:url('https://www.kinonews.ru/insimgs/2026/poster/poster140154_1.webp')"
-  muted
-  playsinline
-  preload="none"
-  tabindex="0"></video>
  
 </div>
-	</div>  
 	  <div class="row c-cyan">
-      сегодня: сериал Отпечатки и Высшая мера 2 новый сезон
+      сегодня: Отпечатки - Чикатило 4 - Фишер 3 - Приговор - Радар
     </div>
   </div>
 
@@ -923,7 +922,7 @@ transform-origin: bottom center;
   <div class="links">
     <a href="//smotrim.live">твзов</a>
     <a href="//smotrim.live/tv">каналы</a>
-    <a href="//smotrim.live/tv/menu.html">программа</a>
+    <a href="//telezov.pages.dev/tv/menu.html">программа</a>
     <a href="//smotrim.live">связь ⥃ чат</a>
   </div>
 
@@ -942,7 +941,7 @@ transform-origin: bottom center;
 <script>
 const items = document.querySelectorAll(".gallery video, .gallery img");
 
-/* ================= LOAD VIDEO (HLS SUPPORT) ================= */
+/* ================= LOAD VIDEO ================= */
 function loadVideo(video){
 
   if (video.dataset.loaded) return;
@@ -950,7 +949,6 @@ function loadVideo(video){
   const src = video.dataset.src;
   if (!src) return;
 
-  // HLS (.m3u8)
   if (src.includes(".m3u8")) {
 
     if (window.Hls && Hls.isSupported()) {
@@ -976,13 +974,12 @@ function loadVideo(video){
     }
 
   } else {
-    // MP4 or direct
     video.src = src;
     video.dataset.loaded = "1";
   }
 }
 
-/* ================= ACTIVATE ITEM ================= */
+/* ================= ACTIVATE ================= */
 function activateItem(active){
 
   items.forEach(el => {
@@ -992,7 +989,6 @@ function activateItem(active){
       el.classList.add("active");
       el.classList.remove("inactive");
 
-      // 🎥 VIDEO BEHAVIOR
       if (el.tagName === "VIDEO") {
 
         loadVideo(el);
@@ -1001,23 +997,18 @@ function activateItem(active){
         el.style.opacity = "0.5";
 
         el.play().then(() => {
-          setTimeout(() => {
-            el.style.opacity = "1";
-          }, 120);
+          setTimeout(() => el.style.opacity = "1", 120);
         }).catch(()=>{});
 
       }
 
-     // 🖼 IMAGE BEHAVIOR (OPEN MENU)
-if (el.tagName === "IMG") {
-
-  window.open(
-    "https://telezov.pages.dev/tv/menu.html",
-    "_blank",
-    "width=900,height=600,resizable=yes"
-  );
-
-}
+      if (el.tagName === "IMG") {
+        window.open(
+          "https://telezov.pages.dev/tv/menu.html",
+          "_blank",
+          "width=900,height=600,resizable=yes"
+        );
+      }
 
     } else {
 
@@ -1025,58 +1016,51 @@ if (el.tagName === "IMG") {
       el.classList.add("inactive");
 
       if (el.tagName === "VIDEO") {
-        try { el.pause(); } catch(e){}
+        try {
+          el.pause();
+          el.currentTime = 0; /* reset frame */
+        } catch(e){}
+
         el.muted = true;
       }
-
     }
 
   });
 }
 
-/* ================= CLICK HANDLER ================= */
+/* ================= CLICK ================= */
 items.forEach(el => {
+
   el.addEventListener("click", () => {
+
+    // 🎥 VIDEO TOGGLE
+    if (el.tagName === "VIDEO" && el.classList.contains("active")) {
+
+      if (el.paused) {
+        el.muted = false;
+        el.play().then(()=> el.style.opacity = "1").catch(()=>{});
+      } else {
+        el.pause();
+        el.muted = true;
+        el.style.opacity = "0.6";
+      }
+
+      return;
+    }
+
+    // 🧠 otherwise activate
     activateItem(el);
   });
+
 });
 
-/* ================= AUTO START FIRST VIDEO ================= */
+/* ================= AUTO START ================= */
 window.addEventListener("load", () => {
   const firstVideo = document.querySelector(".gallery video");
   if (firstVideo) activateItem(firstVideo);
 });
 </script>
 
-	
-<script>
-overlay.addEventListener("click", (e)=>{
-  if(e.target === overlay){
-    closePlayer();
-  }
-});
-
-document.addEventListener("keydown", (e)=>{
-  if(e.key === "Escape"){
-    closePlayer();
-  }
-});
-
-function closePlayer(){
-
-  overlay.classList.remove("active");
-
-  if(mainHls){
-    mainHls.destroy();
-    mainHls = null;
-  }
-
-  mainVideo.pause();
-  mainVideo.src = "";
-
-  mainFrame.src = "";
-}
-</script>
 
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
