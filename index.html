@@ -509,6 +509,10 @@ transform-origin: bottom center;
     user-select:none;
     letter-spacing:1px;
     text-transform:uppercase;
+	    transition:
+        left 15s linear,
+        top 15s linear,
+        opacity 3s ease;
 }
 		
 /* ===== WRAPPER ===== */
@@ -1019,12 +1023,26 @@ function buildWords(){
         layer.appendChild(span);
     }
 }
+function moveSomeWords(){
 
+    const words =
+        document.querySelectorAll(".word");
+
+    words.forEach(word=>{
+
+        if(Math.random() < 0.15){
+
+            word.style.left =
+                Math.random()*510 + "px";
+
+            word.style.top =
+                Math.random()*290 + "px";
+        }
+    });
+}
 buildWords();
 
-/* regenerate every 30 sec */
-
-setInterval(buildWords,30000);
+setInterval(moveSomeWords,4000);
 	</script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
