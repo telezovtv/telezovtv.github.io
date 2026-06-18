@@ -462,17 +462,17 @@ transform-origin: bottom center;
 }
 
 .bg1{
-    background-image:url("bg1.png");
+    background-image:url("");
     animation:fade1 30s infinite;
 }
 
 .bg2{
-    background-image:url("bg2.png");
+    background-image:url("");
     animation:fade2 30s infinite;
 }
 
 .bg3{
-    background-image:url("bg3.png");
+    background-image:url("");
     animation:fade3 30s infinite;
 }
 
@@ -510,9 +510,9 @@ transform-origin: bottom center;
     letter-spacing:1px;
     text-transform:uppercase;
 	    transition:
-        left 15s linear,
-        top 15s linear,
-        opacity 3s ease;
+       left 20s linear,
+        top 20s linear,
+        opacity 2s ease;	
 }
 		
 /* ===== WRAPPER ===== */
@@ -803,38 +803,39 @@ transform-origin: bottom center;
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 <script>
 const BIG_WORDS = [
-    "WRATH",
-    "ENVY",
-    "GREED",
-    "LUST",
-    "PRIDE",
-    "SLOTH",
-    "GLUTTONY"
+    "ФИШЕР",
+    "ЧИКАТИЛО",
+    "ГДР",
+	"ДУШЕГУБЫ",
+    "МОСГАЗ",
+    "НЕВСКИЙ",
+    "ШИФР"
 ];
 
 const NORMAL_WORDS = [
-    "DAVID FINCHER",
-    "BRAD PITT",
-    "MORGAN FREEMAN",
-    "GWYNETH PALTROW",
-    "COMING SOON",
-    "TRAILER",
-    "THRILLER",
-    "MYSTERY",
-    "DETECTIVE",
-    "CRIME",
-    "DARKNESS",
-    "FATE",
-    "SECRETS",
-    "SHADOWS",
-    "2026"
+    "ТРАССА",
+    "АУТСОРС",
+    "ПОДСЛУШАНО В РЫБИНСКЕ",
+    "СТРАХ НАД НЕВОЙ",
+    "ГОРЬКИЙ 53",
+    "НЕМЦЫ",
+    "ШЕФ",
+    "ЛИХИЕ",
+    "КАК ПРИРУЧИТЬ ЛИСУ",
+    "ТЕРРИТОРИЯ",
+    "БИБЛИОТЕКАРЬ",
+    "ХИРУРГ",
+    "ХРУСТАЛЬНЫЙ",
+    "УБИТЬ РИТУ",
+    "АЛЕКС ЛЮТЫЙ"
 ];
 
 const PROMO_WORDS = [
-    "PREMIERE",
-    "EXCLUSIVE",
-    "NEW",
-    "COMING SOON"
+	"НОВИНКИ 2026",
+    "ЧИСЛО ЗВЕРЯ",
+    "ОТПЕЧАТКИ",
+    "РАДАР",
+    "ЗВЕРОБОЙ"
 ];
 
 const FONTS = [
@@ -843,8 +844,9 @@ const FONTS = [
     "'Oswald', sans-serif",
     "'Roboto Condensed', sans-serif",
     "'Roboto Condensed', sans-serif",
+	"'Montserrat', sans-serif",
     "'Arial Narrow', sans-serif",
-    "'Impact', sans-serif"
+    "'Montserrat', sans-serif"
 ];
 
 const COLORS = [
@@ -1037,6 +1039,9 @@ function moveSomeWords(){
 
             word.style.top =
                 Math.random()*290 + "px";
+			
+			word.style.opacity =
+                0.2 + Math.random()*0.6;
         }
     });
 }
