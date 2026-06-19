@@ -702,7 +702,7 @@ transform-origin: bottom center;
 <body translate="no">
 <div class="ac">
 <div class="neon-bar">
-   <a href="//smotrim.live" data-label="твзов тв каналы и сериалы"><span class="inner">твзов ◀ тв <i class="i-dot">● </i> сериалы <i class="i-dot">+ </i> <i class="fa fa-film"></i></span></a>
+   <a href="//smotrim.live" data-label="тв каналы и сериалы"><span class="inner"> ◀ тв <i class="i-dot">● </i> сериалы <i class="i-dot">+ </i> <i class="fa fa-film"></i></span></a>
   <a target="github" href="//smotrim.live/tv/proga2.html" data-label="тв меню с программой и чатом"><span class="inner"><i class="fa fa-bars"></i></span></a>
   <a href="//smotrim.live/tv/menu.html" data-label="эфир твзов каналов на 48 часов 
 						  при наведении на 
@@ -837,7 +837,13 @@ const PROMO_WORDS = [
     "РАДАР",
     "ЗВЕРОБОЙ"
 ];
-
+const HERO_WORDS = [
+    "DARKNESS",
+    "SECRETS",
+    "MURDER",
+    "FEAR",
+    "TRUTH"
+];
 const FONTS = [
     "'Oswald', sans-serif",
     "'Oswald', sans-serif",
@@ -846,8 +852,7 @@ const FONTS = [
     "'Roboto Condensed', sans-serif",
 	"'Montserrat', sans-serif",
     "'Arial Narrow', sans-serif",
-	"'Doto', sans-serif",
-    "'Impact', sans-serif"
+    "'Montserrat', sans-serif"
 ];
 
 const COLORS = [
@@ -942,14 +947,24 @@ function buildWords(){
 
         /* NORMAL WORDS */
 
-        else{
+if(Math.random() < 0.25){
 
-            span.textContent =
-                NORMAL_WORDS[
-                    Math.floor(
-                        Math.random()*NORMAL_WORDS.length
-                    )
-                ];
+    span.textContent =
+        HERO_WORDS[
+            Math.floor(
+                Math.random()*HERO_WORDS.length
+            )
+        ];
+
+}else{
+
+    span.textContent =
+        NORMAL_WORDS[
+            Math.floor(
+                Math.random()*NORMAL_WORDS.length
+            )
+        ];
+}
 
             span.style.color =
                 COLORS[
@@ -962,6 +977,7 @@ function buildWords(){
                 size + "px";
         }
 
+		
         /* FONT */
 
         if(size >= 14){
