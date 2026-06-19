@@ -19,9 +19,10 @@
 <link href="/telezov_files/smotrimzov.css" rel="stylesheet">
 		<link href="/telezov_files/favicon.ico" rel="icon" type="image/x-icon">
 	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+	
 	<style>
 		@import url('https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Uncial+Antiqua&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Monomakh&family=Rubik+Dirt&family=Ruslan+Display&display=swap');
 .doto-<uniquifier> {
   font-family: "Doto", sans-serif;
   font-optical-sizing: auto;
@@ -462,20 +463,33 @@ transform-origin: bottom center;
 }
 
 .bg1{
-    background-image:url("");
+    background-image:url("/img/overlay2.png");
     animation:fade1 30s infinite;
 }
 
 .bg2{
-    background-image:url("");
+    background-image:url("/img/ss0.png");
     animation:fade2 30s infinite;
 }
 
 .bg3{
-    background-image:url("");
+    background-image:url("/img/ss2.png");
     animation:fade3 30s infinite;
 }
 
+.bg4{
+    background-image:url("/img/ss3.png");
+    animation:fade4 30s infinite;
+}
+
+.bg5{
+    background-image:url("/img/ss4.png");
+    animation:fade5 30s infinite;
+}
+.bg6{
+    background-image:url("/img/ss5.png");
+    animation:fade6 30s infinite;
+}		
 @keyframes fade1{
     0%,25%{opacity:.45;}
     33%,100%{opacity:0;}
@@ -492,7 +506,22 @@ transform-origin: bottom center;
     73%,92%{opacity:.45;}
     100%{opacity:0;}
 }
+@keyframes fade4{
+    0%,25%{opacity:.45;}
+    33%,100%{opacity:0;}
+}
 
+@keyframes fade5{
+    0%,33%{opacity:0;}
+    40%,58%{opacity:.45;}
+    66%,100%{opacity:0;}
+}
+
+@keyframes fade6{
+    0%,66%{opacity:0;}
+    73%,92%{opacity:.45;}
+    100%{opacity:0;}
+}
 /* TEXT LAYER */
 
 #wordLayer{
@@ -808,6 +837,13 @@ const BIG_WORDS = [
     "ГДР",
 	"ДУШЕГУБЫ",
     "МОСГАЗ",
+	"МЕТОД",
+	"ИЗВОЗЧИК",
+    "НОВАЯ ЗЕМЛЯ", 
+	"ЗОЛОТО ВОЙНЫ ЛЮТЫЙ",
+	"ХОЛОД",
+	"СМЕРШ",
+    "КАЗАНОВА",
     "НЕВСКИЙ",
     "ШИФР"
 ];
@@ -821,35 +857,55 @@ const NORMAL_WORDS = [
     "НЕМЦЫ",
     "ШЕФ",
     "ЛИХИЕ",
+	"ПИН КОД",
+    "МЕРТВАЯ ТОЧКА",
+	"БАНДА ЗИГ ЗАГ",
     "КАК ПРИРУЧИТЬ ЛИСУ",
     "ТЕРРИТОРИЯ",
     "БИБЛИОТЕКАРЬ",
     "ХИРУРГ",
     "ХРУСТАЛЬНЫЙ",
     "УБИТЬ РИТУ",
+	"ЗАТМЕНИЕ",
+    "ПРИГОВОР",
+    "ЦЕНТУРИЯ",
+    "ЧЕРНОЕ СОЛНЦЕ",
+    "ВЫСШАЯ МЕРА",
+    "ВОЗМЕЗДИЕ",
+    "ТАЙНЫЙ СОВЕТНИК", 
+	"КНЯЗЬ АНДРЕЙ",
+    "ПО СЛЕДУ ЗВЕРЯ",
+    "ГРАЧИ",
+	"НОЧНОЙ",
+    "ВАРЯГИ",
     "АЛЕКС ЛЮТЫЙ"
 ];
-
+       
 const PROMO_WORDS = [
 	"НОВИНКИ 2026",
     "ЧИСЛО ЗВЕРЯ",
-    "ОТПЕЧАТКИ",
+	"ОТПЕЧАТКИ",
     "РАДАР",
+	"ЗА ЧАС ДО РАССВЕТА",
+    "ИНКВИЗИТОР ПОСЛЕ ФИШЕРА",
+    "ТРИЛЛЕР",
+    "ДЕТЕКТИВ",
+	"ВНЕ ЗАКОНА",
+    "ЗАКОННИК",
+    "ЗОЛОТАЯ ЛИХОРАДКА",
     "ЗВЕРОБОЙ"
 ];
-const HERO_WORDS = [
-    "DARKNESS",
-    "SECRETS",
-    "MURDER",
-    "FEAR",
-    "TRUTH"
-];
+
 const FONTS = [
     "'Oswald', sans-serif",
     "'Oswald', sans-serif",
     "'Oswald', sans-serif",
     "'Roboto Condensed', sans-serif",
     "'Roboto Condensed', sans-serif",
+	"'Monomakh', sans-serif",
+    "'Rubik Dirt', system-ui",
+	"'Ruslan Display', sans-serif",
+    "'Ruslan Display', sans-serif",
 	"'Montserrat', sans-serif",
     "'Arial Narrow', sans-serif",
     "'Montserrat', sans-serif"
@@ -947,24 +1003,14 @@ function buildWords(){
 
         /* NORMAL WORDS */
 
-if(Math.random() < 0.25){
+        else{
 
-    span.textContent =
-        HERO_WORDS[
-            Math.floor(
-                Math.random()*HERO_WORDS.length
-            )
-        ];
-
-}else{
-
-    span.textContent =
-        NORMAL_WORDS[
-            Math.floor(
-                Math.random()*NORMAL_WORDS.length
-            )
-        ];
-}
+            span.textContent =
+                NORMAL_WORDS[
+                    Math.floor(
+                        Math.random()*NORMAL_WORDS.length
+                    )
+                ];
 
             span.style.color =
                 COLORS[
@@ -977,7 +1023,6 @@ if(Math.random() < 0.25){
                 size + "px";
         }
 
-		
         /* FONT */
 
         if(size >= 14){
