@@ -454,46 +454,152 @@ transform-origin: bottom center;
 
 /* BACKGROUNDS */
 
+/* BACKGROUNDS */
+
 .bg{
     position:absolute;
     inset:0;
     background-size:cover;
     background-position:center;
     opacity:0;
+    transform:scale(1.04);
+    animation-duration:30s;
+    animation-iteration-count:infinite;
+    animation-timing-function:linear;
+    will-change:opacity,transform;
+}
+.bg0{
+    background-image:url("");
 }
 
 .bg1{
-    background-image:url("");
-    animation:fade1 30s infinite;
+    background-image:url("/img/overlay2.png");
+    animation-name:fade1, drift1;
 }
 
 .bg2{
-    background-image:url("");
-    animation:fade2 30s infinite;
+    background-image:url("/img/ss0.png");
+    animation-name:fade2, drift2;
 }
 
 .bg3{
-    background-image:url("");
-    animation:fade3 30s infinite;
+    background-image:url("/img/ss2.png");
+    animation-name:fade3, drift3;
 }
 
+.bg4{
+    background-image:url("/img/ss3.png");
+    animation-name:fade4, drift4;
+}
+
+.bg5{
+    background-image:url("/img/ss4.png");
+    animation-name:fade5, drift5;
+}
+
+.bg6{
+    background-image:url("/img/ss5.png");
+    animation-name:fade6, drift6;
+}
 @keyframes fade1{
-    0%,25%{opacity:.45;}
-    33%,100%{opacity:0;}
+    0%   {opacity:0;}
+    6%   {opacity:.55;}
+    18%  {opacity:.55;}
+    26%  {opacity:0;}
+    100% {opacity:0;}
 }
 
 @keyframes fade2{
-    0%,33%{opacity:0;}
-    40%,58%{opacity:.45;}
-    66%,100%{opacity:0;}
+    0%,14% {opacity:0;}
+    22%    {opacity:.55;}
+    34%    {opacity:.55;}
+    42%    {opacity:0;}
+    100%   {opacity:0;}
 }
 
 @keyframes fade3{
-    0%,66%{opacity:0;}
-    73%,92%{opacity:.45;}
-    100%{opacity:0;}
+    0%,30% {opacity:0;}
+    38%    {opacity:.55;}
+    50%    {opacity:.55;}
+    58%    {opacity:0;}
+    100%   {opacity:0;}
 }
 
+@keyframes fade4{
+    0%,46% {opacity:0;}
+    54%    {opacity:.55;}
+    66%    {opacity:.55;}
+    74%    {opacity:0;}
+    100%   {opacity:0;}
+}
+
+@keyframes fade5{
+    0%,62% {opacity:0;}
+    70%    {opacity:.55;}
+    82%    {opacity:.55;}
+    90%    {opacity:0;}
+    100%   {opacity:0;}
+}
+
+@keyframes fade6{
+    0%,78% {opacity:0;}
+    86%    {opacity:.55;}
+    96%    {opacity:.55;}
+    100%   {opacity:0;}
+}
+		@keyframes drift1{
+    from{
+        transform:scale(1.08) translate(-20px,-12px) rotate(-0.3deg);
+    }
+    to{
+        transform:scale(1.16) translate(18px,10px) rotate(.3deg);
+    }
+}
+
+@keyframes drift2{
+    from{
+        transform:scale(1.10) translate(16px,-8px);
+    }
+    to{
+        transform:scale(1.18) translate(-18px,10px);
+    }
+}
+
+@keyframes drift3{
+    from{
+        transform:scale(1.06) translate(-14px,14px) rotate(.25deg);
+    }
+    to{
+        transform:scale(1.15) translate(16px,-12px) rotate(-.25deg);
+    }
+}
+
+@keyframes drift4{
+    from{
+        transform:scale(1.12) translate(10px,12px);
+    }
+    to{
+        transform:scale(1.20) translate(-12px,-10px);
+    }
+}
+
+@keyframes drift5{
+    from{
+        transform:scale(1.07) translate(-18px,0);
+    }
+    to{
+        transform:scale(1.15) translate(18px,0);
+    }
+}
+
+@keyframes drift6{
+    from{
+        transform:scale(1.08) translate(0,-14px);
+    }
+    to{
+        transform:scale(1.17) translate(0,14px);
+    }
+}
 /* TEXT LAYER */
 
 #wordLayer{
@@ -765,10 +871,13 @@ transform-origin: bottom center;
 	 <div id="moviePoster">
 
     <!-- Backgrounds -->
+	<div class="bg bg0"></div>	 
     <div class="bg bg1"></div>
     <div class="bg bg2"></div>
     <div class="bg bg3"></div>
-
+    <div class="bg bg4"></div>
+    <div class="bg bg5"></div>
+    <div class="bg bg6"></div>
     <!-- Random text layer -->
     <div id="wordLayer"></div>
 
