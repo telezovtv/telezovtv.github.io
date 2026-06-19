@@ -461,7 +461,10 @@ transform-origin: bottom center;
     background-position:center;
     opacity:0;
 }
-
+.bg1{
+    background-image:url("");
+    animation:fade0 30s infinite;
+}
 .bg1{
     background-image:url("/img/overlay2.png");
     animation:fade1 30s infinite;
@@ -484,42 +487,31 @@ transform-origin: bottom center;
 
 .bg5{
     background-image:url("/img/ss4.png");
-    animation:fade5 30s infinite;
+    animation:fade3 30s infinite;
 }
 .bg6{
     background-image:url("/img/ss5.png");
-    animation:fade6 30s infinite;
+    animation:fade2 30s infinite;
 }		
 @keyframes fade1{
-    0%,25%{opacity:.45;}
+    0%,25%{opacity:.5;}
     33%,100%{opacity:0;}
 }
 
 @keyframes fade2{
     0%,33%{opacity:0;}
-    40%,58%{opacity:.45;}
+    40%,58%{opacity:.5;}
     66%,100%{opacity:0;}
 }
 
 @keyframes fade3{
     0%,66%{opacity:0;}
-    73%,92%{opacity:.45;}
+    73%,92%{opacity:.5;}
     100%{opacity:0;}
 }
 @keyframes fade4{
-    0%,25%{opacity:.45;}
-    33%,100%{opacity:0;}
-}
-
-@keyframes fade5{
-    0%,33%{opacity:0;}
-    40%,58%{opacity:.45;}
-    66%,100%{opacity:0;}
-}
-
-@keyframes fade6{
-    0%,66%{opacity:0;}
-    73%,92%{opacity:.45;}
+    0%,73%{opacity:0;}
+    82%,94%{opacity:.5;}
     100%{opacity:0;}
 }
 /* TEXT LAYER */
@@ -793,10 +785,13 @@ transform-origin: bottom center;
 	 <div id="moviePoster">
 
     <!-- Backgrounds -->
+	<div class="bg bg0"></div>	 
     <div class="bg bg1"></div>
     <div class="bg bg2"></div>
     <div class="bg bg3"></div>
-
+    <div class="bg bg4"></div>
+    <div class="bg bg5"></div>
+    <div class="bg bg6"></div>
     <!-- Random text layer -->
     <div id="wordLayer"></div>
 
