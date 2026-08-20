@@ -728,11 +728,40 @@ transform-origin: bottom center;
   transition: 0.2s;
 }
 
+
 .footer a:hover {
-  color: #ffffff;
-  text-shadow: 0 0 6px rgba(127,223,255,0.6);
+
+    color: #ffffff;
+    text-shadow:
+        0 0 6px rgba(127,223,255,0.6);
 }
 
+
+.footer a:hover::after {
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 6px rgba(127,223,255,0.6);
+}
+.footer a::after {
+
+    content: attr(data-label);
+
+    display: block;
+
+    margin-top: 2px;
+
+    font-family: "Doto", sans-serif;
+    font-size: 8px;
+    line-height: 9px;
+
+    color: #7fdfff;
+
+    transition:
+        color .2s ease,
+        text-shadow .2s ease;
+}
 /* ===== SMALL TEXT ===== */
 .footer .copy {
   display: block;
@@ -907,7 +936,7 @@ transform-origin: bottom center;
     <a href="https://tvzov.pages.dev">твзов</a>
     <a href="https://tvzov.pages.dev/tv">каналы</a>
     <a href="//tvzov.pages.dev/tv/menu0">программа</a>
-    <a href="https://tvzov.pages.dev/proga2"  data-label="в меню выбор имени для чата">связь ⥃ чат</a>
+    <a href="https://tvzov.pages.dev/tv/proga2"  data-label="в меню выбор имени для чата">связь ⥃ чат</a>
   </div>
 
   <div class="icons">
