@@ -707,326 +707,56 @@ transform-origin: bottom center;
     font-size: 13px;
   }
 }
-
+/* ===== FOOTER ===== */
 .footer {
-    position: relative;
+  position: relative;
 
-    width: 100%;
 
-    padding: 14px 10px 16px;
+  padding: 20px 15px;
+  text-align: center;
+  font-size: 13px;
+  color: #aaa;
 
-    text-align: center;
-
-    color: #aaa;
-
-    background: rgba(20,20,20,0.6);
-
-    border: 1px solid rgba(125,104,66,0.2);
-
-    backdrop-filter: blur(6px);
-
-    overflow: visible;
-
-    box-sizing: border-box;
+  backdrop-filter: blur(6px);
 }
 
-
-/* ================= BREATHING GLOW ================= */
-
-.footer::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: -2px;
-
-    z-index: -1;
-
-    pointer-events: none;
-
-    border-radius: 10px;
-
-    background:
-        radial-gradient(
-            circle at 50% 50%,
-            rgba(125,104,66,0.35),
-            transparent 70%
-        );
-
-    opacity: .6;
-
-    animation:
-        footerBreath 4s ease-in-out infinite;
+/* ===== FOOTER LINKS ===== */
+.footer a {
+  color: #7fdfff;
+  text-decoration: none;
+  margin: 0 8px;
+  transition: 0.2s;
 }
 
-
-@keyframes footerBreath {
-
-    0%,100% {
-        opacity: .4;
-        transform: scale(1);
-    }
-
-    50% {
-        opacity: .8;
-        transform: scale(1.05);
-    }
+.footer a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 6px rgba(127,223,255,0.6);
 }
 
-
-/* =========================================================
-   FOOTER LINKS
-   ========================================================= */
-
-.footer .links {
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: flex-start;
-
-    gap: 8px;
-
-    flex-wrap: wrap;
+/* ===== SMALL TEXT ===== */
+.footer .copy {
+  display: block;
+  margin-top: 8px;
+  font-size: 11px;
+  opacity: 0.6;
 }
 
-
-.footer .links a {
-
-    position: relative;
-
-    display: inline-block;
-
-    min-width: 58px;
-
-    padding: 6px 12px;
-
-    text-decoration: none;
-
-    text-align: center;
-
-    color: #ccc;
-
-    background: rgba(20,20,20,.6);
-
-    border-radius: 6px;
-
-    font-size: 13px;
-
-    transition:
-        color .25s ease,
-        transform .25s ease,
-        box-shadow .25s ease;
-}
-
-
-/* =========================================================
-   DATA LABEL — UNDER LINK
-   ========================================================= */
-
-.footer .links a::after {
-
-    content: attr(data-label);
-
-    display: block;
-
-    margin-top: 3px;
-
-    font-family: "Doto", sans-serif;
-
-    font-size: 8px;
-
-    line-height: 9px;
-
-    color: #7fdfff;
-
-    opacity: .85;
-
-    white-space: pre-line;
-
-    transition:
-        color .25s ease,
-        opacity .25s ease,
-        text-shadow .25s ease;
-}
-
-
-/* =========================================================
-   HOVER
-   ========================================================= */
-
-.footer .links a:hover {
-
-    color: #fff;
-
-    transform:
-        translateY(-2px)
-        scale(1.05);
-
-    box-shadow:
-        0 0 6px rgba(232,195,0,.8),
-        0 0 12px rgba(232,195,0,.5);
-}
-
-
-.footer .links a:hover::after {
-
-    color: #fff;
-
-    opacity: 1;
-
-    text-shadow:
-        0 0 6px rgba(127,223,255,.7);
-}
-
-
-/* =========================================================
-   NEON SWEEP
-   ========================================================= */
-
-.footer .links a::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    z-index: 0;
-
-    border-radius: 6px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(232,195,0,.9),
-            transparent
-        );
-
-    transform: translateX(-100%);
-
-    opacity: .6;
-
-    pointer-events: none;
-}
-
-
-.footer .links a:hover::before {
-
-    animation:
-        footerSweep .6s forwards;
-}
-
-
-@keyframes footerSweep {
-
-    to {
-        transform: translateX(100%);
-    }
-}
-
-
-/* =========================================================
-   SOCIAL ICONS
-   ========================================================= */
-
+/* ===== SOCIAL ICONS ===== */
 .footer .icons {
-
-    margin-top: 12px;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    gap: 12px;
+  margin-top: 10px;
 }
-
 
 .footer .icons i {
-
-    margin: 0 4px;
-
-    opacity: .7;
-
-    transition:
-        opacity .2s ease,
-        transform .2s ease,
-        text-shadow .2s ease;
+  margin: 0 6px;
+  opacity: 0.7;
+  transition: 0.2s;
 }
-
 
 .footer .icons i:hover {
-
-    opacity: 1;
-
-    transform: scale(1.15);
-
-    text-shadow:
-        0 0 8px currentColor;
+  opacity: 1;
+  transform: scale(1.1);
 }
 
-
-/* X TUBE */
-
-.xtube-link {
-
-    text-decoration: none;
-
-    display: inline-block;
-}
-
-
-.xtube-x {
-
-    font:
-        600 20px
-        "Ruslan Display",
-        sans-serif;
-
-    color: #ff3b3b;
-
-    text-shadow:
-        0 0 8px #ff3b3b;
-
-    transition:
-        .25s;
-}
-
-
-.xtube-link:hover .xtube-x {
-
-    transform: scale(1.15);
-
-    text-shadow:
-        0 0 16px #ff3b3b;
-}
-
-
-/* =========================================================
-   COPYRIGHT
-   ========================================================= */
-
-.footer .copy {
-
-    display: block;
-
-    margin-top: 10px;
-
-    font-family: "Doto", sans-serif;
-
-    font-size: 9px;
-
-    line-height: 12px;
-
-    color: #aaa;
-
-    opacity: .6;
-}
 /* ===== TICKER WRAPPER ===== */
 .ticker {
   display: inline-block;
@@ -1171,63 +901,27 @@ transform-origin: bottom center;
 
 </div>
 
-<div class="footer">
+<div class="ac">
+<div class="neon-bar"><div class="footer">
 
-    <div class="links">
+  <div class="links">
+    <a href="https://tvzov.pages.dev">твзов</a>
+    <a href="https://tvzov.pages.dev/tv">каналы</a>
+    <a href="//tvzov.pages.dev/tv/menu0">программа</a>
+    <a href="https://tvzov.pages.dev/tv/proga2" data-label="выберите себе имя для чата">связь ⥃ чат</a>
+  </div>
 
-        <a href=""
-           data-label="TV">
-            твзов
-        </a>
+  <div class="icons">
+    <i class="fa fa-youtube-play" style="color:#ff3b3b"></i>
+    <i class="fa fa-telegram" style="color:#7fdfff"></i>
+	  <a href="https://xtube.pw/" class="xtube-link">
+    <span class="xtube-x">X</span>
+</a>
+	</div></div></div>
 
-        <a href="/tv"
-           data-label="LIVE">
-            каналы
-        </a>
-
-        <a href="/tv/menu0"
-           data-label="EPG">
-            программа
-        </a>
-
-        <a href="/tv/proga2"
-           data-label="CHAT">
-            связь
-        </a>
-
-    </div>
-
-
-    <div class="icons">
-
-        <i
-            class="fa fa-youtube-play"
-            style="color:#ff3b3b">
-        </i>
-
-        <i
-            class="fa fa-telegram"
-            style="color:#7fdfff">
-        </i>
-
-        <a
-            href="https://xtube.pw/"
-            class="xtube-link">
-
-            <span class="xtube-x">
-                X
-            </span>
-
-        </a>
-
-    </div>
-
-
-    <span class="copy">
-        © 2026 tvzov — live streaming project
-    </span>
-
-</div>
+  <span class="copy">
+    © 2026 ТВЗОВ — live streaming project
+  </span>
 
 	  </div>
 </div>
