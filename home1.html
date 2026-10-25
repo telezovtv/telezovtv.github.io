@@ -1169,6 +1169,51 @@ transform-origin: bottom center;
     transform:scale(1.15);
     text-shadow:0 0 16px #ff3b3b;
 }
+		
+/* ===== LIVE VIDEO MIXED WITH THE BACKGROUND ===== */
+
+#moviePoster {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+#moviePoster .bg {
+  z-index: 0;
+}
+
+#moviePoster .signal-video {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.15; /* Try 0.10 to 0.20 */
+  pointer-events: none;
+  background: transparent;
+}
+
+/* Signal windows stay above the video */
+#signalLayer {
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* Preserve the live picture's visibility through the windows */
+.signal-window {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.signal-picture {
+  background-color: transparent;
+}
+
+.signal-caption {
+  background: rgba(0, 0, 0, 0.14);
+}
+
 	</style><script>
   window.console = window.console || function(t) {};
 </script>
@@ -1246,7 +1291,20 @@ transform-origin: bottom center;
     <div class="bg bg5"></div>
     <div class="bg bg6"></div>
     <!-- Random text layer -->
-    
+ 
+
+<video
+  id="signalVideo"
+  class="signal-video"
+  autoplay
+  muted
+  playsinline
+  preload="auto"
+  aria-hidden="true"
+  tabindex="-1"
+></video>
+
+   
 <div id="signalLayer">
   <div class="signal-heading">
     <span class="signal-brand">TVZOV <span>///</span> ARCHIVE</span>
@@ -1333,7 +1391,43 @@ transform-origin: bottom center;
 	  </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<script> 
 
+(function () {
+  const video = document.getElementById("signalVideo");
+  if (!video) return;
+
+  const stream =
+    "https://amg12058-c15studio-amg12058c1-lg-us-5787.playouts.now.amagi.tv/playlist.m3u8";
+
+  video.muted = true;
+  video.defaultMuted = true;
+  video.playsInline = true;
+  video.controls = false;
+
+  if (window.Hls && Hls.isSupported()) {
+    const player = new Hls({
+      enableWorker: true
+    });
+
+    player.loadSource(stream);
+    player.attachMedia(video);
+
+    player.on(Hls.Events.MANIFEST_PARSED, function () {
+      video.play().catch(function () {});
+    });
+
+    // Keep a reference if you need to inspect or stop it later.
+    window.tvzovSignalHls = player;
+
+  } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+    video.src = stream;
+    video.play().catch(function () {});
+  }
+})();
+
+	
+	</script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.gallery video').forEach(video => {
