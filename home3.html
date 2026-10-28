@@ -813,105 +813,175 @@ transform-origin: bottom center;
     transform:scale(1.15);
     text-shadow:0 0 16px #ff3b3b;
 }
-		/* ===== PURE MATRIX TITLE LINK ===== */
 
-.matrix-title {
-  --matrix-green: #00ff66;
-  --matrix-white: #eaffef;
-  --matrix-glow: rgba(0, 255, 102, .7);
+/* ===== BASE: no panel, no border, no background ===== */
 
-  display: inline-flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 7px;
+.matrix-link {
+  --mx: #00ff66;
+  --mx-soft: #d9ffe6;
+  --mx-glow: rgba(0, 255, 102, .65);
 
+  display: grid;
+  width: 100%;
   max-width: 100%;
-  white-space: nowrap;
+  box-sizing: border-box;
+  align-items: center;
+  gap: 8px;
 
   font-family: "Doto", "Roboto Condensed", sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   line-height: 1.5;
-
-  color: var(--matrix-green);
   text-decoration: none;
-  text-shadow: 0 0 5px var(--matrix-glow);
-
+  color: var(--mx);
+  text-shadow: 0 0 5px var(--mx-glow);
+  white-space: nowrap;
   cursor: pointer;
 }
 
-/* Left and right messages */
-.matrix-title .mt-left,
-.matrix-title .mt-right {
-  display: inline-block;
+/* Keep every column in place all the time.
+   Hide text with opacity, NOT display:none or max-width:0. */
 
-  font-size: 11px;
-  letter-spacing: .5px;
-
-  color: var(--matrix-green);
-  opacity: 0;
-  max-width: 0;
+.matrix-link .mt-left,
+.matrix-link .mt-right {
+  display: block;
+  min-width: 0;
   overflow: hidden;
-
-  transition:
-    opacity .15s ease,
-    max-width .35s ease;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .22s ease, color .22s ease;
+  font-size: 10px;
+  letter-spacing: .45px;
+  color: var(--mx);
 }
 
-/* Center title always visible */
-.matrix-title .mt-center {
-  display: inline-block;
-  flex: 0 0 auto;
-
-  color: var(--matrix-white);
-  text-shadow: 0 0 6px var(--matrix-glow);
-
-  transition:
-    color .2s ease,
-    text-shadow .2s ease;
+.matrix-link .mt-title {
+  display: block;
+  position: relative;
+  z-index: 1;
+  color: var(--mx-soft);
+  text-shadow: 0 0 5px var(--mx-glow), 0 0 12px var(--mx-glow);
+  transition: color .2s ease, text-shadow .2s ease;
 }
 
-/* Expand both sides on hover */
-.matrix-title:hover .mt-left,
-.matrix-title:hover .mt-right,
-.matrix-title:focus-visible .mt-left,
-.matrix-title:focus-visible .mt-right {
-  max-width: 220px;
+.matrix-link:hover .mt-left,
+.matrix-link:hover .mt-right,
+.matrix-link:focus-visible .mt-left,
+.matrix-link:focus-visible .mt-right {
   opacity: 1;
+  visibility: visible;
 }
 
-.matrix-title:hover .mt-center,
-.matrix-title:focus-visible .mt-center {
-  color: var(--matrix-green);
-  text-shadow:
-    0 0 5px #00ff66,
-    0 0 14px rgba(0, 255, 102, .8);
+.matrix-link:hover .mt-title,
+.matrix-link:focus-visible .mt-title {
+  color: var(--mx);
+  text-shadow: 0 0 7px var(--mx-glow), 0 0 16px var(--mx-glow);
 }
 
-/* Keep the entire link on one line */
-.matrix-title:hover,
-.matrix-title:focus-visible {
-  gap: 7px;
+/* ===== A: title always centered ===== */
+
+.matrix-center {
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
 }
 
-/* Optional: brighter action symbol */
-.matrix-title .mt-right {
-  color: var(--matrix-white);
+.matrix-center .mt-left {
+  grid-column: 1;
+  grid-row: 1;
+  text-align: right;
 }
 
-/* Mobile: smaller but still one line */
-@media (max-width: 480px) {
-  .matrix-title {
-    gap: 4px;
-    font-size: 12px;
+.matrix-center .mt-title {
+  grid-column: 2;
+  grid-row: 1;
+  text-align: center;
+}
+
+.matrix-center .mt-right {
+  grid-column: 3;
+  grid-row: 1;
+  text-align: left;
+}
+
+/* ===== B: title anchored on the left ===== */
+
+.matrix-left {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+}
+
+.matrix-left .mt-title {
+  grid-column: 1;
+  grid-row: 1;
+  text-align: left;
+}
+
+.matrix-left .mt-left {
+  grid-column: 2;
+  grid-row: 1;
+  text-align: left;
+}
+
+.matrix-left .mt-right {
+  grid-column: 3;
+  grid-row: 1;
+  text-align: right;
+}
+
+/* ===== FIVE TVZOV PALETTES ===== */
+
+/* 1. MATRIX: classic digital green */
+.matrix-green {
+  --mx: #00ff66;
+  --mx-soft: #d9ffe6;
+  --mx-glow: rgba(0, 255, 102, .65);
+}
+
+/* 2. TRON: your gold scrollbar */
+.matrix-gold {
+  --mx: #ffd35a;
+  --mx-soft: #fff4cf;
+  --mx-glow: rgba(255, 190, 45, .65);
+}
+
+/* 3. CYBER: electric cyan */
+.matrix-cyan {
+  --mx: #00f5ff;
+  --mx-soft: #dcffff;
+  --mx-glow: rgba(0, 245, 255, .65);
+}
+
+/* 4. GLITCH: crimson red */
+.matrix-red {
+  --mx: #ff4057;
+  --mx-soft: #ffe1e6;
+  --mx-glow: rgba(255, 45, 75, .65);
+}
+
+/* 5. GHOST: cold silver-white */
+.matrix-ice {
+  --mx: #dce8f2;
+  --mx-soft: #ffffff;
+  --mx-glow: rgba(170, 215, 255, .65);
+}
+
+/* Optional: subtle color pulse on hover */
+@keyframes matrix-pulse {
+  0%, 100% { filter: brightness(1); }
+  50%      { filter: brightness(1.4); }
+}
+
+.matrix-link:hover,
+.matrix-link:focus-visible {
+  animation: matrix-pulse 1.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .matrix-link,
+  .matrix-link * {
+    animation: none !important;
+    transition: none !important;
   }
-
-  .matrix-title .mt-left,
-  .matrix-title .mt-right {
-    font-size: 9px;
-    letter-spacing: 0;
-  }
 }
+
 	</style><script>
   window.console = window.console || function(t) {};
 </script>
@@ -994,16 +1064,16 @@ transform-origin: bottom center;
 </div>
 	  
 	  <div class="row c-cyan">
-      <a href="https://telezov.pages.dev/tv/epi"
-   class="matrix-title fx-matrix"
+
+   <a href="https://telezov.pages.dev/tv/epi"
+   class="matrix-link matrix-center matrix-green"
    data-left="СМОТРЕТЬ ТРИЛЛЕР"
    data-right="ВСЕ СЕРИИ ▶">
-
   <span class="mt-left">СМОТРЕТЬ ТРИЛЛЕР</span>
-  <span class="mt-center">МАТРИЦА</span>
+  <span class="mt-title">МАТРИЦА</span>
   <span class="mt-right">ВСЕ СЕРИИ ▶</span>
-
 </a>
+
     </div>
   </div>
 
@@ -1377,21 +1447,25 @@ function closePlayer(){
   mainFrame.src = "";
 }
 </script>
+
 <script>
 (() => {
   const alphabet = "01アイウエオカキクケコサシスセソ<>[]{}#$%";
+  const links = document.querySelectorAll(".matrix-link");
 
-  document.querySelectorAll(".matrix-title").forEach(link => {
+  links.forEach(link => {
     const left = link.querySelector(".mt-left");
     const right = link.querySelector(".mt-right");
 
-    const leftText = link.dataset.left || left.textContent;
-    const rightText = link.dataset.right || right.textContent;
+    const phrases = [
+      { el: left, text: link.dataset.left || left.textContent.trim() },
+      { el: right, text: link.dataset.right || right.textContent.trim() }
+    ];
 
-    let frame = 0;
+    let frames = [];
     let active = false;
 
-    function decode(el, text) {
+    function decode(el, text, slot) {
       const start = performance.now();
       const duration = 420;
 
@@ -1403,39 +1477,37 @@ function closePlayer(){
 
         el.textContent = [...text].map((ch, i) => {
           if (ch === " " || i < resolved) return ch;
-
-          return alphabet[
-            Math.floor(Math.random() * alphabet.length)
-          ];
+          return alphabet[Math.floor(Math.random() * alphabet.length)];
         }).join("");
 
         if (progress < 1) {
-          frame = requestAnimationFrame(tick);
+          frames[slot] = requestAnimationFrame(tick);
         } else {
           el.textContent = text;
         }
       }
 
-      frame = requestAnimationFrame(tick);
+      frames[slot] = requestAnimationFrame(tick);
     }
 
     function enter() {
+      if (active) return;
       active = true;
-      cancelAnimationFrame(frame);
 
-      left.textContent = leftText;
-      right.textContent = rightText;
-
-      decode(left, leftText);
-      decode(right, rightText);
+      phrases.forEach(({ el, text }, i) => {
+        el.textContent = text;
+        decode(el, text, i);
+      });
     }
 
     function leave() {
       active = false;
-      cancelAnimationFrame(frame);
+      frames.forEach(id => cancelAnimationFrame(id));
+      frames = [];
 
-      left.textContent = leftText;
-      right.textContent = rightText;
+      phrases.forEach(({ el, text }) => {
+        el.textContent = text;
+      });
     }
 
     link.addEventListener("mouseenter", enter);
@@ -1445,6 +1517,7 @@ function closePlayer(){
   });
 })();
 </script>
+
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- Latest compiled JavaScript -->
