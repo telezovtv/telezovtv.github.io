@@ -813,6 +813,175 @@ transform-origin: bottom center;
     transform:scale(1.15);
     text-shadow:0 0 16px #ff3b3b;
 }
+
+/* ===== BASE: no panel, no border, no background ===== */
+
+.matrix-link {
+  --mx: #00ff66;
+  --mx-soft: #d9ffe6;
+  --mx-glow: rgba(0, 255, 102, .65);
+
+  display: grid;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  align-items: center;
+  gap: 8px;
+
+  font-family: "Doto", "Roboto Condensed", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-decoration: none;
+  color: var(--mx);
+  text-shadow: 0 0 5px var(--mx-glow);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* Keep every column in place all the time.
+   Hide text with opacity, NOT display:none or max-width:0. */
+
+.matrix-link .mt-left,
+.matrix-link .mt-right {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .22s ease, color .22s ease;
+  font-size: 10px;
+  letter-spacing: .45px;
+  color: var(--mx);
+}
+
+.matrix-link .mt-title {
+  display: block;
+  position: relative;
+  z-index: 1;
+  color: var(--mx-soft);
+  text-shadow: 0 0 5px var(--mx-glow), 0 0 12px var(--mx-glow);
+  transition: color .2s ease, text-shadow .2s ease;
+}
+
+.matrix-link:hover .mt-left,
+.matrix-link:hover .mt-right,
+.matrix-link:focus-visible .mt-left,
+.matrix-link:focus-visible .mt-right {
+  opacity: 1;
+  visibility: visible;
+}
+
+.matrix-link:hover .mt-title,
+.matrix-link:focus-visible .mt-title {
+  color: var(--mx);
+  text-shadow: 0 0 7px var(--mx-glow), 0 0 16px var(--mx-glow);
+}
+
+/* ===== A: title always centered ===== */
+
+.matrix-center {
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+}
+
+.matrix-center .mt-left {
+  grid-column: 1;
+  grid-row: 1;
+  text-align: right;
+}
+
+.matrix-center .mt-title {
+  grid-column: 2;
+  grid-row: 1;
+  text-align: center;
+}
+
+.matrix-center .mt-right {
+  grid-column: 3;
+  grid-row: 1;
+  text-align: left;
+}
+
+/* ===== B: title anchored on the left ===== */
+
+.matrix-left {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+}
+
+.matrix-left .mt-title {
+  grid-column: 1;
+  grid-row: 1;
+  text-align: left;
+}
+
+.matrix-left .mt-left {
+  grid-column: 2;
+  grid-row: 1;
+  text-align: left;
+}
+
+.matrix-left .mt-right {
+  grid-column: 3;
+  grid-row: 1;
+  text-align: right;
+}
+
+/* ===== FIVE TVZOV PALETTES ===== */
+
+/* 1. MATRIX: classic digital green */
+.matrix-green {
+  --mx: #00ff66;
+  --mx-soft: #d9ffe6;
+  --mx-glow: rgba(0, 255, 102, .65);
+}
+
+/* 2. TRON: your gold scrollbar */
+.matrix-gold {
+  --mx: #ffd35a;
+  --mx-soft: #fff4cf;
+  --mx-glow: rgba(255, 190, 45, .65);
+}
+
+/* 3. CYBER: electric cyan */
+.matrix-cyan {
+  --mx: #00f5ff;
+  --mx-soft: #dcffff;
+  --mx-glow: rgba(0, 245, 255, .65);
+}
+
+/* 4. GLITCH: crimson red */
+.matrix-red {
+  --mx: #ff4057;
+  --mx-soft: #ffe1e6;
+  --mx-glow: rgba(255, 45, 75, .65);
+}
+
+/* 5. GHOST: cold silver-white */
+.matrix-ice {
+  --mx: #dce8f2;
+  --mx-soft: #ffffff;
+  --mx-glow: rgba(170, 215, 255, .65);
+}
+
+/* Optional: subtle color pulse on hover */
+@keyframes matrix-pulse {
+  0%, 100% { filter: brightness(1); }
+  50%      { filter: brightness(1.4); }
+}
+
+.matrix-link:hover,
+.matrix-link:focus-visible {
+  animation: matrix-pulse 1.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .matrix-link,
+  .matrix-link * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
 	</style><script>
   window.console = window.console || function(t) {};
 </script>
@@ -853,12 +1022,12 @@ transform-origin: bottom center;
 
     <span class="ticker">
       <span class="track">
-        Фейк • Холод • Чикатило 4 • Фишер 3 • Похищение • Радар • СМЕРШ 4 • Центурия • Зверобой 2 • 
-        Высшая мера 2 • Приговор • Чёрная графиня • Отпечатки • Грачи • Число зверя • Вне закона •
+        Полураспад • Холод • Чикатило 4 • Фишер 3 • Похищение • Радар • СМЕРШ 4 • Центурия • Зверобой 2 • 
+        Высшая мера 2 • Приговор • Отряд 731 • Отпечатки • Грачи • Число зверя • Вне закона •
         
         <!-- duplicate for seamless loop -->
-        Фейк • Холод • Чикатило 4 • Фишер 3 • Похищение • Радар • СМЕРШ 4 • Центурия • Зверобой 2 • 
-        Высшая мера 2 • Приговор • Чёрная графиня • Отпечатки • Грачи • Число зверя • Вне закона
+        Полураспад • Холод • Чикатило 4 • Фишер 3 • Похищение • Радар • СМЕРШ 4 • Центурия • Зверобой 2 • 
+        Высшая мера 2 • Приговор • Отряд 731 • Отпечатки • Грачи • Число зверя • Вне закона
       </span>
     </span>
 
@@ -866,7 +1035,7 @@ transform-origin: bottom center;
 </div>
 
     <div class="row c-cyan">
-      сейчас: Число зверя • Холод • Фейк • Похищение 
+      сейчас: Число зверя • Холод • Полураспад • Балтийское море
     </div>
 
     <div class="row c-orange link3">
@@ -895,7 +1064,16 @@ transform-origin: bottom center;
 </div>
 	  
 	  <div class="row c-cyan">
-      сегодня: Холод - Фишер З - Число зверя - Похищение
+▼ ссылка ▼ 
+   <a href="https://telezov.pages.dev/tv/epi"
+   class="matrix-link matrix-center matrix-red"
+   data-left="СМОТРЕТЬ НОВЫЕ СЕРИАЛЫ"
+   data-right="ВСЕ СЕРИИ ПОДРЯД ▶">
+  <span class="mt-left">СМОТРЕТЬ НОВЫЕ СЕРИАЛЫ</span>
+  <span class="mt-title">🔴</span>
+  <span class="mt-right">ВСЕ СЕРИИ ПОДРЯД ▶</span>
+</a>
+
     </div>
   </div>
 
@@ -933,12 +1111,10 @@ const BIG_WORDS = [
 	"ДУШЕГУБЫ",
     "МОСГАЗ",
 	"ЧИСЛО ЗВЕРЯ",
-	"ИЗВОЗЧИК",
-    "НОВАЯ ЗЕМЛЯ", 
 	"ЗОЛОТО ВОЙНЫ ЛЮТЫЙ",
 	"ХОЛОД",
 	"СМЕРШ",
-    "КАЗАНОВА",
+    "БАЛТИЙСКОЕ МОРЕ",
     "НЕВСКИЙ",
     "ШИФР"
 ];
@@ -950,9 +1126,9 @@ const NORMAL_WORDS = [
     "СТРАХ НАД НЕВОЙ",
     "ЧИСЛО ЗВЕРЯ",
     "ЛИХИЕ",
-    "МЕРТВАЯ ТОЧКА",
+    "ОКОЛОТОЧНЫЙ",
 	"БАНДА ЗИГ ЗАГ",
-    "КАК ПРИРУЧИТЬ ЛИСУ",
+    "ПОЛУРАСПАД",
     "ТЕРРИТОРИЯ",
     "БИБЛИОТЕКАРЬ",
     "ХИРУРГ",
@@ -962,8 +1138,6 @@ const NORMAL_WORDS = [
     "ЦЕНТУРИЯ",
     "ЧЕРНОЕ СОЛНЦЕ",
     "ВЫСШАЯ МЕРА",,
-    "ТАЙНЫЙ СОВЕТНИК", 
-	"КНЯЗЬ АНДРЕЙ",
     "ПО СЛЕДУ ЗВЕРЯ",
     "ГРАЧИ",
 	"НОЧНОЙ",
@@ -975,7 +1149,7 @@ const PROMO_WORDS = [
     "ЧИСЛО ЗВЕРЯ",
 	"ОТПЕЧАТКИ",
     "РАДАР",
-	"ЗА ЧАС ДО РАССВЕТА",
+	"ОТРЯД-731",
     "ИНКВИЗИТОР ПОСЛЕ ФИШЕРА",
 	"ВНЕ ЗАКОНА",
     "ЗАКОННИК",
@@ -1268,6 +1442,76 @@ function closePlayer(){
 
   mainFrame.src = "";
 }
+</script>
+
+<script>
+(() => {
+  const alphabet = "0АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ123456789";
+  const links = document.querySelectorAll(".matrix-link");
+
+  links.forEach(link => {
+    const left = link.querySelector(".mt-left");
+    const right = link.querySelector(".mt-right");
+
+    const phrases = [
+      { el: left, text: link.dataset.left || left.textContent.trim() },
+      { el: right, text: link.dataset.right || right.textContent.trim() }
+    ];
+
+    let frames = [];
+    let active = false;
+
+    function decode(el, text, slot) {
+      const start = performance.now();
+      const duration = 420;
+
+      function tick(now) {
+        if (!active) return;
+
+        const progress = Math.min((now - start) / duration, 1);
+        const resolved = Math.floor(progress * text.length);
+
+        el.textContent = [...text].map((ch, i) => {
+          if (ch === " " || i < resolved) return ch;
+          return alphabet[Math.floor(Math.random() * alphabet.length)];
+        }).join("");
+
+        if (progress < 1) {
+          frames[slot] = requestAnimationFrame(tick);
+        } else {
+          el.textContent = text;
+        }
+      }
+
+      frames[slot] = requestAnimationFrame(tick);
+    }
+
+    function enter() {
+      if (active) return;
+      active = true;
+
+      phrases.forEach(({ el, text }, i) => {
+        el.textContent = text;
+        decode(el, text, i);
+      });
+    }
+
+    function leave() {
+      active = false;
+      frames.forEach(id => cancelAnimationFrame(id));
+      frames = [];
+
+      phrases.forEach(({ el, text }) => {
+        el.textContent = text;
+      });
+    }
+
+    link.addEventListener("mouseenter", enter);
+    link.addEventListener("mouseleave", leave);
+    link.addEventListener("focus", enter);
+    link.addEventListener("blur", leave);
+  });
+})();
 </script>
 
 <!-- jQuery library -->
