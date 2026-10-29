@@ -991,7 +991,20 @@ font-family: "Doto", "Roboto Condensed", sans-serif;
     transition: none !important;
   }
 }
+.matrix-live-dot {
+  display: inline-block;
+  color: var(--mx);
+  font-size: 10px;
+  line-height: 1;
+  margin-right: 4px;
 
+  -webkit-text-stroke: 0.5px var(--mx-soft);
+  text-shadow:
+    0 0 3px var(--mx),
+    0 0 7px var(--mx-glow);
+
+  animation: liveBlink 1.6s ease-in-out infinite;
+}
 	</style><script>
   window.console = window.console || function(t) {};
 </script>
@@ -1074,13 +1087,13 @@ font-family: "Doto", "Roboto Condensed", sans-serif;
 </div>
 	  
 	  <div class="row2">
-отряд полураспад полдень околоточный невский шифр 
+
    <a href="https://telezov.pages.dev/tv/epi"
    class="matrix-link matrix-center matrix-red"
    data-left="СМОТРЕТЬ НОВЫЕ СЕРИАЛЫ"
    data-right="ВСЕ СЕРИИ ПОДРЯД ▶">
   <span class="mt-left">СМОТРЕТЬ НОВЫЕ СЕРИАЛЫ</span>
-  <span class="mt-title">🔴</span>
+  <span class="matrix-live-dot">🔴</span>
   <span class="mt-right">ВСЕ СЕРИИ ПОДРЯД ▶</span>
 </a>
 
