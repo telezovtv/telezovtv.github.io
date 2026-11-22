@@ -1324,7 +1324,7 @@ const CLICKABLE_WORDS = {
     // }
 
 };	
-	
+
 function buildWords(){
 
     const layer = document.getElementById("wordLayer");
@@ -1374,8 +1374,7 @@ function buildWords(){
                     )
                 ];
 
-            span.style.fontSize =
-                size + "px";
+            span.style.fontSize = size + "px";
         }
 
         /* NORMAL WORDS */
@@ -1396,8 +1395,7 @@ function buildWords(){
                     )
                 ];
 
-            span.style.fontSize =
-                size + "px";
+            span.style.fontSize = size + "px";
         }
 
         /* FONT */
@@ -1422,6 +1420,7 @@ function buildWords(){
                 ];
 
             span.style.fontWeight = "700";
+
             span.style.opacity =
                 (0.30 + Math.random()*0.30);
         }
@@ -1460,36 +1459,55 @@ function buildWords(){
         }
 
         span.style.transform = transform;
-const linkData = CLICKABLE_WORDS[span.textContent];
 
-if (linkData && Math.random() < linkData.chance) {
+        /* CLICKABLE WORDS */
 
-    span.classList.add(
-        "word-clickable",
-        linkData.type
-    );
+        const linkData =
+            CLICKABLE_WORDS[span.textContent];
 
-    const a = document.createElement("a");
+        if(linkData && Math.random() < linkData.chance){
 
-    a.href = "#";
-    a.textContent = span.textContent;
+            span.classList.add(
+                "word-clickable",
+                linkData.type
+            );
 
-    a.dataset.target = linkData.target;
+            const a = document.createElement("a");
 
-    span.textContent = "";
-    span.appendChild(a);
-}
+            a.href = linkData.url +
+                "?target=" +
+                encodeURIComponent(linkData.target);
+
+            a.textContent = span.textContent;
+
+            span.textContent = "";
+
+            span.appendChild(a);
+        }
+
         layer.appendChild(span);
     }
 }
-	document.getElementById("wordLayer")
-.addEventListener("click", function(e) {
+
+
+/* CLICK HANDLER */
+
+document.getElementById("wordLayer")
+.addEventListener("click", function(e){
 
     const link = e.target.closest(
         ".word-clickable a"
     );
 
-    if (!link) return;
+    if(!link) return;
+
+    // Same-page or external-page navigation
+    const url = new URL(link.href, location.href);
+
+    if(url.pathname !== location.pathname){
+
+        return; // Browser follows the link normally
+    }
 
     e.preventDefault();
     e.stopPropagation();
@@ -1497,18 +1515,16 @@ if (linkData && Math.random() < linkData.chance) {
     const target = link.dataset.target;
 
     const card = document.querySelector(
-        `.program[data-id="${target}"]`
+        `.program[data-id="${CSS.escape(target)}"]`
     );
 
-    if (!card) return;
+    if(!card) return;
 
-    // Smooth scroll
     card.scrollIntoView({
         behavior: "smooth",
         block: "center"
     });
 
-    // Highlight card temporarily
     card.classList.remove("word-target-highlight");
 
     void card.offsetWidth;
@@ -1520,13 +1536,7 @@ if (linkData && Math.random() < linkData.chance) {
     }, 2500);
 
 });
-    // Activate existing program
-    const trigger =
-        card.querySelector(".click-layer") || card;
 
-    trigger.click();
-
-});
 function moveSomeWords(){
 
     const words =
