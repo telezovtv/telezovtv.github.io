@@ -1322,25 +1322,25 @@ const CLICKABLE_WORDS = {
         type: "series",
 		url: "https://telezov.pages.dev/tv/epi",
         target: "rafinya3",
-        chance: 0.30
+        chance: 0.40
     },
     "ЧЕРНОЕ СОЛНЦЕ": {
         type: "hot-movie",
 		url: "https://telezov.pages.dev/tv/epi",
         target: "rafinya2",
-        chance: 0.30
+        chance: 0.20
     },
 	    "ЗОЛОТО ВОЙНЫ": {
         type: "hot-series",
 		url: "https://telezov.pages.dev/tv/epi",
         target: "rafinya2",
-        chance: 0.30
+        chance: 0.50
     },
     "ЗОЛОТАЯ ЛИХОРАДКА": {
         type: "movie",
 		url: "https://telezov.pages.dev/tv/epi",
         target: "rafinya1",
-        chance: 0.30
+        chance: 0.60
     },
     // MOVIES
     // "ФИШЕР": {
@@ -1502,8 +1502,12 @@ function buildWords(){
 
         /* CLICKABLE WORDS */
 
-        const linkData =
-            CLICKABLE_WORDS[span.textContent];
+        const wordText = span.textContent
+    .trim()
+    .replace(/\s+/g, " ")
+    .toUpperCase();
+
+const linkData = CLICKABLE_WORDS[wordText];
 
         if(linkData && Math.random() < linkData.chance){
 
