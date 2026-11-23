@@ -1298,6 +1298,7 @@ const CLICKABLE_WORDS = {
 
     "НЕВСКИЙ": {
         type: "series",
+		url: "https://telezov.pages.dev/tv/epi",
         target: "rafinya",
         chance: 0.30
     },
@@ -1475,7 +1476,7 @@ function buildWords(){
             const a = document.createElement("a");
 
             a.href = linkData.url +
-                "https://telezov.pages.dev/tv/epi?target=" +
+                "?target=" +
                 encodeURIComponent(linkData.target);
 
             a.textContent = span.textContent;
