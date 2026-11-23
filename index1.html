@@ -1006,6 +1006,11 @@ font-family: "Doto", "Roboto Condensed", sans-serif;
   animation: liveBlink 1.6s ease-in-out infinite;
 }
 
+
+/* =====================================
+   MATRIX CLICKABLE WORDS
+===================================== */
+
 #wordLayer {
     pointer-events: none;
 }
@@ -1013,151 +1018,81 @@ font-family: "Doto", "Roboto Condensed", sans-serif;
 .word-clickable {
     pointer-events: auto;
     cursor: pointer;
-    z-index: 999;
+    z-index: 5;
 }
-
-/* BASE — WHITE */
 
 .word-clickable a {
-    position: relative;
+
     display: inline-block;
-    isolation: isolate;
 
-    color: #ffffff !important;
+    color: #fff !important;
     text-decoration: none;
-    cursor: pointer;
 
-    transition:
-        color .25s ease,
-        text-shadow .25s ease;
+    font-size: inherit;
 
-    animation: waterLight 3.5s ease-in-out infinite;
+    /* Continuous Matrix signal */
+    animation: matrixSignal 2.8s ease-in-out infinite;
+
+    transform-origin: center;
 }
 
-/* WATER RIPPLE — FIRST WAVE */
+/* =====================================
+   MATRIX PULSE - FROM PAGE LOAD
+===================================== */
 
-.word-clickable a::before,
-.word-clickable a::after {
-
-    content: "";
-    position: absolute;
-
-    inset: -4px -9px;
-
-    border: 1px solid rgba(255,255,255,.30);
-    border-radius: 50%;
-
-    pointer-events: none;
-    z-index: -1;
-
-    opacity: 0;
-
-    animation: waterRipple 3.6s ease-out infinite;
-}
-
-/* SECOND WAVE */
-
-.word-clickable a::after {
-    animation-delay: 1.8s;
-}
-
-/* SOFT LIGHT AROUND TEXT */
-
-@keyframes waterLight {
+@keyframes matrixSignal {
 
     0%, 100% {
-        text-shadow:
-            0 0 3px rgba(255,255,255,.25),
-            0 0 7px rgba(255,255,255,.10);
-    }
-
-    50% {
-        text-shadow:
-            0 0 5px rgba(255,255,255,.65),
-            0 0 13px rgba(255,255,255,.30),
-            0 0 22px rgba(255,255,255,.12);
-    }
-}
-
-/* EXPANDING WATER RIPPLE */
-
-@keyframes waterRipple {
-
-    0% {
-        transform: scale(.82);
-        opacity: 0;
+        opacity: .65;
+        filter: brightness(.85);
     }
 
     25% {
-        opacity: .65;
+        opacity: 1;
+        filter: brightness(1.5);
     }
 
-    100% {
-        transform: scale(1.22);
-        opacity: 0;
+    45% {
+        opacity: .8;
+        filter: brightness(1);
+    }
+
+    65% {
+        opacity: 1;
+        filter: brightness(1.7);
+    }
+
+    80% {
+        opacity: .7;
+        filter: brightness(.9);
     }
 }
 
-/* MOUSE OR TV REMOTE FOCUS */
+/* =====================================
+   MOUSE / REMOTE CONTACT
+===================================== */
 
-.word-clickable:hover a,
-.word-clickable:focus a,
-.word-clickable a:focus,
-.word-clickable:focus-within a {
+.word-clickable:hover,
+.word-clickable:focus-within {
 
-    color: #ffd166 !important;
+    opacity: 1 !important;
+    z-index: 9999;
+}
 
-    text-shadow:
-        0 0 5px #ffd166,
-        0 0 12px rgba(255,190,70,.85),
-        0 0 24px rgba(255,170,50,.45);
+.word-clickable a:hover,
+.word-clickable a:focus-visible {
+
+    color: #ffc85c !important;
+
+    font-size: calc(1em + 1px);
+
+    filter: none;
 
     animation: none;
+
+    outline: none;
 }
 
-/* STRONGER SIGNAL WHILE SELECTED */
-
-.word-clickable:hover a::before,
-.word-clickable:hover a::after,
-.word-clickable:focus a::before,
-.word-clickable:focus a::after,
-.word-clickable a:focus::before,
-.word-clickable a:focus::after {
-
-    border-color: rgba(255,209,102,.65);
-    animation-duration: 1.8s;
-}
-
-/* TARGET CARD */
-
-.program.word-target-highlight {
-    animation: targetGlow 2.5s ease;
-}
-
-@keyframes targetGlow {
-
-    0%, 100% {
-        box-shadow: none;
-    }
-
-    25%, 65% {
-        box-shadow:
-            0 0 12px #ffd166,
-            0 0 28px rgba(255,190,70,.65),
-            inset 0 0 12px rgba(255,190,70,.20);
-    }
-}
-
-/* ACCESSIBILITY */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .word-clickable a,
-    .word-clickable a::before,
-    .word-clickable a::after {
-        animation: none;
-    }
-}
 
 	</style><script>
   window.console = window.console || function(t) {};
