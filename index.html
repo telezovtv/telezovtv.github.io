@@ -1005,6 +1005,95 @@ font-family: "Doto", "Roboto Condensed", sans-serif;
 
   animation: liveBlink 1.6s ease-in-out infinite;
 }
+
+
+/* =====================================
+   MATRIX CLICKABLE WORDS
+===================================== */
+
+#wordLayer {
+    pointer-events: none;
+}
+
+.word-clickable {
+    pointer-events: auto;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.word-clickable a {
+
+    display: inline-block;
+
+    color: #fff !important;
+    text-decoration: none;
+
+    font-size: inherit;
+
+    /* Continuous Matrix signal */
+    animation: matrixSignal 2.8s ease-in-out infinite;
+
+    transform-origin: center;
+}
+
+/* =====================================
+   MATRIX PULSE - FROM PAGE LOAD
+===================================== */
+
+@keyframes matrixSignal {
+
+    0%, 100% {
+        opacity: .65;
+        filter: brightness(.85);
+    }
+
+    25% {
+        opacity: 1;
+        filter: brightness(1.5);
+    }
+
+    45% {
+        opacity: .8;
+        filter: brightness(1);
+    }
+
+    65% {
+        opacity: 1;
+        filter: brightness(1.7);
+    }
+
+    80% {
+        opacity: .7;
+        filter: brightness(.9);
+    }
+}
+
+/* =====================================
+   MOUSE / REMOTE CONTACT
+===================================== */
+
+.word-clickable:hover,
+.word-clickable:focus-within {
+
+    opacity: 1 !important;
+    z-index: 9999;
+}
+
+.word-clickable a:hover,
+.word-clickable a:focus-visible {
+
+    color: #ffc85c !important;
+
+    font-size: calc(1em + 1px);
+
+    filter: none;
+
+    animation: none;
+
+    outline: none;
+}
+
+
 	</style><script>
   window.console = window.console || function(t) {};
 </script>
@@ -1012,13 +1101,13 @@ font-family: "Doto", "Roboto Condensed", sans-serif;
 <body translate="no">
 <div class="ac">
 <div class="neon-bar">
-   <a href="https://telezov.pages.dev/tv" data-label="тв каналы и сериалы"><span class="inner"> ◀ тв <i class="i-dot">● </i> сериалы <i class="i-dot">+ </i> <i class="fa fa-film"></i></span></a>
+   <a href="https://tvzov.pages.dev/tv" data-label="тв каналы и сериалы"><span class="inner"> ◀ тв <i class="i-dot">● </i> сериалы <i class="i-dot">+ </i> <i class="fa fa-film"></i></span></a>
   <a target="github" href="https://telezov.pages.dev/tv/proga2.html" data-label="тв меню с программой и чатом"><span class="inner"><i class="fa fa-bars"></i></span></a>
-  <a href="https://telezov.pages.dev/tv/menu.html" data-label="эфир твзов каналов на 48 часов 
+  <a href="https://tvzov.pages.dev/tv/menu.html" data-label="эфир твзов каналов на 48 часов 
 						  при наведении на 
 						  канал превью, при нажатии 
 						  воспроизведение."><span class="inner">телепрограмма <i class="fa fa-info-circle"></i></span></a>
-	<a href="https://telezov.pages.dev/tv/list.html" data-label="топ лист сериалов"><span class="inner">запись <i class="i-dot3">● </i></span></a>
+	<a href="https://tvzov.pages.dev/tv/list.html" data-label="топ лист сериалов"><span class="inner">запись <i class="i-dot3">● </i></span></a>
 	</div></div>
 <div class="ac">
 <div class="content">
@@ -1039,7 +1128,7 @@ font-family: "Doto", "Roboto Condensed", sans-serif;
     </div>
 
    <div class="row c-green link2">
-   <a href="https://telezov.pages.dev/tv/list.html" target="_blank" rel="noopener">
+   <a href="https://tvzov.pages.dev/tv/list.html" target="_blank" rel="noopener">
 
     <span class="label">новые сериалы</span>
 
@@ -1057,8 +1146,10 @@ font-family: "Doto", "Roboto Condensed", sans-serif;
   </a>
 </div>
 
-    <div class="row c-cyan">
-      сейчас: Число зверя • Холод • Полураспад • Балтийское море
+    <div class="row c-cyan link2">
+		<a href="https://tvzov.pages.dev/tv/epi.html">
+      сейчас: История его служанки • Холод • Мосгаз Дело №12 
+		</a>	
     </div>
 
     <div class="row c-orange link3">
@@ -1066,7 +1157,7 @@ font-family: "Doto", "Roboto Condensed", sans-serif;
     </div>
 
     <div class="row c-aqua link2">
-      <a href="https://telezov.pages.dev/tv/menu.html">
+      <a href="https://tvzov.pages.dev/tv/menu.html">
         ▶ watch твзов <span class="i-dot3">●</span>
       </a>
     </div>
@@ -1088,12 +1179,12 @@ font-family: "Doto", "Roboto Condensed", sans-serif;
 	  
 	  <div class="row2">
 
-   <a href="https://telezov.pages.dev/tv/epi"
+   <a href="https://tvzov.pages.dev/tv/epi"
    class="matrix-link matrix-center matrix-red"
    data-left="СМОТРЕТЬ НОВЫЕ СЕРИАЛЫ"
    data-right="ВСЕ СЕРИИ ПОДРЯД ▶">
   <span class="mt-left">СМОТРЕТЬ НОВЫЕ СЕРИАЛЫ</span>
-  <span class="matrix-live-dot">🔴</span>
+  <span class="matrix-live-dot">▶🔴◀</span>
   <span class="mt-right">ВСЕ СЕРИИ ПОДРЯД ▶</span>
 </a>
 
@@ -1106,9 +1197,9 @@ font-family: "Doto", "Roboto Condensed", sans-serif;
 
   <div class="links">
     <a href="//tvzov.pages.dev">твзов</a>
-    <a href="https://telezov.pages.dev/tv">каналы</a>
-    <a href="//telezov.pages.dev/tv/menu0">программа</a>
-    <a href="https://telezov.pages.dev/tv/proga2">связь ⥃ чат</a>
+    <a href="https://tvzov.pages.dev/tv">каналы</a>
+    <a href="//tvzov.pages.dev/tv/menu0">программа</a>
+    <a href="https://tvzov.pages.dev/tv/proga2">связь ⥃ чат</a>
   </div>
 
   <div class="icons">
@@ -1134,7 +1225,7 @@ const BIG_WORDS = [
 	"ДУШЕГУБЫ",
     "МОСГАЗ",
 	"ЧИСЛО ЗВЕРЯ",
-	"ЗОЛОТО ВОЙНЫ ЛЮТЫЙ",
+	"ЗОЛОТО ВОЙНЫ",
 	"ХОЛОД",
 	"СМЕРШ",
     "БАЛТИЙСКОЕ МОРЕ",
@@ -1158,10 +1249,9 @@ const NORMAL_WORDS = [
     "ПРИГОВОР",
     "ЦЕНТУРИЯ",
     "ЧЕРНОЕ СОЛНЦЕ",
-    "ВЫСШАЯ МЕРА",,
+    "ВЫСШАЯ МЕРА",
     "ПО СЛЕДУ ЗВЕРЯ",
     "ГРАЧИ",
-	"НОЧНОЙ",
     "ПОХИЩЕНИЕ",
     "АЛЕКС ЛЮТЫЙ"
 ];
@@ -1228,6 +1318,50 @@ function getWeightedSize(){
     return 6;
 }
 
+const CLICKABLE_WORDS = {
+
+    "ШИФР": {
+        type: "series",
+		url: "https://telezov.pages.dev/tv/epi",
+        target: "rafinya3",
+        chance: 0.60
+    },
+    "МОСГАЗ": {
+        type: "hot-movie",
+		url: "https://telezov.pages.dev/tv/epi",
+        target: "rafinya2",
+        chance: 0.70
+    },
+	    "ЗОЛОТО ВОЙНЫ": {
+        type: "hot-series",
+		url: "https://telezov.pages.dev/tv/epi",
+        target: "rafinya1",
+        chance: 0.50
+    },
+
+    // MOVIES
+    // "ФИШЕР": {
+    //     type: "movie",
+    //     target: "fisher",
+    //     chance: 0.25
+    // },
+
+    // NEW HOT MOVIES
+    // "РАДАР": {
+    //     type: "hot-movie",
+    //     target: "radar",
+    //     chance: 0.30
+    // },
+
+    // HOT NEW SERIES
+    // "ОТПЕЧАТКИ": {
+    //     type: "hot-series",
+    //     target: "otpechatki",
+    //     chance: 0.30
+    // }
+
+};	
+
 function buildWords(){
 
     const layer = document.getElementById("wordLayer");
@@ -1277,8 +1411,7 @@ function buildWords(){
                     )
                 ];
 
-            span.style.fontSize =
-                size + "px";
+            span.style.fontSize = size + "px";
         }
 
         /* NORMAL WORDS */
@@ -1299,8 +1432,7 @@ function buildWords(){
                     )
                 ];
 
-            span.style.fontSize =
-                size + "px";
+            span.style.fontSize = size + "px";
         }
 
         /* FONT */
@@ -1325,6 +1457,7 @@ function buildWords(){
                 ];
 
             span.style.fontWeight = "700";
+
             span.style.opacity =
                 (0.30 + Math.random()*0.30);
         }
@@ -1364,9 +1497,87 @@ function buildWords(){
 
         span.style.transform = transform;
 
+        /* CLICKABLE WORDS */
+
+        const wordText = span.textContent
+    .trim()
+    .replace(/\s+/g, " ")
+    .toUpperCase();
+
+const linkData = CLICKABLE_WORDS[wordText];
+
+        if(linkData && Math.random() < linkData.chance){
+
+            span.classList.add(
+                "word-clickable",
+                linkData.type
+            );
+
+            const a = document.createElement("a");
+
+            a.href = linkData.url +
+                "?target=" +
+                encodeURIComponent(linkData.target);
+
+            a.textContent = span.textContent;
+
+            span.textContent = "";
+
+            span.appendChild(a);
+        }
+
         layer.appendChild(span);
     }
 }
+
+
+/* CLICK HANDLER */
+
+document.getElementById("wordLayer")
+.addEventListener("click", function(e){
+
+    const link = e.target.closest(
+        ".word-clickable a"
+    );
+
+    if(!link) return;
+
+    // Same-page or external-page navigation
+    const url = new URL(link.href, location.href);
+
+    if(url.pathname !== location.pathname){
+
+        return; // Browser follows the link normally
+    }
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    const target = link.dataset.target;
+
+    const card = document.querySelector(
+        `.program[data-id="${CSS.escape(target)}"]`
+    );
+
+    if(!card) return;
+
+    card.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+    card.classList.remove("word-target-highlight");
+
+    void card.offsetWidth;
+
+    card.classList.add("word-target-highlight");
+
+    setTimeout(() => {
+        card.classList.remove("word-target-highlight");
+    }, 2500);
+
+});
+
 function moveSomeWords(){
 
     const words =
